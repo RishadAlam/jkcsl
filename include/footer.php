@@ -164,6 +164,9 @@
                             $("#liveSearchBody").html("");
                             $(".searchBox").fadeIn();
                             $("#liveSearchBody").html(data);
+                        } else {
+                            $("#liveSearchBody").html("");
+                            $(".searchBox").fadeOut();
                         }
                     }
                 })

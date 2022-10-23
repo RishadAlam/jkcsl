@@ -16,8 +16,11 @@ $dob = $_POST['dob'];
 $blood_group = isset($_POST['blood_group']) ? $_POST['blood_group'] : null;
 $email = $_POST['email'];
 $role = $_POST['role'];
-
-// $user = array("email" => $email, "name" => $name, "nid" => $nid, "mobile_1 " => $phone_number, "mobile_2 " => $phone_number_2, "blood" => $blood_group, "dob" => $dob, "role" => $role, "status" => "2");
+$headers = "From: sazzadullalamrishad@gmail.com";
+$token = bin2hex(random_bytes(16));
+$url = baseUrl('activate-account') . '?email=' . $email . '&&token=' . $token;
+$subject = "Account Activation";
+$body = "হ্যালো ${name}, আপনার অ্যাকাউন্ট সক্রিয় করতে হবে । আপনার অ্যাকাউন্ট সক্রিয় করতে এখানে ক্লিক করুন: ${url}";
 
 // Checking image is exists or not
 if (strlen($_FILES['client_pic']['name']) != 0) {
@@ -33,7 +36,6 @@ if (strlen($_FILES['client_pic']['name']) != 0) {
     } elseif (!imgSizeValidate($img_size)) {
         echo "image_size_error";  // RETURN AN ERROR
     } else {
-        // $user = array("email" => $email, "name" => $name, "nid" => $nid, "mobile_1 " => $phone_number, "mobile_2 " => $phone_number_2, "blood" => $blood_group, "dob" => $dob, "role" => $role, "status" => "2");
 
         // Create image unique name
         $img_name = uniqid("user_") . "." . pathinfo($img, PATHINFO_EXTENSION);
@@ -41,9 +43,13 @@ if (strlen($_FILES['client_pic']['name']) != 0) {
         // Image upload to the storage
         if (move_uploaded_file($tmp_img, "../img/" . $img_name)) {
             // After upload image data will be store in database
-            $result = $reg->userReg($email, $name, $nid, $phone_number, $phone_number_2, $blood_group, $dob, $role, "2", $img_name);
+            $result = $reg->userReg($email, $name, $nid, $phone_number, $phone_number_2, $blood_group, $dob, $role, "2", $token, $img_name);
             if ($result) {
-                echo $result; // DATA SUCCESSFULLY INSERTED
+                if (mail($email, $subject, $body, $headers)) {
+                    echo true;
+                } else {
+                    echo false;
+                }
             } else {
                 echo false; // DATA DOES NOT INSERTED
             }
@@ -52,11 +58,13 @@ if (strlen($_FILES['client_pic']['name']) != 0) {
         }
     }
 } else {
-
-    // $user = array("email" => $email, "name" => $name, "nid" => $nid, "mobile_1" => $phone_number, "mobile_2" => $phone_number_2, "blood" => $blood_group, "dob" => $dob, "role" => $role, "status" => "2");
-    $result = $reg->userReg($email, $name, $nid, $phone_number, $phone_number_2, $blood_group, $dob, $role, "2");
+    $result = $reg->userReg($email, $name, $nid, $phone_number, $phone_number_2, $blood_group, $dob, $role, "2", $token);
     if ($result) {
-        echo $result; // DATA SUCCESSFULLY INSERTED
+        if (mail($email, $subject, $body, $headers)) {
+            echo true;
+        } else {
+            echo false;
+        }
     } else {
         echo false; // DATA DOES NOT INSERTED
     }

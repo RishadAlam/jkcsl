@@ -283,8 +283,13 @@ include "include/footer.php";
                             savingsEditid: id,
                             details: details,
                         },
+                        beforeSend: function() {
+                            $("#overlayer").fadeIn();
+                            $("#preloader").fadeIn();
+                        },
                         success: function(data) {
-                            console.log(data);
+                            $("#overlayer").fadeOut();
+                            $("#preloader").fadeOut();
                             if (data == 1) {
                                 $("#modal_close").trigger("click");
                                 reportLoad();
@@ -336,8 +341,13 @@ include "include/footer.php";
                             data: {
                                 dlt_savings_collection_id: id
                             },
+                            beforeSend: function() {
+                                $("#overlayer").fadeIn();
+                                $("#preloader").fadeIn();
+                            },
                             success: function(data) {
-                                // console.log(data);
+                                $("#overlayer").fadeOut();
+                                $("#preloader").fadeOut();
                                 if (data == 1) {
                                     reportLoad();
                                     swal.fire({
@@ -373,8 +383,13 @@ include "include/footer.php";
                         data: {
                             savingsAppID: id
                         },
+                        beforeSend: function() {
+                            $("#overlayer").fadeIn();
+                            $("#preloader").fadeIn();
+                        },
                         success: function(data) {
-                            // console.log(data);
+                            $("#overlayer").fadeOut();
+                            $("#preloader").fadeOut();
                             if (data == 1) {
                                 reportLoad();
                                 swal.fire({

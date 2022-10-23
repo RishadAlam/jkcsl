@@ -660,6 +660,69 @@ include "include/footer.php";
             })
 
         })
+
+        $("#load_edit_form").on("submit", function(e) {
+            e.preventDefault();
+            var name = $("#name").val();
+            var type = $("#type").val();
+            var id = $("#id").val();
+            var dec = $("#details").val();
+
+            // Empty Input Checking
+            if (name == "" || name == null) {
+                $("#name").addClass("is-invalid");
+                $("#name-feedback").css("display", "block");
+            }
+
+            // Ajax Action
+            if (name != "" && name != null) {
+                $.ajax({
+                    url: "codes/settingAuthenticate.php",
+                    type: "POST",
+                    data: {
+                        type: type,
+                        id: id,
+                        name: name,
+                        dec: dec
+                    },
+                    success: function(data) {
+                        // console.log(data);
+                        if (data == 1) {
+                            $("#modal_close").trigger("click");
+                            loadPeriod();
+                            loadCenter();
+                            loadField();
+                            swal.fire({
+                                title: "অভিনন্দন",
+                                text: "আপডেট সম্পন্ন হয়েছে",
+                                icon: 'success',
+                                buttons: "OK",
+                                dangerMode: true,
+                            })
+                        }
+                        if (data == 0) {
+                            swal.fire({
+                                title: "দুঃখিত",
+                                text: "আপডেট সম্পন্ন হয়নি। আবার চেষ্টা করুন",
+                                icon: 'error',
+                                buttons: "OK",
+                                dangerMode: true,
+                            })
+                        }
+                        // console.log(data);
+                    }
+                })
+
+            } else {
+                swal.fire({
+                    title: "দুঃখিত",
+                    text: "ফরম পূরণ হয়নি । আবার চেষ্টা করুন",
+                    icon: 'error',
+                    buttons: "OK",
+                    dangerMode: true,
+                })
+            }
+        })
     })
 </script>
 </body>

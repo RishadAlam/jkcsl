@@ -6,6 +6,10 @@ if (isset($_SESSION['authenticate']) || isset($_COOKIE['userID'])) {
     redirect("index.php", "loggedin", "আপনি ইতিমধ্যে এ লগইন করেছেন");
   }
 }
+
+if (!isset($_GET['token']) && !isset($_GET['email'])) {
+  redirect("login");
+}
 ?>
 <!DOCTYPE html>
 <html lang="bn">
@@ -175,36 +179,24 @@ if (isset($_SESSION['authenticate']) || isset($_COOKIE['userID'])) {
       <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">
           <div class="login-wrap p-0">
-            <h4 class="mb-4 text-center <?= isset($_GET['activateAccount']) ? "bg-success d-block message" : '' ?>"><?= isset($_GET['activateAccount']) ? "লগইন পাসওয়ার্ড নিশ্চিত হয়েছে লগইন করুন" : '' ?></h4>
-            <h3 class="mb-4 text-center">প্রবেশ করুন</h3>
-            <form action="codes/authentication.php" class="signin-form" method="POST">
+            <h3 class="mb-4 text-center">লগইন পাসওয়ার্ড নিশ্চিত করুন</h3>
+            <h4 class="mb-4 text-center bg-success message"><?= isset($_GET['email']) && isset($_GET['token']) ? "অ্যাকাউন্ট সক্রিয় হয়েছে" : '' ?></h4>
+            <form id="activation_form">
               <div class="form-group">
-                <input type="text" class="form-control <?= isset($_SESSION['email_error']) ? 'is-invalid' : '' ?>" placeholder="ইমেল আইডি" name="email" value="<?= isset($_COOKIE['userEmail']) ? $_COOKIE['userEmail'] : '' ?>" />
-                <span class="text-light <?= isset($_SESSION['email_error']) ? "bg-danger d-block message" : '' ?>">
-                  <?= isset($_SESSION['email_error']) ? $_SESSION['email_error'] : '' ?>
-                </span>
+                <input type="hidden" id="token" value="<?= $_GET['token'] ?>" />
+                <input type="text" style="background: rgba(0, 0, 0, 0.2);" class="form-control" id="email" value="<?= isset($_GET['email']) ? $_GET['email'] : '' ?>" disabled />
               </div>
               <div class="form-group">
-                <input id="password-field" type="password" class="form-control <?= isset($_SESSION['password_error']) ? 'is-invalid' : '' ?>" placeholder="পাসওয়ার্ড" name="password" value="<?= isset($_COOKIE['userPass']) ? sha1($_COOKIE['userPass']) : '' ?>" />
+                <input type="password" id="password-field" class="form-control" placeholder="নতুন পাসওয়ার্ড" name="new_password" />
                 <span toggle="#password-field" class="field-icon toggle-password" style="color: var(--primary_color);"><i class="bx bx-lock"></i></span>
               </div>
-              <span class="text-light mb-3 <?= isset($_SESSION['password_error']) ? "bg-danger d-block message" : '' ?>">
-                <?= isset($_SESSION['password_error']) ? $_SESSION['password_error'] : '' ?>
-              </span>
+              <span id="new_password_feedback" class="text-light mb-3 bg-danger message" style="display: none;">নতুন পাসওয়ার্ড দিন</span>
               <div class="form-group">
-                <button type="submit" class="form-control btn btn-primary submit px-3" name="login">লগইন করুন</button>
+                <input type="password" id="cpassword-field" class="form-control" placeholder="নিশ্চিত পাসওয়ার্ড" name="confirm_password" />
+                <span toggle="#cpassword-field" class="field-icon toggle-password" style="color: var(--primary_color);"><i class="bx bx-lock"></i></span>
               </div>
-              <div class="form-group d-md-flex">
-                <div class="w-50">
-                  <label class="checkbox-wrap checkbox-primary">মনে রাখুন
-                    <input type="checkbox" name="remember_me" />
-                    <span class="checkmark"><i class="bx bx-checkbox"></i><i class="bx bxs-check-square d-none"></i></span>
-                  </label>
-                </div>
-                <div class="w-50 text-md-right">
-                  <a href="#" style="color: #fff">পাসওয়ার্ড ভুলে গিয়েছেন?</a>
-                </div>
-              </div>
+              <span id="confirm_password_feedback" class="text-light mb-3 bg-danger message" style="display: none;">পাসওয়ার্ড নিশ্চিত করুন</span>
+              <button type="submit" class="form-control btn btn-primary px-3">সাবমিট করুন</button>
             </form>
           </div>
         </div>
@@ -216,6 +208,9 @@ if (isset($_SESSION['authenticate']) || isset($_COOKIE['userID'])) {
   <script src="./JS/jquery-3.6.0.min.js"></script>
   <!-- bootstrap -->
   <script src="./JS/bootstrap.min.js"></script>
+  <!-- Sweet Alert -->
+  <script src="./JS/sweetalert.min.js"></script>
+  <script src="./JS/sweetalert2@11.js"></script>
   <!-- My script -->
   <script type="text/javascript">
     (function($) {
@@ -241,11 +236,86 @@ if (isset($_SESSION['authenticate']) || isset($_COOKIE['userID'])) {
         }
       });
     })(jQuery);
+
+    $(document).ready(function() {
+      $("#activation_form").on("submit", function(e) {
+        e.preventDefault();
+
+        // Store User primary Data
+        var email = $("#email").val();
+        var token = $("#token").val();
+        var new_password = $("input[name='new_password']").val();
+        var confirm_password = $("input[name='confirm_password']").val();
+        console.log(email);
+        // Empty Input Checking
+        if (new_password == "" || new_password == null) {
+          $("input[name='new_password']").addClass("is-invalid");
+          $("#new_password_feedback").css("display", "block");
+        } else if (new_password.length < 8) {
+
+          $("input[name='new_password']").addClass("is-invalid");
+          $("#new_password_feedback").text("সর্বনিম্ন ৮ অক্ষরের পাসওয়ার্ড দিন");
+          $("#new_password_feedback").css("display", "block");
+        } else if (confirm_password == "" || confirm_password == null) {
+          $("#new_password_feedback").css("display", "none");
+          $("input[name='new_password']").removeClass("is-invalid");
+          $("input[name='new_password']").removeClass("is-invalid");
+          $("#new_password_feedback").css("display", "none");
+
+          $("#confirm_password").addClass("is-invalid");
+          $("#confirm_password_feedback").css("display", "block");
+        } else if (new_password != confirm_password) {
+          $("#confirm_password").addClass("is-invalid");
+          $("#confirm_password_feedback").text("পাসওয়ার্ড মেলেনি");
+          $("#confirm_password_feedback").css("display", "block");
+        }
+
+
+        // Ajax Action
+        if (new_password != "" && confirm_password != "" && new_password.length >= 8 && new_password == confirm_password) {
+
+          $.ajax({
+            url: "codes/authentication.php",
+            type: "POST",
+            data: {
+              new_password: new_password,
+              email: email,
+              token: token
+            },
+            success: function(data) {
+              console.log(data);
+              if (data == 1) {
+                $(location).attr('href', 'http://localhost/gkcsl/login?activateAccount=1');
+              }
+              if (data == 0) {
+                swal.fire({
+                  title: "দুঃখিত",
+                  text: "আপনার একাউন্ট সক্রিয় হয়নি। আবার চেষ্টা করুন",
+                  icon: 'error',
+                  buttons: "OK",
+                  dangerMode: true,
+                })
+              }
+              if (data == "email_error") {
+                swal.fire({
+                  title: "দুঃখিত",
+                  text: "আপনার একাউন্ট পাওয়া যাইনি",
+                  icon: 'error',
+                  buttons: "OK",
+                  dangerMode: true,
+                })
+              }
+              if (data == "token_error") {
+                $(location).attr('href', 'http://localhost/gkcsl/404');
+              }
+            }
+          })
+        }
+
+      })
+
+    })
   </script>
 </body>
 
 </html>
-<?php
-unset($_SESSION['email_error']);
-unset($_SESSION['password_error']);
-?>

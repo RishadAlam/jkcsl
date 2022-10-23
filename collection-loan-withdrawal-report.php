@@ -273,7 +273,13 @@ include "include/footer.php";
                         details: details,
                         total: total,
                     },
+                    beforeSend: function() {
+                        $("#overlayer").fadeIn();
+                        $("#preloader").fadeIn();
+                    },
                     success: function(data) {
+                        $("#overlayer").fadeOut();
+                        $("#preloader").fadeOut();
                         if (data == 1) {
                             $("#modal_close").trigger("click");
                             loan_withdrawalReportLoad();
@@ -325,8 +331,13 @@ include "include/footer.php";
                         data: {
                             dlt_loan_withdraw_id: id
                         },
+                        beforeSend: function() {
+                            $("#overlayer").fadeIn();
+                            $("#preloader").fadeIn();
+                        },
                         success: function(data) {
-                            // console.log(data);
+                            $("#overlayer").fadeOut();
+                            $("#preloader").fadeOut();
                             if (data == 1) {
                                 loan_withdrawalReportLoad();
                                 swal.fire({
@@ -362,8 +373,13 @@ include "include/footer.php";
                     data: {
                         loanWithAppID: id
                     },
+                    beforeSend: function() {
+                        $("#overlayer").fadeIn();
+                        $("#preloader").fadeIn();
+                    },
                     success: function(data) {
-                        // console.log(data);
+                        $("#overlayer").fadeOut();
+                        $("#preloader").fadeOut();
                         if (data == 1) {
                             loan_withdrawalReportLoad();
                             swal.fire({

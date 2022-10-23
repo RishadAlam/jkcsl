@@ -154,9 +154,15 @@ include "include/footer.php";
                     data: formData,
                     contentType: false,
                     processData: false,
+                    beforeSend: function() {
+                        $("#overlayer").fadeIn();
+                        $("#preloader").fadeIn();
+                    },
                     success: function(data) {
+                        $("#overlayer").fadeOut();
+                        $("#preloader").fadeOut();
                         if (data == "image_ext_error") {
-                            swal({
+                            swal.fire({
                                 title: "নিচে দেয়া ফরমেটের ছবি ব্যবহার করুন",
                                 text: "'jpg', 'jpeg', 'png', 'webp'",
                                 icon: "error",
@@ -165,7 +171,7 @@ include "include/footer.php";
                             })
                         }
                         if (data == "image_size_error") {
-                            swal({
+                            swal.fire({
                                 title: "২ এমবির ছোট ছবি ব্যবহার করুন",
                                 text: "",
                                 icon: "error",
@@ -174,7 +180,7 @@ include "include/footer.php";
                             })
                         }
                         if (data == "email_exist") {
-                            swal({
+                            swal.fire({
                                 title: "দুঃখিত",
                                 text: " এই ইমেলটি ইতোমধ্যে নিবন্ধিত রয়েছে",
                                 icon: 'error',
@@ -186,7 +192,7 @@ include "include/footer.php";
                             $("#reg_form").trigger("reset");
                             $("select").empty().trigger('change');
                             $("#image").attr("src", "./img/pngfind.com-copyright-png-938050.png");
-                            swal({
+                            swal.fire({
                                 title: "অভিনন্দন",
                                 text: "অফিসার নিবন্ধিত হয়েছে",
                                 icon: 'success',
@@ -195,7 +201,7 @@ include "include/footer.php";
                             })
                         }
                         if (data == 0) {
-                            swal({
+                            swal.fire({
                                 title: "দুঃখিত",
                                 text: "অফিসার নিবন্ধিত হয়নি। আবার চেষ্টা করুন",
                                 icon: 'error',
@@ -203,11 +209,10 @@ include "include/footer.php";
                                 dangerMode: true,
                             })
                         }
-                        console.log(data);
                     }
                 })
             } else {
-                swal({
+                swal.fire({
                     title: "দুঃখিত",
                     text: "আবার চেষ্টা করুন",
                     icon: 'error',

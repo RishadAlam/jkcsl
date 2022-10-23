@@ -171,7 +171,13 @@ include "include/footer.php";
                         period_type: type,
                         period_details: dec
                     },
+                    beforeSend: function() {
+                        $("#overlayer").fadeIn();
+                        $("#preloader").fadeIn();
+                    },
                     success: function(data) {
+                        $("#overlayer").fadeOut();
+                        $("#preloader").fadeOut();
                         if (data == "name_exist") {
                             swal({
                                 title: "দুঃখিত",

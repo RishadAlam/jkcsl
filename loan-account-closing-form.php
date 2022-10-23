@@ -346,7 +346,13 @@ include "include/footer.php";
                     deposit_interest: deposit_interest,
                     book: book
                 },
+                beforeSend: function() {
+                    $("#overlayer").fadeIn();
+                    $("#preloader").fadeIn();
+                },
                 success: function(data) {
+                    $("#overlayer").fadeOut();
+                    $("#preloader").fadeOut();
                     if (data == 1) {
                         $("form").trigger("reset");
                         $("select").empty().trigger('change');

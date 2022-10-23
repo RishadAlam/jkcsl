@@ -1000,8 +1000,13 @@ include "include/footer.php";
                         expence: expence,
                         dec: dec,
                     },
+                    beforeSend: function() {
+                        $("#overlayer").fadeIn();
+                        $("#preloader").fadeIn();
+                    },
                     success: function(data) {
-                        // console.log(data);
+                        $("#overlayer").fadeOut();
+                        $("#preloader").fadeOut();
                         if (data == 1) {
                             $("#daily_expence_form").trigger("reset");
                             $("#close").trigger("click");
@@ -1089,7 +1094,13 @@ include "include/footer.php";
                         expence: expence,
                         dec: dec,
                     },
+                    beforeSend: function() {
+                        $("#overlayer").fadeIn();
+                        $("#preloader").fadeIn();
+                    },
                     success: function(data) {
+                        $("#overlayer").fadeOut();
+                        $("#preloader").fadeOut();
                         if (data == 1) {
                             $("#fdr_interest_form").trigger("reset");
                             $("#fdr_close").trigger("click");
@@ -1175,8 +1186,13 @@ include "include/footer.php";
                         expence: expence,
                         dec: dec,
                     },
+                    beforeSend: function() {
+                        $("#overlayer").fadeIn();
+                        $("#preloader").fadeIn();
+                    },
                     success: function(data) {
-                        // console.log(data);
+                        $("#overlayer").fadeOut();
+                        $("#preloader").fadeOut();
                         if (data == 1) {
                             $("#salary_reg_form").trigger("reset");
                             $("#salary_close").trigger("click");
@@ -1348,7 +1364,13 @@ include "include/footer.php";
                             update_dec: dec,
                             id: id
                         },
+                        beforeSend: function() {
+                            $("#overlayer").fadeIn();
+                            $("#preloader").fadeIn();
+                        },
                         success: function(data) {
+                            $("#overlayer").fadeOut();
+                            $("#preloader").fadeOut();
                             if (data == 1) {
                                 $("#modalclose").trigger("click");
                                 expance1STMLoad();
@@ -1404,8 +1426,13 @@ include "include/footer.php";
                             data: {
                                 dlt_expence_id: id
                             },
+                            beforeSend: function() {
+                                $("#overlayer").fadeIn();
+                                $("#preloader").fadeIn();
+                            },
                             success: function(data) {
-                                // console.log(data);
+                                $("#overlayer").fadeOut();
+                                $("#preloader").fadeOut();
                                 if (data == 1) {
                                     swal.fire({
                                         title: "অভিনন্দন",
@@ -1545,7 +1572,13 @@ include "include/footer.php";
                             update_dec: dec,
                             id: id
                         },
+                        beforeSend: function() {
+                            $("#overlayer").fadeIn();
+                            $("#preloader").fadeIn();
+                        },
                         success: function(data) {
+                            $("#overlayer").fadeOut();
+                            $("#preloader").fadeOut();
                             if (data == 1) {
                                 $("#salary_modalclose").trigger("click");
                                 salarySTMLoad();
@@ -1695,7 +1728,13 @@ include "include/footer.php";
                             update_dec: dec,
                             id: id
                         },
+                        beforeSend: function() {
+                            $("#overlayer").fadeIn();
+                            $("#preloader").fadeIn();
+                        },
                         success: function(data) {
+                            $("#overlayer").fadeOut();
+                            $("#preloader").fadeOut();
                             if (data == 1) {
                                 $("#fdr_modalclose").trigger("click");
                                 fdrSTMLoad();
@@ -1845,7 +1884,13 @@ include "include/footer.php";
                             update_dec: dec,
                             id: id
                         },
+                        beforeSend: function() {
+                            $("#overlayer").fadeIn();
+                            $("#preloader").fadeIn();
+                        },
                         success: function(data) {
+                            $("#overlayer").fadeOut();
+                            $("#preloader").fadeOut();
                             if (data == 1) {
                                 $("#closing_modalclose").trigger("click");
                                 closingBookSTMLoad();

@@ -328,7 +328,13 @@ include "include/footer.php";
                         income: income,
                         dec: dec,
                     },
+                    beforeSend: function() {
+                        $("#overlayer").fadeIn();
+                        $("#preloader").fadeIn();
+                    },
                     success: function(data) {
+                        $("#overlayer").fadeOut();
+                        $("#preloader").fadeOut();
                         if (data == 1) {
                             $("#income_reg_form").trigger("reset");
                             $("#close").trigger("click");
@@ -496,7 +502,13 @@ include "include/footer.php";
                         update_dec: dec,
                         id: id
                     },
+                    beforeSend: function() {
+                        $("#overlayer").fadeIn();
+                        $("#preloader").fadeIn();
+                    },
                     success: function(data) {
+                        $("#overlayer").fadeOut();
+                        $("#preloader").fadeOut();
                         if (data == 1) {
                             $("#income_reg_form").trigger("reset");
                             $("#modalclose").trigger("click");
@@ -551,8 +563,13 @@ include "include/footer.php";
                         data: {
                             dlt_income_id: id
                         },
+                        beforeSend: function() {
+                            $("#overlayer").fadeIn();
+                            $("#preloader").fadeIn();
+                        },
                         success: function(data) {
-                            // console.log(data);
+                            $("#overlayer").fadeOut();
+                            $("#preloader").fadeOut();
                             if (data == 1) {
                                 swal.fire({
                                     title: "অভিনন্দন",

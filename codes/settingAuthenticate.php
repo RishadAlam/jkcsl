@@ -364,6 +364,8 @@ if (isset($_POST['settingsEdit']) && $_POST['settingsEdit'] == 1 && isset($_POST
             foreach ($result as $keys => $row) {
                 $output .= '<div class="col-md-12 mb-3">
                             <label for="name" class="pb-2">নাম <span class="text-danger">*</span></label>
+                            <input type="hidden" id="type" value="field">
+                            <input type="hidden" id="id" value="' . $row['feild_id'] . '">
                             <input type="text" style="text-indent: 0;" class="form-control form-input p-3 input_field" id="name" name="name" value="' . $row['field_name'] . '">
                             <div id="name-feedback" class="invalid-feedback" style="display: none; font-size: 18px;">
                                 ফিল্ডের নাম লিখুন
@@ -392,6 +394,8 @@ if (isset($_POST['settingsEdit']) && $_POST['settingsEdit'] == 1 && isset($_POST
             foreach ($result as $keys => $row) {
                 $output .= '<div class="col-md-12 mb-3">
                             <label for="name" class="pb-2">নাম <span class="text-danger">*</span></label>
+                            <input type="hidden" id="type" value="center">
+                            <input type="hidden" id="id" value="' . $row['center_id'] . '">
                             <input type="text" style="text-indent: 0;" class="form-control form-input p-3 input_field" id="name" name="name" value="' . $row['center_name'] . '">
                             <div id="name-feedback" class="invalid-feedback" style="display: none; font-size: 18px;">
                                 ফিল্ডের নাম লিখুন
@@ -420,6 +424,8 @@ if (isset($_POST['settingsEdit']) && $_POST['settingsEdit'] == 1 && isset($_POST
             foreach ($result as $keys => $row) {
                 $output .= '<div class="col-md-12 mb-3">
                             <label for="name" class="pb-2">নাম <span class="text-danger">*</span></label>
+                            <input type="hidden" id="type" value="period">
+                            <input type="hidden" id="id" value="' . $row['period_id'] . '">
                             <input type="text" style="text-indent: 0;" class="form-control form-input p-3 input_field" id="name" name="name" value="' . $row['period_name'] . '">
                             <div id="name-feedback" class="invalid-feedback" style="display: none; font-size: 18px;">
                                 ফিল্ডের নাম লিখুন
@@ -428,9 +434,6 @@ if (isset($_POST['settingsEdit']) && $_POST['settingsEdit'] == 1 && isset($_POST
                         <div class="col-md-12 mb-3">
                             <label for="details" class="pb-2">বিস্তারিত</label>
                             <textarea class="form-control p-3 input_field" id="details" name="dec" rows="3">' . $row['period_details'] . '</textarea>
-                            <div id="dec-feedback" class="invalid-feedback" style="display: none; font-size: 18px;">
-                                ফিল্ড সম্পর্কে বিস্তারিত লিখুন
-                            </div>
                         </div>';
             }
             echo $output;
@@ -439,5 +442,27 @@ if (isset($_POST['settingsEdit']) && $_POST['settingsEdit'] == 1 && isset($_POST
                 <td colspan="3">কোনো ক্ষেত্র পাওয়া যাইনি</td>
             </tr>';
         }
+    }
+}
+
+if (isset($_POST['type']) && isset($_POST['id']) && isset($_POST['name']) && isset($_POST['dec'])) {
+    $type = $_POST['type'];
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $dec = $_POST['dec'];
+
+    if ($type == "field") {
+        $query = "UPDATE feilds SET field_name  ='${name}', field_dec  ='${dec}' WHERE feild_id = '${id}'";
+    } elseif ($type == "center") {
+        $query = "UPDATE centers SET center_name  ='${name}', center_dec  ='${dec}' WHERE center_id = '${id}'";
+    } elseif ($type == "period") {
+        $query = "UPDATE periods SET period_name  ='${name}', period_details  ='${dec}' WHERE period_id = '${id}'";
+    }
+
+    $result = $reg->elementsPermission($query);
+    if ($result != false) {
+        echo $result;
+    } else {
+        echo false;
     }
 }

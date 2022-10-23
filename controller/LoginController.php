@@ -58,7 +58,7 @@ class LoginController
         if ($userStatus === 1) {
             return true;
         } elseif ($userStatus === 2) {
-            redirect("404.php", "password_error", "নতুন পাসওয়ার্ড দিন");
+            redirect("404.php");
             return false;
         } else {
             redirect("404.php");
@@ -116,6 +116,63 @@ class LoginController
             return true;
         } else {
             return false;
+        }
+    }
+
+    public function chengePassword($current, $new, $confirm)
+    {
+        $userID = $_SESSION['auth']['user_id'];
+        $currentPassword = sha1($current);
+        $newPassword = sha1($new);
+        $confirmPassword = sha1($confirm);
+
+        $sql = $this->conn->prepare("SELECT password FROM users WHERE id = '${userID}'");
+        $sql->execute();
+        $cPassword = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($cPassword[0]['password'] === $currentPassword) {
+            $sql = $this->conn->prepare("UPDATE users SET password = '${confirmPassword}' WHERE id = '${userID}'");
+
+            if ($sql->execute()) {
+                if ($sql->rowCount() > 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            return "wrongPassword";
+        }
+    }
+
+    public function activateAccount($newPass, $email, $token)
+    {
+        $newPass = sha1($newPass);
+
+        $sql = $this->conn->prepare("SELECT token FROM users WHERE email = '${email}' AND status = '2'");
+        $sql->execute();
+        if ($sql->rowCount() > 0) {
+            $tokens = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+            if ($tokens[0]['token'] === $token) {
+                $sql = $this->conn->prepare("UPDATE users SET password = '${newPass}', status = '1' WHERE email = '${email}'");
+
+                if ($sql->execute()) {
+                    if ($sql->rowCount() > 0) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                return "token_error";
+            }
+        } else {
+            return "email_error";
         }
     }
 }

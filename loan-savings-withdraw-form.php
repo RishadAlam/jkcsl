@@ -306,8 +306,13 @@ include "include/footer.php";
                     loan_profile_id: loan_profile,
                     details: details,
                 },
+                beforeSend: function() {
+                    $("#overlayer").fadeIn();
+                    $("#preloader").fadeIn();
+                },
                 success: function(data) {
-                    // console.log(data);
+                    $("#overlayer").fadeOut();
+                    $("#preloader").fadeOut();
                     if (data == 1) {
                         $("#loan_saving_withdrawal_form").trigger("reset");
                         $("select").empty().trigger('change');

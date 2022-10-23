@@ -5,10 +5,10 @@ use controller\LoginController\LoginController\LoginController;
 
 // include_once "../config/app.php";
 include_once "../controller/LoginController.php";
+$auth = new LoginController();
 
 // Login Functionality
 if (isset($_POST['login'])) {
-    $auth = new LoginController();
 
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -42,13 +42,40 @@ if (isset($_POST['login'])) {
 
 // Logout Functionality
 if (isset($_POST['logout'])) {
-    $auth = new LoginController();
-
     $logout = $auth->logout();
 
     if ($logout) {
         redirect("login.php");
     } else {
         redirect("404.php");
+    }
+}
+
+// Chenge password Functionality
+if (isset($_POST['currentPassword']) && isset($_POST['newPassword']) && isset($_POST['confirmPassword'])) {
+    $currentPassword = $_POST['currentPassword'];
+    $newPassword = $_POST['newPassword'];
+    $confirmPassword = $_POST['confirmPassword'];
+
+    $result = $auth->chengePassword($currentPassword, $newPassword, $confirmPassword);
+
+    if ($result != false) {
+        echo $result;
+    } else {
+        echo false;
+    }
+}
+
+if (isset($_POST['token']) && isset($_POST['email']) && isset($_POST['new_password'])) {
+    $newPass = $_POST['new_password'];
+    $email = $_POST['email'];
+    $token = $_POST['token'];
+
+    $result = $auth->activateAccount($newPass, $email, $token);
+
+    if ($result != false) {
+        echo $result;
+    } else {
+        echo false;
     }
 }

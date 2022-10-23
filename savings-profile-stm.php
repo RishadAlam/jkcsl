@@ -122,13 +122,17 @@ include "include/topbar.php";
                 </div>
             </div>
         </div>
-        <div class="account_statment">
-            <div class="table">
+        <div class="account_statment client_profile_stm">
+            <div class="table text-end">
+                <div id="reportrange" class="d-inline-block" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;">
+                    <i class="fa fa-calendar"></i>&nbsp;
+                    <span></span> <i class="fa fa-caret-down"></i>
+                </div>
                 <div class="recent_collection">
-                    <!-- <nav>
+                    <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <button class="col-6 col-sm-2 nav-link active" id="nav-savings-tab" data-bs-toggle="tab" data-bs-target="#nav-savings" type="button" role="tab" aria-controls="nav-savings" aria-selected="true">সঞ্চয় সংগ্রহ</button>
-                            <button class="col-6 col-sm-2 nav-link" id="nav-savingsWithdrawal-tab" data-bs-toggle="tab" data-bs-target="#nav-savingsWithdrawal" type="button" role="tab" aria-controls="nav-savingsWithdrawal" aria-selected="true">সঞ্চয় উত্তোলন</button>
+                            <button class="col-6 col-sm-2 nav-link active w-50" id="nav-savings-tab" data-bs-toggle="tab" data-bs-target="#nav-savings" type="button" role="tab" aria-controls="nav-savings" aria-selected="true">সঞ্চয় জমা</button>
+                            <button class="col-6 col-sm-2 nav-link w-50" id="nav-savingsWithdrawal-tab" data-bs-toggle="tab" data-bs-target="#nav-savingsWithdrawal" type="button" role="tab" aria-controls="nav-savingsWithdrawal" aria-selected="true">সঞ্চয় উত্তোলন</button>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
@@ -141,20 +145,17 @@ include "include/topbar.php";
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>সদস্য</th>
-                                        <th>বই নং</th>
-                                        <th>ফিল্ড</th>
-                                        <th>কেন্দ্র</th>
-                                        <th>ক্ষেত্র</th>
-                                        <th>সংগ্রহ</th>
                                         <th>তারিখ</th>
                                         <th>সময়</th>
+                                        <th>অফিসার</th>
+                                        <th>মন্তব্য</th>
+                                        <th>সংগ্রহ</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="6" class="text-end border-top">সর্বমোট</td>
-                                        <td colspan="3" class="border-top" style="font-weight: bolder;"></td>
+                                        <td colspan="5" class="text-end border-top">সর্বমোট</td>
+                                        <td class="border-top" style="font-weight: bolder;"></td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -168,13 +169,11 @@ include "include/topbar.php";
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>সদস্য</th>
-                                        <th>বই নং</th>
-                                        <th>ফিল্ড</th>
-                                        <th>কেন্দ্র</th>
-                                        <th>ক্ষেত্র</th>
-                                        <th>উত্তোলন</th>
                                         <th>তারিখ</th>
+                                        <th>অফিসার</th>
+                                        <th>মন্তব্য</th>
+                                        <th>উত্তোলন</th>
+                                        <th>অবশিষ্ট জমা</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -185,15 +184,12 @@ include "include/topbar.php";
                                 </tfoot>
                             </table>
                         </div>
-                    </div> -->
-                    <div class="table_heading d-flex justify-content-between my-3">
+                    </div>
+                    <!-- <div class="table_heading d-flex justify-content-between my-3">
                         <h4>একাউন্ট বিবৃতি</h4>
                         <a href="" class="d-inline-block py-1 px-3 text-capitalize bg-secondary bg-gradient rounded" style="color: #fff; cursor: pointer; font-size: 18px;">Print</a>
 
-                        <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;">
-                            <i class="fa fa-calendar"></i>&nbsp;
-                            <span></span> <i class="fa fa-caret-down"></i>
-                        </div>
+                        
                     </div>
                     <table id="account_list" class="table table-responsive table-bordered table-hover table-striped">
                         <thead>
@@ -245,7 +241,7 @@ include "include/topbar.php";
                                 <td class="border-top">২০৫০০</td>
                             </tr>
                         </tfoot>
-                    </table>
+                    </table> -->
                 </div>
             </div>
         </div>
@@ -353,7 +349,7 @@ include "include/footer.php";
                         fieldID: fieldID,
                         centerID: centerID
                     },
-                    dataType: "json",
+                    dataType: "JSON",
                     success: function(data) {
                         console.log(data);
                         // account savings page chart
@@ -412,7 +408,7 @@ include "include/footer.php";
                                 color: '#fff',
                                 data: savings_data_table,
                                 parsing: {
-                                    yAxisKey: 'savings_collection.DPS',
+                                    yAxisKey: 'deposit',
                                 }
                             }, {
                                 label: 'উত্তোলন ৳',
@@ -430,7 +426,7 @@ include "include/footer.php";
                                 color: '#fff',
                                 data: savings_data_table,
                                 parsing: {
-                                    yAxisKey: 'savings_collection.debit',
+                                    yAxisKey: 'withdrawal',
                                 }
                             }]
                         };

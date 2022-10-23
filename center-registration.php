@@ -146,7 +146,13 @@ include "include/footer.php";
                     url: "codes/fieldAuthenticate.php",
                     type: "POST",
                     data: $("#center_reg_form").serialize(),
+                    beforeSend: function() {
+                        $("#overlayer").fadeIn();
+                        $("#preloader").fadeIn();
+                    },
                     success: function(data) {
+                        $("#overlayer").fadeOut();
+                        $("#preloader").fadeOut();
                         if (data == "name_exist") {
                             swal({
                                 title: "দুঃখিত",

@@ -48,75 +48,6 @@ include "include/topbar.php";
                     </div>
                     <div class="audit_savings_table">
                         <table class="table table-responsive table-striped" id="loansBody">
-                            <thead>
-                                <th>#</th>
-                                <th>ক্ষেত্র</th>
-                                <th>ঋণ প্রদান</th>
-                                <th>ঋণ আদায়</th>
-                                <th>ঋণ বাকি</th>
-                                <th>সর্বমোট ঋণ</th>
-                                <th>লাভ আদায়</th>
-                                <th>লাভ বাকি</th>
-                                <th>সর্বমোট লাভ</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>১</td>
-                                    <td>ঋণ</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                </tr>
-                                <tr>
-                                    <td>১</td>
-                                    <td>ঋণ</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                </tr>
-                                <tr>
-                                    <td>১</td>
-                                    <td>ঋণ</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                </tr>
-                                <tr>
-                                    <td>১</td>
-                                    <td>ঋণ</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                    <td>250130৳</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="2">সর্বমোট</td>
-                                    <td>৫২১৪৫২০৳</td>
-                                    <td>৫২১৪৫২০৳</td>
-                                    <td>৫২১৪৫২০৳</td>
-                                    <td>৫২১৪৫২০৳</td>
-                                    <td>৫২১৪৫২০৳</td>
-                                    <td>৫২১৪৫২০৳</td>
-                                    <td>৫২১৪৫২০৳</td>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -127,36 +58,7 @@ include "include/topbar.php";
                         <h3 class="fw-bolder">সর্বমোট সঞ্চয়</h3>
                     </div>
                     <div class="audit_savings_table">
-                        <table class="table table-responsive table-striped">
-                            <thead>
-                                <th>#</th>
-                                <th>খাত</th>
-                                <th>টাকা</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>সাধারণ সঞ্চয়</td>
-                                    <td>250130৳</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>ঋণ সঞ্চয়</td>
-                                    <td>250130৳</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>এফ.ডি.আর</td>
-                                    <td>250130৳</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td></td>
-                                    <td>সর্বমোট</td>
-                                    <td>৫২১৪৫২০৳</td>
-                                </tr>
-                            </tfoot>
+                        <table class="table table-responsive table-striped" id="totalSavingsBody">
                         </table>
                     </div>
                 </div>
@@ -167,31 +69,7 @@ include "include/topbar.php";
                         <h3 class="fw-bolder">সর্বশেষ হিসাব</h3>
                     </div>
                     <div class="audit_savings_table">
-                        <table class="table table-responsive table-striped">
-                            <thead>
-                                <th>#</th>
-                                <th>খাত</th>
-                                <th>টাকা</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>সর্বমোট ঋণ বাকি</td>
-                                    <td>250130৳</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>সর্বমোট সঞ্চয়</td>
-                                    <td>250130৳</td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr class="bg-success">
-                                    <td></td>
-                                    <td class="d-flex justify-content-between">লাভ <span><i class='bx bx-plus'></i></span></td>
-                                    <td>৫২১৪৫২০৳</td>
-                                </tr>
-                            </tfoot>
+                        <table class="table table-responsive table-striped" id="finalBody">
                         </table>
                     </div>
                 </div>
@@ -199,7 +77,6 @@ include "include/topbar.php";
         </div>
     </div>
 </div>
-
 <?php
 include "include/footer.php";
 ?>
@@ -233,6 +110,7 @@ include "include/footer.php";
                 success: function(data) {
                     // console.log(data);
                     if (data != false) {
+                        $("#loanSavingsBody").html("");
                         $("#loanSavingsBody").html(data);
                     }
                 }
@@ -250,12 +128,48 @@ include "include/footer.php";
                 success: function(data) {
                     // console.log(data);
                     if (data != false) {
+                        $("#loansBody").html('');
                         $("#loansBody").html(data);
                     }
                 }
             })
         }
         loansLoad();
+
+        function totalSavingsLoad() {
+            $.ajax({
+                url: "codes/auditAuthenticate.php",
+                type: "POST",
+                data: {
+                    totalSavings: 1
+                },
+                success: function(data) {
+                    if (data != false) {
+                        $("#totalSavingsBody").html('');
+                        $("#totalSavingsBody").html(data);
+                    }
+                }
+            })
+        }
+        totalSavingsLoad();
+
+        function finalAuditLoad() {
+            $.ajax({
+                url: "codes/auditAuthenticate.php",
+                type: "POST",
+                data: {
+                    finalAudit: 1
+                },
+                success: function(data) {
+                    if (data != false) {
+                        $("#finalBody").html('');
+                        $("#finalBody").html(data);
+                    }
+                }
+            })
+        }
+        finalAuditLoad();
+
 
     })
 </script>

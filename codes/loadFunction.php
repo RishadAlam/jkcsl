@@ -23,12 +23,12 @@ if (isset($_POST['inquery'])) {
                                         <td>' . $row['name'] . '</td>
                                     </tr>';
         }
-        echo $output;
     } else {
         $output .= '<tr >
-                        <td colspan="2">কোনো বই পাওয়া যাইনি</td>
+                        <td colspan="2" class="text-center">কোনো বই পাওয়া যাইনি</td>
                     </tr>';
     }
+    echo $output;
 }
 
 if (isset($_POST['fields']) && $_POST['fields'] == 1) {

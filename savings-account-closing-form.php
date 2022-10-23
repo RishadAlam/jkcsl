@@ -279,8 +279,13 @@ include "include/footer.php";
                     savings_profile_id: savings_profile,
                     details: details,
                 },
+                beforeSend: function() {
+                    $("#overlayer").fadeIn();
+                    $("#preloader").fadeIn();
+                },
                 success: function(data) {
-                    console.log(data);
+                    $("#overlayer").fadeOut();
+                    $("#preloader").fadeOut();
                     if (data == 1) {
                         $("#saving_acc_closing_form").trigger("reset");
                         $("select").empty().trigger('change');

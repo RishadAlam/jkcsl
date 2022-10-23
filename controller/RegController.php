@@ -18,7 +18,7 @@ class RegController
     }
 
     // User Registration Function
-    public function userReg($email, $name, $nid = null, $mobile_1, $mobile_2 = null, $blood = null, $dob = null, $role, $status = 2, $image = null)
+    public function userReg($email, $name, $nid = null, $mobile_1, $mobile_2 = null, $blood = null, $dob = null, $role, $status = 2, $token, $image = null)
     {
         $sql = $this->conn->prepare("SELECT * FROM users WHERE email = ?");
         $sql->execute([$email]);
@@ -26,11 +26,11 @@ class RegController
         if ($result > 0) {
             return "email_exist";  // DATA DOES NOT INSERTED
         } else {
-            $sql = $this->conn->prepare("INSERT INTO users (email, name, nid, mobile_1, mobile_2, blood, dob, role, image, status) VALUES (:email, :name, :nid, :mobile_1, :mobile_2, :blood, :dob, :role, :image, :status)");
+            $sql = $this->conn->prepare("INSERT INTO users (email, name, nid, mobile_1, mobile_2, blood, dob, role, image, status, token) VALUES (:email, :name, :nid, :mobile_1, :mobile_2, :blood, :dob, :role, :image, :status, :token)");
 
 
             // CHECK TO SEE INSERT DATA OR NOT
-            if ($sql->execute([":email" => $email, ":name" => $name, ":nid" => $nid, ":mobile_1" => $mobile_1, ":mobile_2" => $mobile_2, ":blood" => $blood, ":dob" => $dob, ":role" => $role, ":image" => $image, ":status" => $status])) {
+            if ($sql->execute([":email" => $email, ":name" => $name, ":nid" => $nid, ":mobile_1" => $mobile_1, ":mobile_2" => $mobile_2, ":blood" => $blood, ":dob" => $dob, ":role" => $role, ":image" => $image, ":status" => $status, ":token" => $token])) {
                 return true;  // DATA SUCCESSFULLY INSERTED
             } else {
                 return false;  // DATA DOES NOT INSERTED

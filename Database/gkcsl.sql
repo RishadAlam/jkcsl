@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2022 at 03:40 PM
+-- Generation Time: Oct 23, 2022 at 03:16 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -64,7 +64,7 @@ INSERT INTO `centers` (`center_id`, `center_name`, `center_dec`, `feild_id`, `cr
 (29, '২৬ নং কেন্দ্র ( হোসনে আরা )', 'মোবাইল নং : 01870618351', 22, '2022-10-06', 1),
 (30, '১৪ নং কেন্দ্র ( মোহসেনা বেগম ) ', 'মোবাইল নং : 01860758360', 23, '2022-10-06', 1),
 (31, '২৯ নং কেন্দ্র ( জুলেখা )', 'মোবাইল নং : 01610990572', 15, '2022-10-06', 1),
-(32, '২৭ নং কেন্দ্র ( দৈনিক গ্রাহক )', '', 15, '2022-10-06', 1);
+(32, '২৭ নং কেন্দ্র ( দৈনিক গ্রাহক )', 'শুধুমাত্র দৈনিক গ্রাহগনের জন্য', 15, '2022-10-06', 1);
 
 -- --------------------------------------------------------
 
@@ -148,7 +148,8 @@ INSERT INTO `client_registers` (`client_id`, `feild_id`, `center_id`, `register_
 (57, 15, 10, '77', 24, 'Barclay Duke', 'Brooke Harding', 'Yuli Carney', 'Arsenio Dawson', '7', '1998-01-16', 'অন্যান্য', 'ইসলাম', 'অন্যান্য', 'client_63526487dfca5.jpg', '900', '487', 443, 'C', 'B-', 7, 79, 'বাড়ির এবং রাস্তাঃ Inventore et sit distinctio Exercitationem harum culpa asperiores voluptatem eaque dolores culpa, গ্রামঃ Veniam fugit laboris ex autem est ipsum harum assumenda incididunt sint possimus accusantium ut , ওয়ার্ড নম্বরঃ Rem blanditiis eum reprehenderit dolor distinctio Et consequatur dolorum quo veritatis omnis est n, উপজেলাঃ Est excepturi quod quae ducimus nihil vel voluptas sint cillum aut ea sint distinctio, পোষ্ট অফিসঃ Ea cumque ea quos in ea aut reiciendis accusamus quidem molestiae ea libero, জেলাঃ Nisi non amet dolor impedit, বিভাগঃ খুলনা।', 'বাড়ির এবং রাস্তাঃ Consequatur excepteur aut ducimus quisquam in dolore rem sint enim tenetur, গ্রামঃ Non maxime modi voluptatibus voluptatum enim dolore laudantium nobis excepturi incididunt nemo inve, ওয়ার্ড নম্বরঃ Perferendis doloribus porro saepe dolor veniam quisquam et sed aut quasi mollit culpa porro id atqu, উপজেলাঃ Pariatur Officia qui ipsa sint do rerum quis asperiores sed voluptatem minus, পোষ্ট অফিসঃ Corporis qui ut ratione quia at fugiat maiores accusamus libero esse omnis est ipsam consectetur , জেলাঃ Commodi voluptate quas velit dolore et alias non illum dolore voluptas et vitae in delectus, বিভাগঃ খুলনা।', 1, '2022-10-21', '2022-10-21', NULL),
 (58, 15, 10, '77', 91, 'Justine Gross', 'Hashim Willis', 'Erich Gomez', 'Hilda Horne', '14', '2000-07-16', 'অন্যান্য', 'বৌদ্ধ', 'মহিলা', 'client_635264ab7eaa3.jpg', '465', '776', 785, 'C', 'A-', 84, 40, 'বাড়ির এবং রাস্তাঃ Amet ipsa ea quia numquam eos maiores rerum id soluta sit aut cumque asperiores, গ্রামঃ Quis ipsam in sit saepe non aliqua Fugiat in maiores blanditiis illo voluptatum laboriosam nihil, ওয়ার্ড নম্বরঃ Ipsam cumque est natus vero aspernatur, উপজেলাঃ Voluptatem quia qui eiusmod sed qui, পোষ্ট অফিসঃ Perferendis proident rerum quibusdam illo libero Nam quaerat est ipsam unde est optio animi aut l, জেলাঃ Vel iure atque voluptate officia vel, বিভাগঃ সিলেট।', 'বাড়ির এবং রাস্তাঃ Enim quos est aut aliqua Amet quia nulla, গ্রামঃ Vero do libero reiciendis maiores excepturi in a doloremque quia, ওয়ার্ড নম্বরঃ Quo fugit sed optio sapiente ex, উপজেলাঃ Voluptas Nam qui est vitae exercitation et quaerat laboriosam, পোষ্ট অফিসঃ Voluptatem assumenda provident omnis doloremque rerum iusto assumenda qui aliquip in ipsum, জেলাঃ Officiis et commodo esse voluptates fugiat, বিভাগঃ ঢাকা।', 1, '2022-10-21', '2022-10-21', NULL),
 (59, 15, 10, '77', 47, 'Nissim Conrad', 'Genevieve Golden', 'Carly Carlson', 'Daryl Cochran', '6', '2009-04-06', 'শ্রমিক', 'খ্রিস্টান', 'পুরুষ', 'client_635264c994670.jpg', '12', '308', 814, 'C', 'B+', 58, 90, 'বাড়ির এবং রাস্তাঃ Consequatur Dolor ratione et aliqua Et nulla quo rerum sit enim quaerat vero eveniet voluptas nu, গ্রামঃ Autem omnis quaerat est ut ut ullam accusamus beatae cum quae vitae ullam, ওয়ার্ড নম্বরঃ Ex vel praesentium laboriosam natus excepturi praesentium nihil in deserunt quis laborum quo, উপজেলাঃ Cum id asperiores est aliqua, পোষ্ট অফিসঃ Rerum ullam illo Nam aut velit veritatis dicta occaecat voluptatem laboriosam quibusdam officia am, জেলাঃ Aliquid necessitatibus provident consequatur Nihil labore sunt officia et qui, বিভাগঃ ঢাকা।', 'বাড়ির এবং রাস্তাঃ Sunt earum consequatur et enim alias error, গ্রামঃ Ipsa architecto laborum Nam earum aut quasi officia elit ad qui rem in quos asperiores et qui aut, ওয়ার্ড নম্বরঃ Deserunt reiciendis officia tenetur voluptate ut reprehenderit dolore sed voluptatem est quia aut, উপজেলাঃ Labore labore nisi in qui vitae molestias consequat Totam quod tempore laudantium iusto dolore, পোষ্ট অফিসঃ Eum quo ullamco voluptate quod libero aliqua Voluptatem ipsam amet voluptatem Quia quam ut amet , জেলাঃ Minim aspernatur ipsum dolor dolore sunt, বিভাগঃ চট্টগ্রাম।', 1, '2022-10-21', '2022-10-21', NULL),
-(60, 22, 26, '77', 138, 'Petra David', 'Blythe Summers', 'Sybill Cobb', 'Blossom Mack', '37', '2014-05-02', 'শ্রমিক', 'হিন্দু', 'অন্যান্য', 'client_635264eae71f6.jpg', '573', '669', 378, 'C', 'B+', 38, 3, 'বাড়ির এবং রাস্তাঃ Mollitia non ipsum dolorum debitis architecto optio voluptas quae proident reprehenderit eum nem, গ্রামঃ Non eius provident et alias quis totam enim dolorem qui ratione est, ওয়ার্ড নম্বরঃ Velit irure tempora lorem ut consectetur suscipit minim distinctio Est officia cupiditate aut hic, উপজেলাঃ Irure quidem quae non magnam culpa excepteur asperiores Nam inventore iste sunt consequatur dolor, পোষ্ট অফিসঃ Ad neque placeat iusto consequatur Vel consequuntur reiciendis labore explicabo Qui amet, জেলাঃ Sapiente ut ut provident illum mollitia eu enim sed minus sint dolor rem, বিভাগঃ রংপুর।', 'বাড়ির এবং রাস্তাঃ Dolor quasi doloremque sunt laudantium velit ut ratione, গ্রামঃ Debitis ea iusto provident dolores repudiandae amet quisquam culpa reiciendis repudiandae cum sunt, ওয়ার্ড নম্বরঃ Maiores atque amet similique ratione dolorum, উপজেলাঃ Aute quos nihil inventore aliquam facere et suscipit eum sit laboriosam possimus tenetur, পোষ্ট অফিসঃ Voluptatibus repudiandae et temporibus maiores qui eligendi dolores eligendi mollitia quasi quia, জেলাঃ Iste dolor labore reprehenderit minus in ullamco obcaecati eos dicta labore numquam, বিভাগঃ রংপুর।', 1, '2022-10-21', '2022-10-21', NULL);
+(60, 22, 26, '77', 138, 'Petra David', 'Blythe Summers', 'Sybill Cobb', 'Blossom Mack', '37', '2014-05-02', 'শ্রমিক', 'হিন্দু', 'অন্যান্য', 'client_635264eae71f6.jpg', '573', '669', 378, 'C', 'B+', 38, 3, 'বাড়ির এবং রাস্তাঃ Mollitia non ipsum dolorum debitis architecto optio voluptas quae proident reprehenderit eum nem, গ্রামঃ Non eius provident et alias quis totam enim dolorem qui ratione est, ওয়ার্ড নম্বরঃ Velit irure tempora lorem ut consectetur suscipit minim distinctio Est officia cupiditate aut hic, উপজেলাঃ Irure quidem quae non magnam culpa excepteur asperiores Nam inventore iste sunt consequatur dolor, পোষ্ট অফিসঃ Ad neque placeat iusto consequatur Vel consequuntur reiciendis labore explicabo Qui amet, জেলাঃ Sapiente ut ut provident illum mollitia eu enim sed minus sint dolor rem, বিভাগঃ রংপুর।', 'বাড়ির এবং রাস্তাঃ Dolor quasi doloremque sunt laudantium velit ut ratione, গ্রামঃ Debitis ea iusto provident dolores repudiandae amet quisquam culpa reiciendis repudiandae cum sunt, ওয়ার্ড নম্বরঃ Maiores atque amet similique ratione dolorum, উপজেলাঃ Aute quos nihil inventore aliquam facere et suscipit eum sit laboriosam possimus tenetur, পোষ্ট অফিসঃ Voluptatibus repudiandae et temporibus maiores qui eligendi dolores eligendi mollitia quasi quia, জেলাঃ Iste dolor labore reprehenderit minus in ullamco obcaecati eos dicta labore numquam, বিভাগঃ রংপুর।', 1, '2022-10-21', '2022-10-21', NULL),
+(61, 20, 22, '77', 8, 'Christopher Cole', 'Bo Johnston', 'Geoffrey Mays', 'Jasper Cardenas', '13', '1972-08-28', 'অন্যান্য', 'ইসলাম', 'অন্যান্য', 'client_6354c8eda87ac.png', '47', '236', 65, 'C', 'A-', 82, 91, 'বাড়ির এবং রাস্তাঃ Necessitatibus nihil non qui ad id ut libero soluta ullam consequat Odit est vero alias harum ad, গ্রামঃ Distinctio Et nihil velit est Nam corrupti ratione necessitatibus, ওয়ার্ড নম্বরঃ Ut amet sed sit earum qui doloremque minima ipsum et laborum eos, উপজেলাঃ Nemo cumque optio incidunt atque sapiente esse anim odit accusantium tempore commodo ea corporis, পোষ্ট অফিসঃ Rerum et qui et aut reprehenderit beatae molestiae do saepe sed aut odio natus molestias maxime dolo, জেলাঃ Qui nostrum consequuntur sit ipsum esse officiis cupidatat illo quia tempore deserunt exercitation, বিভাগঃ ময়মনসিংহ।', 'বাড়ির এবং রাস্তাঃ Possimus sed sed lorem dicta incididunt soluta non nulla non proident fugiat irure excepturi dolor, গ্রামঃ Totam voluptates excepturi id est consequuntur cupidatat animi qui minima perspiciatis dolore, ওয়ার্ড নম্বরঃ Necessitatibus fugiat amet fugiat magnam, উপজেলাঃ Quo amet doloremque ut distinctio Reprehenderit alias nihil nulla modi est ratione deserunt ut of, পোষ্ট অফিসঃ Reprehenderit culpa velit cumque sed quae illum qui vitae esse nisi eu id, জেলাঃ Qui quasi velit iure ad sit, বিভাগঃ চট্টগ্রাম।', 1, '2022-10-23', '2022-10-23', NULL);
 
 -- --------------------------------------------------------
 
@@ -212,9 +213,9 @@ CREATE TABLE `fdr_lists` (
 --
 
 INSERT INTO `fdr_lists` (`id`, `name`, `deposit`, `start`, `expiry`, `details`, `interest`, `officers_id`, `status`, `created_at`) VALUES
-(6, 'Clark Wilkerson', 1300000, '2022-10-06', '2026-11-18', '', 0, 1, 1, '2022-10-08'),
-(7, 'হাবিব', 120000, '2021-06-11', '2025-07-30', '', 1100, 1, 1, '2022-10-08'),
-(8, 'আনজুমান', 100000, '2022-10-20', '2022-10-11', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 1000, 1, 1, '2022-10-08');
+(6, 'Clark Wilkerson', 130000, '2022-10-06', '2026-11-18', '', 0, 1, 0, '2022-10-08'),
+(7, 'হাবিব', 120000, '2021-06-11', '2025-07-30', '', 1100, 1, 0, '2022-10-08'),
+(8, 'আনজুমান', 100000, '2022-10-20', '2022-10-11', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 1000, 1, 0, '2022-10-08');
 
 -- --------------------------------------------------------
 
@@ -349,7 +350,9 @@ INSERT INTO `loan_collections` (`collection_id`, `client_id`, `loan_prof_id`, `f
 (34, 23, 9, 16, 11, 36, 6012, 416, 4168, 918, 5502, '', 1, 1, '2022-10-14', '15:16:51'),
 (35, 24, 11, 15, 10, 18, 3497, 0, 1000, 10, 1010, '', 1, 0, '2022-10-17', '12:40:17'),
 (36, 21, 10, 22, 28, 17, 697, 50, 279, 34, 363, '', 78, 1, '2022-10-17', '15:15:07'),
-(37, 23, 9, 16, 11, 36, 6012, 416, 4168, 918, 5502, '', 78, 1, '2022-10-17', '15:17:21');
+(37, 23, 9, 16, 11, 36, 6012, 416, 4168, 918, 5502, '', 78, 1, '2022-10-17', '15:17:21'),
+(38, 23, 9, 16, 11, 36, 6012, 416, 4168, 918, 5502, '', 1, 1, '2022-10-23', '10:51:27'),
+(39, 21, 10, 22, 28, 17, 697, 50, 279, 34, 363, '', 1, 1, '2022-10-23', '10:51:57');
 
 -- --------------------------------------------------------
 
@@ -407,8 +410,8 @@ CREATE TABLE `loan_profiles` (
 --
 
 INSERT INTO `loan_profiles` (`loan_profile_id`, `field_id`, `center_id`, `period_id`, `reg_officer_id`, `client_id`, `book`, `savings`, `total_loan`, `total_intsallment`, `interest`, `total_interest`, `total_loan_w_ints`, `loan_installment`, `interest_installment`, `duration`, `total_deposit`, `total_withdrawal`, `balance`, `loan_recover`, `loan_remaining`, `interest_recover`, `interest_remaining`, `collection_ids`, `withdraw_ids`, `nominee_name`, `nominee_husband`, `nominee_father`, `nominee_mother`, `nominee_dob`, `nominee_nid`, `nominee_occupation`, `nominee_relation`, `nominee_gendar`, `nominee_img`, `nominee_address`, `status`, `created_at`, `updated_at`, `closing_fee`, `closing_expression`, `closing_at`) VALUES
-(9, 16, 11, 36, 1, 23, 6012, 416, 100000, 24, 22, 22000, 122000, 4168, 918, '2024-08-17', 2980, 500, 2480, 33344, 66656, 7344, 14656, ', 27, 28, 30, 31, 31, 32, 34, 37', '6, ', 'সাইদুজ্জামান রাফি', '', 'মোঃ সোলাইমান', 'রেজিয়া বেগম', '2002-11-22', 2147483647, 'চাকুরি', 'মা / ছেলে', 'পুরুষ', 'nominee_633ef29177c0d.jpeg', 'বাড়ির এবং রাস্তাঃ হাজী ইব্রাহীম কলোনি, গ্রামঃ কালামিয়া বাজার, ওয়ার্ড নম্বরঃ 18, উপজেলাঃ বাকলিয়া, পোষ্ট অফিসঃ সদর - ৪০০০, জেলাঃ চট্রগ্রাম, বিভাগঃ চট্টগ্রাম।', 1, '2022-10-11', '2022-10-06', NULL, '', NULL),
-(10, 22, 28, 17, 1, 21, 697, 50, 50000, 180, 12, 6000, 56000, 279, 34, '2025-06-08', 100, 20, 80, 558, 49442, 68, 5932, ', 33, 36', '7, ', 'জোবেদা খাতুন', 'আবুল কাশেম', '', 'সখিনা বানু', '2022-10-12', 2147483647, 'গৃহিনী', 'মা / মেয়ে', 'মহিলা', 'nominee_6340eadf4f445.jpg', 'বাড়ির এবং রাস্তাঃ At deserunt nesciunt, গ্রামঃ Chittagong, ওয়ার্ড নম্বরঃ ১৮, উপজেলাঃ Et et enim quas eum, পোষ্ট অফিসঃ সদর - ৪০০০, জেলাঃ চট্রগ্রাম, বিভাগঃ চট্টগ্রাম।', 1, '2022-10-08', '2022-10-08', NULL, '', NULL),
+(9, 16, 11, 36, 1, 23, 6012, 416, 100000, 24, 22, 22000, 122000, 4168, 918, '2024-08-17', 3396, 500, 2896, 37512, 62488, 8262, 13738, ', 27, 28, 30, 31, 31, 32, 34, 37, 38', '6, ', 'সাইদুজ্জামান রাফি', '', 'মোঃ সোলাইমান', 'রেজিয়া বেগম', '2002-11-22', 2147483647, 'চাকুরি', 'মা / ছেলে', 'পুরুষ', 'nominee_633ef29177c0d.jpeg', 'বাড়ির এবং রাস্তাঃ হাজী ইব্রাহীম কলোনি, গ্রামঃ কালামিয়া বাজার, ওয়ার্ড নম্বরঃ 18, উপজেলাঃ বাকলিয়া, পোষ্ট অফিসঃ সদর - ৪০০০, জেলাঃ চট্রগ্রাম, বিভাগঃ চট্টগ্রাম।', 1, '2022-10-11', '2022-10-06', NULL, '', NULL),
+(10, 22, 28, 17, 1, 21, 697, 50, 50000, 180, 12, 6000, 56000, 279, 34, '2025-06-08', 150, 20, 130, 837, 49163, 102, 5898, ', 33, 36, 39', '7, ', 'জোবেদা খাতুন', 'আবুল কাশেম', '', 'সখিনা বানু', '2022-10-12', 2147483647, 'গৃহিনী', 'মা / মেয়ে', 'মহিলা', 'nominee_6340eadf4f445.jpg', 'বাড়ির এবং রাস্তাঃ At deserunt nesciunt, গ্রামঃ Chittagong, ওয়ার্ড নম্বরঃ ১৮, উপজেলাঃ Et et enim quas eum, পোষ্ট অফিসঃ সদর - ৪০০০, জেলাঃ চট্রগ্রাম, বিভাগঃ চট্টগ্রাম।', 1, '2022-10-08', '2022-10-08', NULL, '', NULL),
 (11, 15, 10, 18, 78, 24, 3497, 0, 1000, 1, 1, 10, 1010, 1000, 10, '2022-10-26', 0, 0, 100, 1000, 0, 10, 0, ', 35', '', 'নিহা আক্তার', 'Scarlet Witt', 'মোঃ শুক্কুর', 'রেজিয়া বেগম', '2022-10-15', 234235, 'রিক্সা চালক', 'স্বামী / স্ত্রী', 'অন্যান্য', 'nominee_634cf88563b03.jpeg', 'বাড়ির এবং রাস্তাঃ আক্তার সওঃ কলোনি , গ্রামঃ Chittagong, ওয়ার্ড নম্বরঃ ১৯, উপজেলাঃ বাকলিয়া, পোষ্ট অফিসঃ সদর - ৪০০০, জেলাঃ চট্রগ্রাম, বিভাগঃ ঢাকা।', 0, '2022-10-17', '2022-10-17', 100, '', '2022-10-17'),
 (12, 15, 9, 26, 77, 35, 84, 953, 65000, 48, 18, 11700, 76700, 1355, 245, '2007-12-26', 0, 0, 0, 0, 65000, 0, 11700, '', '', 'Meredith Kline', 'Dorian Mckinney', 'Colin Slater', 'Maite Guzman', '1975-04-12', 66, 'শ্রমিক', 'বাবা / মেয়ে', 'পুরুষ', 'nominee_63515b533cc44.jpeg', 'বাড়ির এবং রাস্তাঃ In vero voluptate corporis vel distinctio Animi mollit dolores sequi qui est aperiam veritatis eve, গ্রামঃ Dolores minus atque amet aute eum recusandae Nulla natus dolore est est quibusdam asperiores sunt, ওয়ার্ড নম্বরঃ Ipsum quia aut eos soluta laborum minus qui corporis officiis, উপজেলাঃ Voluptatem duis sed enim sit sit in laudantium, পোষ্ট অফিসঃ Est reprehenderit consequatur Qui libero autem impedit aut sunt qui earum quis, জেলাঃ Fugit temporibus non sit ipsum, বিভাগঃ বরিশাল।', 1, '2022-10-20', '2022-10-20', NULL, '', NULL);
 
@@ -516,7 +519,8 @@ INSERT INTO `notification` (`id`, `from_officer_id`, `sub`, `details`, `to_offic
 (63, 77, 'বই নং 24 | সঞ্চয় নিবন্ধন', '<bold>ফিল্ডঃ</bold> ০১ নং ফিল্ড ( কালামিয়া বাজার )  <br> <bold>কেন্দ্রঃ</bold> ২৫ নং কেন্দ্র ( আমেনা বেগম )   <br> <bold>ক্ষেত্রঃ</bold> মাসিক DPS  <br> <bold>বই নংঃ/<bold> 24<br> <bold>নামঃ</bold> Barclay Duke  <br> <bold>নির্ধারিত সঞ্চয়ঃ </bold> 67 টাকা<br> <bold>মেয়াদঃ</bold> 24/04/2002 তারিখ পর্যন্ত<br> <bold>লাভ<bold> 18 টাকা<br> <bold>সর্বমোট (লাভ ছাড়া)ঃ<bold> 5896 টাকা<br> <bold>সর্বমোট (লাভ সহ)ঃ<bold> 6957 টাকা', 1, '2022-10-21 15:21:11', 0),
 (64, 77, 'বই নং 91 | সঞ্চয় নিবন্ধন', '<bold>ফিল্ডঃ</bold> ০১ নং ফিল্ড ( কালামিয়া বাজার )  <br> <bold>কেন্দ্রঃ</bold> ২৫ নং কেন্দ্র ( আমেনা বেগম )   <br> <bold>ক্ষেত্রঃ</bold> UK DPS  <br> <bold>বই নংঃ/<bold> 91<br> <bold>নামঃ</bold> Justine Gross  <br> <bold>নির্ধারিত সঞ্চয়ঃ </bold> 89 টাকা<br> <bold>মেয়াদঃ</bold> 12/05/2020 তারিখ পর্যন্ত<br> <bold>লাভ<bold> 5 টাকা<br> <bold>সর্বমোট (লাভ ছাড়া)ঃ<bold> 5785 টাকা<br> <bold>সর্বমোট (লাভ সহ)ঃ<bold> 6074 টাকা', 1, '2022-10-21 15:21:47', 0),
 (65, 77, 'বই নং 47 | সঞ্চয় নিবন্ধন', '<bold>ফিল্ডঃ</bold> ০১ নং ফিল্ড ( কালামিয়া বাজার )  <br> <bold>কেন্দ্রঃ</bold> ২৫ নং কেন্দ্র ( আমেনা বেগম )   <br> <bold>ক্ষেত্রঃ</bold> বাৎসরিক DPS  <br> <bold>বই নংঃ/<bold> 47<br> <bold>নামঃ</bold> Nissim Conrad  <br> <bold>নির্ধারিত সঞ্চয়ঃ </bold> 44 টাকা<br> <bold>মেয়াদঃ</bold> 16/05/1975 তারিখ পর্যন্ত<br> <bold>লাভ<bold> 2 টাকা<br> <bold>সর্বমোট (লাভ ছাড়া)ঃ<bold> 2288 টাকা<br> <bold>সর্বমোট (লাভ সহ)ঃ<bold> 2334 টাকা', 1, '2022-10-21 15:22:17', 0),
-(66, 77, 'বই নং 138 | সঞ্চয় নিবন্ধন', '<bold>ফিল্ডঃ</bold> ০৮ নং ( বালূড় মাঠ )   <br> <bold>কেন্দ্রঃ</bold> ১৩ নং কেন্দ্র ( জান্নাতি বেগম )   <br> <bold>ক্ষেত্রঃ</bold> দৈনিক   <br> <bold>বই নংঃ/<bold> 138<br> <bold>নামঃ</bold> Petra David  <br> <bold>নির্ধারিত সঞ্চয়ঃ </bold> 15 টাকা<br> <bold>মেয়াদঃ</bold> 01/01/1973 তারিখ পর্যন্ত<br> <bold>লাভ<bold> 6 টাকা<br> <bold>সর্বমোট (লাভ ছাড়া)ঃ<bold> 555 টাকা<br> <bold>সর্বমোট (লাভ সহ)ঃ<bold> 588 টাকা', 1, '2022-10-21 15:22:50', 0);
+(66, 77, 'বই নং 138 | সঞ্চয় নিবন্ধন', '<bold>ফিল্ডঃ</bold> ০৮ নং ( বালূড় মাঠ )   <br> <bold>কেন্দ্রঃ</bold> ১৩ নং কেন্দ্র ( জান্নাতি বেগম )   <br> <bold>ক্ষেত্রঃ</bold> দৈনিক   <br> <bold>বই নংঃ/<bold> 138<br> <bold>নামঃ</bold> Petra David  <br> <bold>নির্ধারিত সঞ্চয়ঃ </bold> 15 টাকা<br> <bold>মেয়াদঃ</bold> 01/01/1973 তারিখ পর্যন্ত<br> <bold>লাভ<bold> 6 টাকা<br> <bold>সর্বমোট (লাভ ছাড়া)ঃ<bold> 555 টাকা<br> <bold>সর্বমোট (লাভ সহ)ঃ<bold> 588 টাকা', 1, '2022-10-21 15:22:50', 0),
+(67, 77, 'বই নং 8 | সঞ্চয় নিবন্ধন', '<bold>ফিল্ডঃ</bold> ০৬ নং ফিল্ড ( সি এম বি )  <br> <bold>কেন্দ্রঃ</bold> ০৮ নং কেন্দ্র ( চিন্তাবালা ধর )   <br> <bold>ক্ষেত্রঃ</bold> UK DPS  <br> <bold>বই নংঃ/<bold> 8<br> <bold>নামঃ</bold> Christopher Cole  <br> <bold>নির্ধারিত সঞ্চয়ঃ </bold> 400 টাকা<br> <bold>মেয়াদঃ</bold> 29/11/2006 তারিখ পর্যন্ত<br> <bold>লাভ<bold> 35 টাকা<br> <bold>সর্বমোট (লাভ ছাড়া)ঃ<bold> 24000 টাকা<br> <bold>সর্বমোট (লাভ সহ)ঃ<bold> 32400 টাকা', 1, '2022-10-23 10:54:05', 0);
 
 -- --------------------------------------------------------
 
@@ -539,7 +543,7 @@ CREATE TABLE `periods` (
 --
 
 INSERT INTO `periods` (`period_id`, `period_name`, `period`, `period_type`, `period_details`, `created_at`, `status`) VALUES
-(17, 'দৈনিক ', 1, '1,2', '', '2022-10-06', 1),
+(17, 'দৈনিক ', 1, '1,2', 'শুধুমাত্র দৈনিক কালেকশন', '2022-10-06', 1),
 (18, 'শনিবার', 7, '2', '', '2022-10-06', 1),
 (19, 'রবিবার', 7, '2', '', '2022-10-06', 1),
 (20, 'সোমবার', 7, '2', '', '2022-10-06', 1),
@@ -628,7 +632,8 @@ INSERT INTO `savings_acc_checks` (`acc_check_id`, `saving_profiles_id`, `client_
 (53, 65, 57, 24, 15, 10, 25, 0, 77, '2022-10-21 15:21:11', '2023-01-19', 1),
 (54, 66, 58, 91, 15, 10, 24, 0, 77, '2022-10-21 15:21:47', '2022-11-20', 1),
 (55, 67, 59, 47, 15, 10, 35, 0, 77, '2022-10-21 15:22:17', '2022-11-20', 1),
-(56, 68, 60, 138, 22, 26, 17, 0, 77, '2022-10-21 15:22:50', '2022-11-20', 1);
+(56, 68, 60, 138, 22, 26, 17, 0, 77, '2022-10-21 15:22:50', '2022-11-20', 1),
+(57, 69, 61, 8, 20, 22, 24, 0, 77, '2022-10-23 10:54:05', '2022-11-22', 1);
 
 -- --------------------------------------------------------
 
@@ -686,7 +691,7 @@ INSERT INTO `saving_collections` (`collection_id`, `client_id`, `savings_prof_id
 (57, 31, 37, 15, 9, 25, 3493, 1000, '', 78, 1, '2022-10-17', '15:05:06'),
 (58, 26, 32, 18, 15, 25, 3496, 1000, '', 78, 1, '2022-10-17', '15:05:38'),
 (59, 24, 30, 15, 10, 25, 3497, 1000, '', 78, 1, '2022-10-17', '15:06:18'),
-(60, 20, 26, 16, 11, 25, 3052, 1000, '', 78, 1, '2022-10-17', '15:06:45'),
+(60, 20, 26, 16, 11, 25, 3052, 1000, '', 78, 1, '2022-10-14', '15:06:45'),
 (61, 30, 36, 16, 11, 25, 3494, 500, '', 78, 1, '2022-10-17', '15:06:55'),
 (62, 22, 28, 15, 32, 17, 376, 200, '', 78, 1, '2022-10-17', '15:09:36'),
 (63, 27, 33, 15, 32, 17, 375, 200, '', 78, 1, '2022-10-17', '15:09:45'),
@@ -701,7 +706,12 @@ INSERT INTO `saving_collections` (`collection_id`, `client_id`, `savings_prof_id
 (72, 35, 41, 15, 9, 35, 84, 4000, '', 78, 1, '2022-10-17', '15:13:34'),
 (73, 23, 29, 16, 11, 35, 6012, 15000, '', 78, 1, '2022-10-17', '15:13:45'),
 (74, 38, 44, 15, 9, 17, 92, 50, '', 78, 1, '2022-10-19', '13:57:48'),
-(75, 20, 26, 16, 11, 25, 3052, 1000, '', 78, 1, '2022-10-19', '13:59:06');
+(75, 20, 26, 16, 11, 25, 3052, 1000, '', 78, 1, '2022-10-19', '13:59:06'),
+(76, 20, 26, 16, 11, 25, 3052, 800, '', 1, 1, '2022-10-21', '21:26:50'),
+(77, 56, 64, 15, 10, 24, 76, 100, '', 1, 1, '2022-10-23', '01:04:12'),
+(78, 59, 67, 15, 10, 35, 47, 44, '', 1, 1, '2022-10-23', '10:48:19'),
+(79, 58, 66, 15, 10, 24, 91, 89, '', 1, 1, '2022-10-23', '10:48:44'),
+(80, 53, 60, 15, 9, 17, 6, 65, '', 1, 1, '2022-10-23', '10:49:14');
 
 -- --------------------------------------------------------
 
@@ -753,7 +763,7 @@ CREATE TABLE `saving_profiles` (
 --
 
 INSERT INTO `saving_profiles` (`saving_profiles_id`, `field_id`, `center_id`, `period_id`, `reg_officer_id`, `client_id`, `book`, `deposit_installment`, `duration`, `total_installment`, `total_without_interest`, `interest`, `total_with_interest`, `total_deposit`, `total_withdrawal`, `balance`, `collection_ids`, `withdraw_ids`, `nominee_name`, `nominee_husband`, `nominee_father`, `nominee_mother`, `nominee_dob`, `nominee_nid`, `nominee_occupation`, `nominee_relation`, `nominee_gendar`, `nominee_img`, `nominee_address`, `status`, `created_at`, `updated_at`, `closing_interest`, `closing_balance_with_interest`, `closing_expression`, `closing_at`) VALUES
-(26, 16, 11, 25, 1, 20, 3052, 1000, '2025-01-30', 60, 60000, 30, 78000, 5000, 500, 4500, ', 14, 47, 60, 75', '', 'উম্মে জয়নাব সানি', '', 'মোঃ সোলাইমান', 'রেজিয়া বেগম', '1999-03-31', '5105163074', 'অন্যান্য', 'মা / মেয়ে', 'মহিলা', 'nominee_633ee60a978ff.jpg', 'বাড়ির এবং রাস্তাঃ হাজী ইব্রাহিম কলোনি , সৈয়দ শাহ রোড, গ্রামঃ কালামিয়া বাজার , ওয়ার্ড নম্বরঃ ১৮, উপজেলাঃ বাকলিয়া, পোষ্ট অফিসঃ সদর - ৪০০০, জেলাঃ চট্রগ্রাম, বিভাগঃ চট্টগ্রাম।', 1, '2022-10-06', '2022-10-06', NULL, NULL, '', NULL),
+(26, 16, 11, 25, 1, 20, 3052, 1000, '2025-01-30', 60, 60000, 30, 78000, 5800, 500, 5300, ', 14, 47, 60, 75, 76', '', 'উম্মে জয়নাব সানি', '', 'মোঃ সোলাইমান', 'রেজিয়া বেগম', '1999-03-31', '5105163074', 'অন্যান্য', 'মা / মেয়ে', 'মহিলা', 'nominee_633ee60a978ff.jpg', 'বাড়ির এবং রাস্তাঃ হাজী ইব্রাহিম কলোনি , সৈয়দ শাহ রোড, গ্রামঃ কালামিয়া বাজার , ওয়ার্ড নম্বরঃ ১৮, উপজেলাঃ বাকলিয়া, পোষ্ট অফিসঃ সদর - ৪০০০, জেলাঃ চট্রগ্রাম, বিভাগঃ চট্টগ্রাম।', 1, '2022-10-06', '2022-10-06', NULL, NULL, '', NULL),
 (27, 22, 28, 27, 78, 21, 697, 200, '2028-10-01', 72, 14400, 35, 19440, 600, 100, 500, ', 34, 37, 71', '18, ', 'মোঃ রমজান', '', 'আব্দুল জলিল', 'সখিনা খাতুন', '1987-04-04', '7780149519', 'ব্যবসা', 'স্বামী / স্ত্রী', 'পুরুষ', 'nominee_633eeb38d227c.jpg', 'বাড়ির এবং রাস্তাঃ সাবেক সওঃ বাড়ী , গ্রামঃ আবু জাফর রোড, ওয়ার্ড নম্বরঃ ১৯, উপজেলাঃ বাকলিয়া, পোষ্ট অফিসঃ সদর - ৪০০০, জেলাঃ চট্রগ্রাম, বিভাগঃ চট্টগ্রাম।', 1, '2022-10-06', '2022-10-06', NULL, NULL, '', NULL),
 (28, 15, 32, 17, 78, 22, 376, 200, '2024-10-01', 108, 21600, 15, 24840, 1000, 100, 900, ', 39, 44, 45, 50, 62', ', 15', 'নিহা আক্তার', '', 'মোঃ শুক্কুর', 'দিলোয়ারা বেগম', '2016-01-01', '19901517488000195', 'ছাত্রী', 'মা / মেয়ে', 'মহিলা', 'nominee_633eee166e8a2.jpg', 'বাড়ির এবং রাস্তাঃ আক্তার সওঃ কলোনি , গ্রামঃ পশ্চিম পাড়া, ওয়ার্ড নম্বরঃ 19, উপজেলাঃ বাকলিয়া, পোষ্ট অফিসঃ সদর - ৪০০০, জেলাঃ চট্রগ্রাম, বিভাগঃ চট্টগ্রাম।', 1, '2022-10-06', '2022-10-06', NULL, NULL, '', NULL),
 (29, 16, 11, 35, 78, 23, 6012, 15000, '2031-12-22', 12, 180000, 50, 270000, 45000, 2000, 43000, ', 32, 35, 73', '16, ', 'সাইদুজ্জামান রাফি', '', 'মোঃ সোলাইমান', 'রেজিয়া বেগম', '2002-11-22', '20021591019036082', 'চাকুরি', 'মা / ছেলে', 'পুরুষ', 'nominee_633ef1162f554.jpeg', 'বাড়ির এবং রাস্তাঃ হাজী ইব্রাহীম কলোনি,  সৈয়দ শাহ রোড, গ্রামঃ কালামিয়া বাজার , ওয়ার্ড নম্বরঃ 18, উপজেলাঃ বাকলিয়া, পোষ্ট অফিসঃ সদর - ৪০০০, জেলাঃ চট্রগ্রাম, বিভাগঃ চট্টগ্রাম।', 1, '2022-10-06', '2022-10-06', NULL, NULL, '', NULL),
@@ -787,15 +797,16 @@ INSERT INTO `saving_profiles` (`saving_profiles_id`, `field_id`, `center_id`, `p
 (57, 15, 9, 17, 78, 50, 25, 100, '1970-04-29', 37, 3700, 21, 4477, 0, 0, 0, '', '', 'Maris Horton', 'Ignacia Kelley', 'Stone Mendoza', 'Natalie Joyce', '2019-05-09', '67', 'চাকুরি', 'স্বামী / স্ত্রী', 'মহিলা', 'nominee_6350395d78a2b.jpg', 'বাড়ির এবং রাস্তাঃ Minima veniam sit in in excepteur aut qui est aut, গ্রামঃ Velit aliquam optio eiusmod dolor excepturi esse in deleniti, ওয়ার্ড নম্বরঃ Voluptate et ex ut totam quis sint repellendus Minima est temporibus ipsum excepteur natus asperna, উপজেলাঃ Qui dolorem in natus ex id unde dolores totam, পোষ্ট অফিসঃ Nostrum vitae et iste necessitatibus ut ut aut similique laboriosam fugiat ut, জেলাঃ Exercitationem deserunt neque voluptatibus odit et anim, বিভাগঃ ময়মনসিংহ।', 1, '2022-10-19', '2022-10-19', NULL, NULL, '', NULL),
 (58, 15, 9, 17, 77, 51, 33, 100, '1980-06-22', 96, 9600, 67, 16032, 0, 0, 0, '', '', 'Willow Glover', 'Honorato Pruitt', 'Adam Robinson', 'Grady Donaldson', '1972-12-08', '86', 'ছাত্রী', 'মা / মেয়ে', 'পুরুষ', 'nominee_63503983a702b.jpeg', 'বাড়ির এবং রাস্তাঃ Non pariatur Nisi repudiandae unde illum aut deserunt ut laudantium quo, গ্রামঃ Exercitation beatae illo at enim non expedita mollit blanditiis enim et voluptatem Sed fuga, ওয়ার্ড নম্বরঃ Repellendus Earum error aspernatur voluptatem Itaque rem quod quis placeat totam saepe sed, উপজেলাঃ Aut officia placeat omnis voluptas anim do officiis cumque quisquam ducimus non soluta autem ea, পোষ্ট অফিসঃ Dolores nostrud est rerum ut, জেলাঃ Inventore anim ut ex molestiae aperiam laborum Ea esse quia eveniet voluptatibus numquam, বিভাগঃ রাজশাহী।', 1, '2022-10-19', '2022-10-19', NULL, NULL, '', NULL),
 (59, 15, 9, 25, 77, 52, 330, 100, '1970-10-10', 14, 1400, 21, 1694, 0, 0, 0, '', '', 'Imogene Mcfarland', 'Ramona Rivera', 'Kenneth Newman', 'Wynne Mooney', '2009-06-25', '76', 'শ্রমিক', 'বাবা / মেয়ে', 'মহিলা', 'nominee_635157ada0296.jpeg', 'বাড়ির এবং রাস্তাঃ Qui sed veniam autem dicta adipisicing mollit est, গ্রামঃ Ipsum magnam ab nobis ut veritatis reprehenderit et velit mollitia dolore et asperiores temporibus a, ওয়ার্ড নম্বরঃ Velit sunt est est vel minim voluptas dolorem sit consequatur velit aut facilis, উপজেলাঃ Sit et eos dolores sint fuga Eveniet exercitationem labore error mollitia fugiat, পোষ্ট অফিসঃ Ea vel qui ut et distinctio Eum eligendi ut adipisicing unde corrupti fugiat unde inventore volupt, জেলাঃ Quas veniam hic repellendus Totam temporibus saepe magnam ea dolore ea molestias veniam quia occa, বিভাগঃ রাজশাহী।', 1, '2022-10-20', '2022-10-20', NULL, NULL, '', NULL),
-(60, 15, 9, 17, 78, 53, 6, 65, '1991-03-28', 25, 1625, 59, 2584, 0, 0, 0, '', '', 'Kevyn Jordan', 'Stephen Hendrix', 'Ignacia Rosales', 'Oren Sweeney', '1976-03-16', '64', 'ব্যবসা', 'ভাই / বোন', 'পুরুষ', 'nominee_635158c6e170d.jpg', 'বাড়ির এবং রাস্তাঃ Omnis officiis reprehenderit amet aperiam, গ্রামঃ Voluptatem amet reprehenderit perferendis eos, ওয়ার্ড নম্বরঃ Dolorem in quaerat quo aliqua Cum ad pariatur Ex dignissimos sequi reiciendis, উপজেলাঃ Quasi commodi voluptas est proident et mollitia qui non sit laborum Deleniti non, পোষ্ট অফিসঃ Saepe repellendus Quo amet in perferendis sunt minus nemo autem mollit eaque voluptatem Sunt dese, জেলাঃ Aut est quisquam accusantium voluptatem iure illum minim in totam exercitationem quae, বিভাগঃ চট্টগ্রাম।', 1, '2022-10-20', '2022-10-20', NULL, NULL, '', NULL),
+(60, 15, 9, 17, 78, 53, 6, 65, '1991-03-28', 25, 1625, 59, 2584, 65, 0, 65, ', 80', '', 'Kevyn Jordan', 'Stephen Hendrix', 'Ignacia Rosales', 'Oren Sweeney', '1976-03-16', '64', 'ব্যবসা', 'ভাই / বোন', 'পুরুষ', 'nominee_635158c6e170d.jpg', 'বাড়ির এবং রাস্তাঃ Omnis officiis reprehenderit amet aperiam, গ্রামঃ Voluptatem amet reprehenderit perferendis eos, ওয়ার্ড নম্বরঃ Dolorem in quaerat quo aliqua Cum ad pariatur Ex dignissimos sequi reiciendis, উপজেলাঃ Quasi commodi voluptas est proident et mollitia qui non sit laborum Deleniti non, পোষ্ট অফিসঃ Saepe repellendus Quo amet in perferendis sunt minus nemo autem mollit eaque voluptatem Sunt dese, জেলাঃ Aut est quisquam accusantium voluptatem iure illum minim in totam exercitationem quae, বিভাগঃ চট্টগ্রাম।', 1, '2022-10-20', '2022-10-20', NULL, NULL, '', NULL),
 (61, 15, 9, 27, 78, 36, 26, 100, '2022-10-20', 50, 5000, 12, 5600, 0, 0, 0, '', '', 'নিহা আক্তার', 'Scarlet Witt', 'মোঃ সোলাইমান', 'সখিনা বানু', '2022-10-12', '123', 'ছাত্র', 'স্বামী / স্ত্রী', 'মহিলা', 'nominee_63515aea0e983.jpg', 'বাড়ির এবং রাস্তাঃ আক্তার সওঃ কলোনি , গ্রামঃ Chittagong, ওয়ার্ড নম্বরঃ ১৯, উপজেলাঃ Irure ducimus hic d, পোষ্ট অফিসঃ সদর - ৪০০০, জেলাঃ চট্রগ্রাম, বিভাগঃ ঢাকা।', 1, '2022-10-20', '2022-10-20', NULL, NULL, '', NULL),
 (62, 15, 10, 25, 78, 54, 81, 80, '2012-01-20', 94, 7520, 35, 10152, 0, 0, 0, '', '', 'Roanna Navarro', 'Brittany Lancaster', 'Kimberly Mcdonald', 'Lance Pittman', '1983-08-19', '4', 'ছাত্র', 'বোন / বোন', 'অন্যান্য', 'nominee_6351771ccd60f.jpg', 'বাড়ির এবং রাস্তাঃ Omnis laboriosam corrupti sunt rerum ad eos quidem eligendi minima adipisicing qui tempora perspic, গ্রামঃ In sed velit beatae illum debitis odio rerum voluptas quo velit esse blanditiis repellendus Natus, ওয়ার্ড নম্বরঃ Nostrud enim ratione consectetur illum sapiente perferendis aut, উপজেলাঃ Voluptates iste eos sunt laboriosam dolore qui quis esse, পোষ্ট অফিসঃ Excepteur sunt quis mollit delectus aliquam ea vero voluptatibus voluptate obcaecati aut non aliqua, জেলাঃ Impedit explicabo Vitae asperiores elit quam laborum alias eum consectetur Nam tempore, বিভাগঃ চট্টগ্রাম।', 1, '2022-10-20', '2022-10-20', NULL, NULL, '', NULL),
 (63, 15, 10, 27, 78, 55, 10, 90, '1982-08-30', 86, 7740, 26, 9752, 0, 0, 0, '', '', 'Damian Blake', 'Rylee Cameron', 'Patricia Graham', 'Xerxes Gillespie', '2015-01-18', '52', 'ছাত্র', 'স্বামী / স্ত্রী', 'মহিলা', 'nominee_6351773a6c6f4.jpg', 'বাড়ির এবং রাস্তাঃ Id dolores quod consectetur enim id ipsum iure adipisci labore expedita voluptatem corrupti enim, গ্রামঃ Impedit itaque accusantium deleniti in et eaque a, ওয়ার্ড নম্বরঃ Ipsum reiciendis neque quo amet est eu, উপজেলাঃ Eos consequatur aliquip dolorem illum voluptates consectetur ea quas est maxime ut molestiae volu, পোষ্ট অফিসঃ Explicabo Adipisicing Nam maiores id sapiente, জেলাঃ In illum similique ducimus harum eum ab excepteur placeat qui quod saepe laboris, বিভাগঃ রাজশাহী।', 1, '2022-10-20', '2022-10-20', NULL, NULL, '', NULL),
-(64, 15, 10, 24, 77, 56, 76, 100, '1997-04-09', 76, 7600, 18, 8968, 0, 0, 0, '', '', 'Catherine Pickett', 'Josiah Barton', 'Holmes Bennett', 'Olympia Grimes', '1998-11-15', '32', 'গৃহিনী', 'বোন / বোন', 'অন্যান্য', 'nominee_63526464eed5b.jpg', 'বাড়ির এবং রাস্তাঃ Impedit in minim quibusdam vel deleniti voluptates veniam rerum laboris aut repudiandae alias sint, গ্রামঃ Veniam a consequatur odio excepturi exercitation soluta amet inventore ut dolor odit beatae est p, ওয়ার্ড নম্বরঃ Non voluptas eveniet ea nisi et quo occaecat tempora eum id aut deserunt voluptate, উপজেলাঃ Corrupti voluptatem voluptas obcaecati labore in dolor quos enim corrupti eos possimus non culpa, পোষ্ট অফিসঃ Est dolor incididunt aliquam delectus laboriosam tempore rem quod, জেলাঃ Blanditiis at dolores consequuntur ullamco voluptate voluptatem Quia velit eaque tempora consequat, বিভাগঃ ঢাকা।', 1, '2022-10-21', '2022-10-21', NULL, NULL, '', NULL),
+(64, 15, 10, 24, 77, 56, 76, 100, '1997-04-09', 76, 7600, 18, 8968, 100, 0, 100, ', 77', '', 'Catherine Pickett', 'Josiah Barton', 'Holmes Bennett', 'Olympia Grimes', '1998-11-15', '32', 'গৃহিনী', 'বোন / বোন', 'অন্যান্য', 'nominee_63526464eed5b.jpg', 'বাড়ির এবং রাস্তাঃ Impedit in minim quibusdam vel deleniti voluptates veniam rerum laboris aut repudiandae alias sint, গ্রামঃ Veniam a consequatur odio excepturi exercitation soluta amet inventore ut dolor odit beatae est p, ওয়ার্ড নম্বরঃ Non voluptas eveniet ea nisi et quo occaecat tempora eum id aut deserunt voluptate, উপজেলাঃ Corrupti voluptatem voluptas obcaecati labore in dolor quos enim corrupti eos possimus non culpa, পোষ্ট অফিসঃ Est dolor incididunt aliquam delectus laboriosam tempore rem quod, জেলাঃ Blanditiis at dolores consequuntur ullamco voluptate voluptatem Quia velit eaque tempora consequat, বিভাগঃ ঢাকা।', 1, '2022-10-21', '2022-10-21', NULL, NULL, '', NULL),
 (65, 15, 10, 25, 77, 57, 24, 67, '2002-04-24', 88, 5896, 18, 6957, 0, 0, 0, '', '', 'Gwendolyn Pittman', 'Lysandra Roberson', 'September Bush', 'Basil Heath', '1988-02-20', '82', 'ছাত্রী', 'মা / ছেলে', 'পুরুষ', 'nominee_63526487dfca9.jpg', 'বাড়ির এবং রাস্তাঃ Sit quo inventore dolorum sit architecto fugit expedita sed ipsum, গ্রামঃ Veniam nobis inventore rerum illum amet fugit id vel aliqua Ad dolor aut eum, ওয়ার্ড নম্বরঃ Quis totam voluptatibus soluta iusto eos expedita fugiat laboris nulla ullamco dolorum quod dolore, উপজেলাঃ Aute a odio quos quod cumque cumque eum corporis nesciunt et, পোষ্ট অফিসঃ Sed maiores eius aute quam cumque ducimus qui deserunt illum odio qui debitis voluptatem ut quidem, জেলাঃ Labore magna officiis est temporibus voluptatem sint sint est ut et sapiente tempor, বিভাগঃ বরিশাল।', 1, '2022-10-21', '2022-10-21', NULL, NULL, '', NULL),
-(66, 15, 10, 24, 77, 58, 91, 89, '2020-05-12', 65, 5785, 5, 6074, 0, 0, 0, '', '', 'Kieran Warner', 'Tamekah Weaver', 'Derek Cunningham', 'Bradley Sutton', '2001-08-26', '44', 'অন্যান্য', 'মা / ছেলে', 'মহিলা', 'nominee_635264ab7eaaa.jpg', 'বাড়ির এবং রাস্তাঃ Dolore fuga Hic mollitia aperiam voluptatem laboriosam eu libero sapiente minus ut tempora ad qui , গ্রামঃ Iusto inventore atque tempora qui magna ab architecto, ওয়ার্ড নম্বরঃ Quo aliqua Numquam in corporis consequat Ea et, উপজেলাঃ Vel animi eligendi mollitia est nobis voluptates debitis adipisicing omnis in sit dicta ipsa cons, পোষ্ট অফিসঃ Proident tempor ut libero voluptas dolor minim, জেলাঃ Id sint unde rerum praesentium exercitationem quis voluptatibus fugit est praesentium ut veniam , বিভাগঃ সিলেট।', 1, '2022-10-21', '2022-10-21', NULL, NULL, '', NULL),
-(67, 15, 10, 35, 77, 59, 47, 44, '1975-05-16', 52, 2288, 2, 2334, 0, 0, 0, '', '', 'Shay Galloway', 'Beatrice May', 'Hunter Hansen', 'Shelley Pacheco', '1974-03-17', '41', 'শ্রমিক', 'মা / মেয়ে', 'পুরুষ', 'nominee_635264c99467a.jpeg', 'বাড়ির এবং রাস্তাঃ Voluptate quis mollit sit anim, গ্রামঃ Laboriosam irure rerum officia adipisci animi eligendi quo molestias sint, ওয়ার্ড নম্বরঃ Nostrud laudantium quo est sit alias dolor et beatae cumque cillum, উপজেলাঃ Qui elit neque tempora commodo doloremque ut in nisi in, পোষ্ট অফিসঃ Voluptas quibusdam quis debitis provident corrupti odio sint modi quasi ipsam culpa eveniet in e, জেলাঃ Et autem laborum anim dolore proident rerum non nisi est fugit, বিভাগঃ খুলনা।', 1, '2022-10-21', '2022-10-21', NULL, NULL, '', NULL),
-(68, 22, 26, 17, 77, 60, 138, 15, '1973-01-01', 37, 555, 6, 588, 0, 0, 0, '', '', 'Ori Roberts', 'Ima Norman', 'Lana Reid', 'Carter Knapp', '2006-12-23', '91', 'অন্যান্য', 'বাবা / মেয়ে', 'পুরুষ', 'nominee_635264eae71fa.png', 'বাড়ির এবং রাস্তাঃ Quo culpa aliquam sint expedita minim alias corporis, গ্রামঃ Ad a ea odit pariatur Dolore, ওয়ার্ড নম্বরঃ Dolor porro officia deserunt quibusdam nemo sed et sapiente quos aut, উপজেলাঃ Sit sint voluptate a distinctio Voluptatem inventore numquam ut, পোষ্ট অফিসঃ Magna placeat sit ut tempore, জেলাঃ Explicabo Minus et molestias exercitation eligendi rerum dolore quo eu ullam voluptatem debitis ex, বিভাগঃ সিলেট।', 1, '2022-10-21', '2022-10-21', NULL, NULL, '', NULL);
+(66, 15, 10, 24, 77, 58, 91, 89, '2020-05-12', 65, 5785, 5, 6074, 89, 0, 89, ', 79', '', 'Kieran Warner', 'Tamekah Weaver', 'Derek Cunningham', 'Bradley Sutton', '2001-08-26', '44', 'অন্যান্য', 'মা / ছেলে', 'মহিলা', 'nominee_635264ab7eaaa.jpg', 'বাড়ির এবং রাস্তাঃ Dolore fuga Hic mollitia aperiam voluptatem laboriosam eu libero sapiente minus ut tempora ad qui , গ্রামঃ Iusto inventore atque tempora qui magna ab architecto, ওয়ার্ড নম্বরঃ Quo aliqua Numquam in corporis consequat Ea et, উপজেলাঃ Vel animi eligendi mollitia est nobis voluptates debitis adipisicing omnis in sit dicta ipsa cons, পোষ্ট অফিসঃ Proident tempor ut libero voluptas dolor minim, জেলাঃ Id sint unde rerum praesentium exercitationem quis voluptatibus fugit est praesentium ut veniam , বিভাগঃ সিলেট।', 1, '2022-10-21', '2022-10-21', NULL, NULL, '', NULL),
+(67, 15, 10, 35, 77, 59, 47, 44, '1975-05-16', 52, 2288, 2, 2334, 44, 0, 44, ', 78', '', 'Shay Galloway', 'Beatrice May', 'Hunter Hansen', 'Shelley Pacheco', '1974-03-17', '41', 'শ্রমিক', 'মা / মেয়ে', 'পুরুষ', 'nominee_635264c99467a.jpeg', 'বাড়ির এবং রাস্তাঃ Voluptate quis mollit sit anim, গ্রামঃ Laboriosam irure rerum officia adipisci animi eligendi quo molestias sint, ওয়ার্ড নম্বরঃ Nostrud laudantium quo est sit alias dolor et beatae cumque cillum, উপজেলাঃ Qui elit neque tempora commodo doloremque ut in nisi in, পোষ্ট অফিসঃ Voluptas quibusdam quis debitis provident corrupti odio sint modi quasi ipsam culpa eveniet in e, জেলাঃ Et autem laborum anim dolore proident rerum non nisi est fugit, বিভাগঃ খুলনা।', 1, '2022-10-21', '2022-10-21', NULL, NULL, '', NULL),
+(68, 22, 26, 17, 77, 60, 138, 15, '1973-01-01', 37, 555, 6, 588, 0, 0, 0, '', '', 'Ori Roberts', 'Ima Norman', 'Lana Reid', 'Carter Knapp', '2006-12-23', '91', 'অন্যান্য', 'বাবা / মেয়ে', 'পুরুষ', 'nominee_635264eae71fa.png', 'বাড়ির এবং রাস্তাঃ Quo culpa aliquam sint expedita minim alias corporis, গ্রামঃ Ad a ea odit pariatur Dolore, ওয়ার্ড নম্বরঃ Dolor porro officia deserunt quibusdam nemo sed et sapiente quos aut, উপজেলাঃ Sit sint voluptate a distinctio Voluptatem inventore numquam ut, পোষ্ট অফিসঃ Magna placeat sit ut tempore, জেলাঃ Explicabo Minus et molestias exercitation eligendi rerum dolore quo eu ullam voluptatem debitis ex, বিভাগঃ সিলেট।', 1, '2022-10-21', '2022-10-21', NULL, NULL, '', NULL),
+(69, 20, 22, 24, 77, 61, 8, 400, '2006-11-29', 60, 24000, 35, 32400, 0, 0, 0, '', '', 'Timothy Berger', 'Oleg Pacheco', 'Leigh Delgado', 'Charissa Daugherty', '2022-02-08', '60', 'ড্রাইভার', 'মা / মেয়ে', 'পুরুষ', 'nominee_6354c8eda87b5.jpeg', 'বাড়ির এবং রাস্তাঃ Delectus voluptatem voluptate inventore in quo atque nihil id porro facilis veritatis eum laborum e, গ্রামঃ Doloribus similique et quia aliquam dolores ex labore et vel aspernatur proident eveniet fugit as, ওয়ার্ড নম্বরঃ Possimus qui culpa inventore dolor nostrud ullam aut aperiam quam placeat duis, উপজেলাঃ Minima quia iure a magna eveniet, পোষ্ট অফিসঃ Incidunt et exercitation blanditiis nulla voluptate eiusmod eius dolor molestiae, জেলাঃ Nam nisi culpa et magnam omnis sint dolorem quis in voluptatem ut, বিভাগঃ রাজশাহী।', 1, '2022-10-23', '2022-10-23', NULL, NULL, '', NULL);
 
 -- --------------------------------------------------------
 
@@ -850,7 +861,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `site_name`, `time_start`, `time_end`, `logo`) VALUES
-(1, 'জনকল্যাণ কর্মজীবি কো-অপারেটিভ সোসাইটি লিমিটেড', '6:00 PM', '10:00 PM', 'logo_6350f52a78b66.jpg');
+(1, 'জনকল্যাণ কর্মজীবি কো-অপারেটিভ সোসাইটি লিমিটেড', '9:00 AM', '6:00 PM', 'logo_6350f52a78b66.jpg');
 
 -- --------------------------------------------------------
 
@@ -871,7 +882,7 @@ CREATE TABLE `themes` (
 INSERT INTO `themes` (`id`, `officers_id`, `bg_img`) VALUES
 (1, 'all', 'background_6.jpg'),
 (2, '78', 'background_1.jpg'),
-(4, '1', 'background_10.jpg');
+(4, '1', 'background_6.jpg');
 
 -- --------------------------------------------------------
 
@@ -892,6 +903,7 @@ CREATE TABLE `users` (
   `role` varchar(100) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   `status` tinyint(5) NOT NULL DEFAULT 2 COMMENT '0= inactive, 1= active and 2= panding',
+  `token` varchar(50) NOT NULL,
   `created_at` date NOT NULL DEFAULT current_timestamp(),
   `updated_at` date NOT NULL DEFAULT current_timestamp(),
   `resign_date` date DEFAULT NULL
@@ -901,12 +913,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `name`, `nid`, `mobile_1`, `mobile_2`, `blood`, `dob`, `role`, `image`, `status`, `created_at`, `updated_at`, `resign_date`) VALUES
-(1, 'admin@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'রুবেল সিং', 2138929634, '01927832872', '122738', NULL, '2022-09-01', '0', 'user_634434cb4b2b3.jpg', 1, '2022-09-15', '2022-10-13', NULL),
-(77, 'rasheluddinhr@gmail.com', 'c4ed998ff0952b9b93bd9ea6cc84efb09df6d9ef', 'রাসেল উদ্দীন হৃদয়', NULL, '01407016634', '01318962145', 'A+', '2003-12-27', 'কম্পিউটার অফিসার', 'user_6342d9f746087.jpg', 1, '2022-10-06', '2022-10-09', NULL),
-(78, 'malekmohammad337@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'মোহাম্মদ আব্দুল মালেক', NULL, '01820608271', '01870618430', 'B+', '0000-00-00', 'ম্যানাজার', 'user_6342de8d744d9.jpg', 0, '2022-10-06', '2022-10-09', NULL),
-(79, 'shewly322@gmail.com', NULL, 'সীমা আক্তার', NULL, '01836228860', '01407016638', 'AB+', '0000-00-00', 'ম্যানাজার', NULL, 2, '2022-10-06', '2022-10-06', NULL),
-(80, 'khanjony2000@gmai.com', NULL, 'জালাল উদ্দীন ', NULL, '01766560752', '01879361020', 'O+', '0000-00-00', 'ম্যানাজার', NULL, 0, '2022-10-06', '2022-10-06', NULL);
+INSERT INTO `users` (`id`, `email`, `password`, `name`, `nid`, `mobile_1`, `mobile_2`, `blood`, `dob`, `role`, `image`, `status`, `token`, `created_at`, `updated_at`, `resign_date`) VALUES
+(1, 'admin@gmail.com', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'রুবেল সিং', 2138929634, '01927832872', '122738', NULL, '2022-09-01', '0', 'user_634434cb4b2b3.jpg', 1, '', '2022-09-15', '2022-10-13', NULL),
+(77, 'rasheluddinhr@gmail.com', 'c4ed998ff0952b9b93bd9ea6cc84efb09df6d9ef', 'রাসেল উদ্দীন হৃদয়', NULL, '01407016634', '01318962145', 'A+', '2003-12-27', 'কম্পিউটার অফিসার', 'user_6342d9f746087.jpg', 1, '', '2022-10-06', '2022-10-09', NULL),
+(78, 'malekmohammad337@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'মোহাম্মদ আব্দুল মালেক', NULL, '01820608271', '01870618430', 'B+', '0000-00-00', 'ম্যানাজার', 'user_6342de8d744d9.jpg', 0, '', '2022-10-06', '2022-10-09', NULL),
+(79, 'shewly322@gmail.com', NULL, 'সীমা আক্তার', NULL, '01836228860', '01407016638', 'AB+', '0000-00-00', 'ম্যানাজার', NULL, 2, '', '2022-10-06', '2022-10-06', NULL),
+(80, 'khanjony2000@gmai.com', NULL, 'জালাল উদ্দীন ', NULL, '01766560752', '01879361020', 'O+', '0000-00-00', 'ম্যানাজার', NULL, 0, '', '2022-10-06', '2022-10-06', NULL);
 
 --
 -- Indexes for dumped tables
@@ -1049,7 +1061,7 @@ ALTER TABLE `centers`
 -- AUTO_INCREMENT for table `client_registers`
 --
 ALTER TABLE `client_registers`
-  MODIFY `client_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `client_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `expenses`
@@ -1085,7 +1097,7 @@ ALTER TABLE `loan_acc_checks`
 -- AUTO_INCREMENT for table `loan_collections`
 --
 ALTER TABLE `loan_collections`
-  MODIFY `collection_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `collection_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `loan_profiles`
@@ -1103,7 +1115,7 @@ ALTER TABLE `loan_savings_withdrawals`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `periods`
@@ -1115,19 +1127,19 @@ ALTER TABLE `periods`
 -- AUTO_INCREMENT for table `savings_acc_checks`
 --
 ALTER TABLE `savings_acc_checks`
-  MODIFY `acc_check_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `acc_check_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `saving_collections`
 --
 ALTER TABLE `saving_collections`
-  MODIFY `collection_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `collection_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `saving_profiles`
 --
 ALTER TABLE `saving_profiles`
-  MODIFY `saving_profiles_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `saving_profiles_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `saving_withdrawals`
@@ -1151,7 +1163,7 @@ ALTER TABLE `themes`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

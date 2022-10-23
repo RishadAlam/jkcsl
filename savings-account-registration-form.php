@@ -907,8 +907,13 @@ include "include/footer.php";
                 data: formData,
                 contentType: false,
                 processData: false,
+                beforeSend: function() {
+                    $("#overlayer").fadeIn();
+                    $("#preloader").fadeIn();
+                },
                 success: function(data) {
-                    console.log(data);
+                    $("#overlayer").fadeOut();
+                    $("#preloader").fadeOut();
                     if (data == "image_ext_error") {
                         swal.fire({
                             title: "নিচে দেয়া ফরমেটের ছবি ব্যবহার করুন",

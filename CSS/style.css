@@ -423,10 +423,12 @@ ul, ol
     background-color: #867bffe0 !important;
     color: var(--primary-color-light) !important;
 }
+.client_profile_stm .nav-tabs,
 .officer_profile .nav-tabs
 {
     border: none;
 }
+.client_profile_stm .nav-tabs .nav-link,
 .officer_profile .nav-tabs .nav-link
 {
     text-align: center;
@@ -437,6 +439,7 @@ ul, ol
     color: var(--text-color);
     border-bottom: 1px solid var(--primary_color);
 }
+.client_profile_stm .nav-tabs .nav-link.active,
 .officer_profile .nav-tabs .nav-link.active
 {
     border-bottom: 3px solid var(--primary-color-light);
