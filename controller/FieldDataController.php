@@ -72,6 +72,7 @@ class FieldDataController
     // Field clientAccLoad load
     public function clientAccLoad($query)
     {
+
         $sql = $this->conn->prepare($query);
         $sql->execute();
 

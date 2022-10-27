@@ -126,22 +126,49 @@ include "include/topbar.php";
             <div class="table text-end">
                 <div id="reportrange" class="d-inline-block" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc;">
                     <i class="fa fa-calendar"></i>&nbsp;
-                    <span></span> <i class="fa fa-caret-down"></i>
+                    <span id="date_range"></span> <i class="fa fa-caret-down"></i>
                 </div>
                 <div class="recent_collection">
                     <nav>
-                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <button class="col-6 col-sm-2 nav-link active w-50" id="nav-savings-tab" data-bs-toggle="tab" data-bs-target="#nav-savings" type="button" role="tab" aria-controls="nav-savings" aria-selected="true">সঞ্চয় জমা</button>
-                            <button class="col-6 col-sm-2 nav-link w-50" id="nav-savingsWithdrawal-tab" data-bs-toggle="tab" data-bs-target="#nav-savingsWithdrawal" type="button" role="tab" aria-controls="nav-savingsWithdrawal" aria-selected="true">সঞ্চয় উত্তোলন</button>
+                        <div class="nav nav-tabs d-flex justify-content-between" id="nav-tab" role="tablist">
+                            <button class="col-6 col-sm-3 nav-link active" id="nav-accstm-tab" data-bs-toggle="tab" data-bs-target="#nav-accstm" type="button" role="tab" aria-controls="nav-accstm" aria-selected="true">একাউন্ট বিবৃতি</button>
+                            <button class="col-6 col-sm-3 nav-link" id="nav-savings-tab" data-bs-toggle="tab" data-bs-target="#nav-savings" type="button" role="tab" aria-controls="nav-savings" aria-selected="true">সঞ্চয় জমা</button>
+                            <button class="col-6 col-sm-3 nav-link" id="nav-savingsWithdrawal-tab" data-bs-toggle="tab" data-bs-target="#nav-savingsWithdrawal" type="button" role="tab" aria-controls="nav-savingsWithdrawal" aria-selected="true">সঞ্চয় উত্তোলন</button>
+                            <button class="col-6 col-sm-3 nav-link" id="nav-accCheck-tab" data-bs-toggle="tab" data-bs-target="#nav-accCheck" type="button" role="tab" aria-controls="nav-accCheck" aria-selected="true">বই চেক</button>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-savings" role="tabpanel" aria-labelledby="nav-savings-tab">
+                        <div class="tab-pane fade show active" id="nav-accstm" role="tabpanel" aria-labelledby="nav-accstm-tab">
+                            <div class="table_heading d-flex align-items-center justify-content-between my-3">
+                                <h4>একাউন্ট বিবৃতি</h4>
+                                <a href="" class="d-inline-block py-1 px-3 text-capitalize bg-secondary bg-gradient rounded" style="color: #fff; cursor: pointer; font-size: 18px;">Print</a>
+                            </div>
+                            <table id="clientProfileStm" class="w-100 table table-responsive table-bordered table-hover table-striped text-start">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>তারিখ</th>
+                                        <th>জমা</th>
+                                        <th>উত্তোলন</th>
+                                        <th>সর্বমোট</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="2" class="text-end border-top">সর্বমোট</td>
+                                        <td class="border-top" style="font-weight: bolder;"></td>
+                                        <td class="border-top" style="font-weight: bolder;"></td>
+                                        <td class="border-top" style="font-weight: bolder;"></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade show" id="nav-savings" role="tabpanel" aria-labelledby="nav-savings-tab">
                             <div class="table_heading d-flex align-items-center justify-content-between my-3">
                                 <h4>সঞ্চয় বিবৃতি</h4>
                                 <a href="" class="d-inline-block py-1 px-3 text-capitalize bg-secondary bg-gradient rounded" style="color: #fff; cursor: pointer; font-size: 18px;">Print</a>
                             </div>
-                            <table id="savings_collection_list" class="w-100 table table-responsive table-bordered table-hover table-striped text-start">
+                            <table id="clientProfileCollection" class="w-100 table table-responsive table-bordered table-hover table-striped text-start">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -165,7 +192,7 @@ include "include/topbar.php";
                                 <h4>উত্তোলন বিবৃতি</h4>
                                 <a href="" class="d-inline-block py-1 px-3 text-capitalize bg-secondary bg-gradient rounded" style="color: #fff; cursor: pointer; font-size: 18px;">Print</a>
                             </div>
-                            <table id="savings_collection_withdrawal_list" class="w-100 table table-responsive table-bordered table-hover table-striped text-start">
+                            <table id="clientProfileWithdrawal" class="w-100 table table-responsive table-bordered table-hover table-striped text-start">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -178,70 +205,29 @@ include "include/topbar.php";
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="6" class="text-end border-top">সর্বমোট</td>
+                                        <td colspan="4" class="text-end border-top">সর্বমোট</td>
                                         <td colspan="2" class="border-top" style="font-weight: bolder;"></td>
                                     </tr>
                                 </tfoot>
                             </table>
                         </div>
+                        <div class="tab-pane fade show" id="nav-accCheck" role="tabpanel" aria-labelledby="nav-accCheck-tab">
+                            <div class="table_heading d-flex align-items-center justify-content-between my-3">
+                                <h4>বই চেক</h4>
+                                <a href="" class="d-inline-block py-1 px-3 text-capitalize bg-secondary bg-gradient rounded" style="color: #fff; cursor: pointer; font-size: 18px;">Print</a>
+                            </div>
+                            <table id="clientProfileCheck" class="w-100 table table-responsive table-bordered table-hover table-striped text-start">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>চেকের তারিখ</th>
+                                        <th>পরবর্তি চেকের তারিখ</th>
+                                        <th>জমা ছিলো</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
                     </div>
-                    <!-- <div class="table_heading d-flex justify-content-between my-3">
-                        <h4>একাউন্ট বিবৃতি</h4>
-                        <a href="" class="d-inline-block py-1 px-3 text-capitalize bg-secondary bg-gradient rounded" style="color: #fff; cursor: pointer; font-size: 18px;">Print</a>
-
-                        
-                    </div>
-                    <table id="account_list" class="table table-responsive table-bordered table-hover table-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>তারিখ</th>
-                                <th>অফিসার</th>
-                                <th>ডিপিএস আদায়</th>
-                                <th>সঞ্চয় আদায়</th>
-                                <th>উত্তোলন</th>
-                                <th>সর্বমোট জমা</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>৩০/১২/২০২০</td>
-                                <td>মরিয়ম আক্তার</td>
-                                <td>০০</td>
-                                <td>২৫০০০</td>
-                                <td>০০</td>
-                                <td>২৫০০০</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>৩০/১২/২০২০</td>
-                                <td>মরিয়ম আক্তার</td>
-                                <td>০০</td>
-                                <td>০০</td>
-                                <td>৫০০০</td>
-                                <td>২০০০০</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>৩০/১২/২০২০</td>
-                                <td>মরিয়ম আক্তার</td>
-                                <td>০০</td>
-                                <td>৫০০</td>
-                                <td>০০</td>
-                                <td>২০৫০০</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="3" class="text-end border-top">সর্বমোটঃ</td>
-                                <td class="border-top">২৫৫০০</td>
-                                <td class="border-top">৫০০০</td>
-                                <td class="border-top">২০৫০০</td>
-                                <td class="border-top">২০৫০০</td>
-                            </tr>
-                        </tfoot>
-                    </table> -->
                 </div>
             </div>
         </div>
@@ -336,7 +322,6 @@ include "include/footer.php";
                     }
                 })
             }
-            profileLoad();
 
             function profileChartLoad() {
                 $.ajax({
@@ -351,45 +336,8 @@ include "include/footer.php";
                     },
                     dataType: "JSON",
                     success: function(data) {
-                        console.log(data);
                         // account savings page chart
                         var savings_data_table = data;
-                        // [{
-                        //         date: '01-08-2022',
-                        //         savings_collection: {
-                        //             debit: 1500,
-                        //             DPS: 2000
-                        //         }
-                        //     },
-                        //     {
-                        //         date: '02-08-2022',
-                        //         savings_collection: {
-                        //             debit: 1350,
-                        //             DPS: 450
-                        //         }
-                        //     },
-                        //     {
-                        //         date: '03-08-2022',
-                        //         savings_collection: {
-                        //             debit: 2000,
-                        //             DPS: 352
-                        //         }
-                        //     },
-                        //     {
-                        //         date: '04-08-2022',
-                        //         savings_collection: {
-                        //             debit: 2600,
-                        //             DPS: 251
-                        //         }
-                        //     },
-                        //     {
-                        //         date: '05-08-2022',
-                        //         savings_collection: {
-                        //             debit: 1500,
-                        //             DPS: 852
-                        //         }
-                        //     },
-                        // ]
 
                         var account_savings_chart_data = {
                             datasets: [{
@@ -483,6 +431,274 @@ include "include/footer.php";
                 })
             }
             profileChartLoad();
+            profileLoad();
+
+            window.addEventListener('load', function() {
+                var dates = document.getElementById('date_range').innerText;
+                var range = dates.split("-");
+                var from_date = range[0];
+                var end_date = range[1];
+
+                let spanText = document.querySelector('#reportrange span')
+                spanText.addEventListener('DOMSubtreeModified', function() {
+                    dates = document.querySelector('#reportrange span').innerText;
+                    range = dates.split("-");
+                    from_date = range[0];
+                    end_date = range[1];
+                    if (dates != "") {
+                        // console.log(from_date);
+                        accStmLoad();
+                        clientProfileCollection();
+                        clientProfileWithdrawal();
+                        clientProfileCheck();
+                    }
+                })
+
+                function accStmLoad() {
+                    $('#clientProfileStm').DataTable({
+                        // "processing": true,
+                        // "serverSide": true,
+                        "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                            // Bold the grade for all 'A' grade browsers
+                            if (aData[4] == "A") {
+                                $('td:eq(4)', nRow).html('<b>A</b>');
+                            }
+                        },
+                        footerCallback: function(row, data, start, end, display) {
+                            var api = this.api();
+
+                            // Remove the formatting to get integer data for summation
+                            var intVal = function(i) {
+                                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+                            };
+
+                            // Total over all pages
+                            total = api
+                                .column(2)
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+                            totalwith = api
+                                .column(3)
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+                            totalwith = api
+                                .column(4)
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+
+                            // Total over this page
+                            pageTotal = api
+                                .column(2, {
+                                    page: 'current'
+                                })
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+                            pageTotalwith = api
+                                .column(3, {
+                                    page: 'current'
+                                })
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+                            pageTotalwith = api
+                                .column(4, {
+                                    page: 'current'
+                                })
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+
+                            // Update footer
+                            $(api.column(2).footer()).html('৳' + pageTotal + "/-");
+                            $(api.column(3).footer()).html('৳' + pageTotalwith + "/-");
+                            $(api.column(3).footer()).html('৳' + pageTotalwith + "/-");
+                        },
+                        // "retrieve": true,
+                        "paging": false,
+                        "bDestroy": true,
+                        "order": [],
+                        "searching": true,
+                        "ajax": {
+                            url: "codes/clientAccSTMAuthenticate.php",
+                            type: "POST",
+                            data: {
+                                savingsID: savings,
+                                from_date: from_date,
+                                end_date: end_date,
+                            }
+                            // dataType: "JSON",
+                            // success: function(data) {
+                            //     console.log(data);
+                            // }
+                        }
+                    })
+                }
+
+                function clientProfileCollection() {
+                    $('#clientProfileCollection').DataTable({
+                        // "processing": true,
+                        // "serverSide": true,
+                        "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                            // Bold the grade for all 'A' grade browsers
+                            if (aData[4] == "A") {
+                                $('td:eq(4)', nRow).html('<b>A</b>');
+                            }
+                        },
+                        footerCallback: function(row, data, start, end, display) {
+                            var api = this.api();
+
+                            // Remove the formatting to get integer data for summation
+                            var intVal = function(i) {
+                                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+                            };
+
+                            // Total over all pages
+                            total = api
+                                .column(5)
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+
+                            // Total over this page
+                            pageTotal = api
+                                .column(5, {
+                                    page: 'current'
+                                })
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+
+                            // Update footer
+                            $(api.column(5).footer()).html('৳' + pageTotal + "/-");
+                        },
+                        // "retrieve": true,
+                        "paging": true,
+                        "bDestroy": true,
+                        "order": [],
+                        "searching": true,
+                        "ajax": {
+                            url: "codes/clientProfileCollectionAuthenticate.php",
+                            type: "POST",
+                            data: {
+                                savingsID: savings,
+                                from_date: from_date,
+                                end_date: end_date,
+                            }
+                            // dataType: "JSON",
+                            // success: function(data) {
+                            //     console.log(data);
+                            // }
+                        }
+                    })
+                }
+
+                function clientProfileWithdrawal() {
+                    $('#clientProfileWithdrawal').DataTable({
+                        // "processing": true,
+                        // "serverSide": true,
+                        "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                            // Bold the grade for all 'A' grade browsers
+                            if (aData[4] == "A") {
+                                $('td:eq(4)', nRow).html('<b>A</b>');
+                            }
+                        },
+                        footerCallback: function(row, data, start, end, display) {
+                            var api = this.api();
+
+                            // Remove the formatting to get integer data for summation
+                            var intVal = function(i) {
+                                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+                            };
+
+                            // Total over all pages
+                            total = api
+                                .column(4)
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+
+                            // Total over this page
+                            pageTotal = api
+                                .column(4, {
+                                    page: 'current'
+                                })
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+
+                            // Update footer
+                            $(api.column(4).footer()).html('৳' + pageTotal + "/-");
+                        },
+                        // "retrieve": true,
+                        "paging": true,
+                        "bDestroy": true,
+                        "order": [],
+                        "searching": true,
+                        "ajax": {
+                            url: "codes/clientProfileWithdrawalAuthenticate.php",
+                            type: "POST",
+                            data: {
+                                savingsID: savings,
+                                from_date: from_date,
+                                end_date: end_date,
+                            }
+                            // dataType: "JSON",
+                            // success: function(data) {
+                            //     console.log(data);
+                            // }
+                        }
+                    })
+                }
+
+                function clientProfileCheck() {
+                    $('#clientProfileCheck').DataTable({
+                        // "processing": true,
+                        // "serverSide": true,
+                        "fnRowCallback": function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                            // Bold the grade for all 'A' grade browsers
+                            if (aData[4] == "A") {
+                                $('td:eq(4)', nRow).html('<b>A</b>');
+                            }
+                        },
+                        // "retrieve": true,
+                        "paging": true,
+                        "bDestroy": true,
+                        "order": [],
+                        "searching": true,
+                        "ajax": {
+                            url: "codes/clientProfileCheckAuthenticate.php",
+                            type: "POST",
+                            data: {
+                                savingsID: savings,
+                                from_date: from_date,
+                                end_date: end_date,
+                            }
+                            // dataType: "JSON",
+                            // success: function(data) {
+                            //     console.log(data);
+                            // }
+                        }
+                    })
+                }
+                accStmLoad();
+                clientProfileCollection();
+                clientProfileWithdrawal();
+                clientProfileCheck();
+            })
         } else {
             $(location).attr('href', 'http://localhost/gkcsl/404');
         }

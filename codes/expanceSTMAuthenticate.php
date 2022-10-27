@@ -9,6 +9,7 @@ $collection = new CollectionController();
 
 $from_date = date("Y-m-d", strtotime($_POST['from_date']));
 $end_date = date("Y-m-d", strtotime($_POST['end_date']));
+
 $query = "SELECT * FROM expenses WHERE type = '1' AND date BETWEEN '${from_date}' AND '${end_date}' ORDER BY date DESC";
 // echo json_encode($from_date);
 // die();

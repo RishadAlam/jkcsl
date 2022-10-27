@@ -49,63 +49,6 @@ if (isset($_POST['clientProfileChartLoad']) && isset($_POST['clientID']) && isse
     $fieldID = $_POST['fieldID'];
     $centerID = $_POST['centerID'];
 
-    // $query = "SELECT SUM(deposit) AS deposit, DATE_FORMAT(created_at_date, '%d-%m-%Y') AS dDate FROM saving_collections WHERE savings_prof_id = '${savingsID}' AND feild_id = '${fieldID}' AND status = '1' AND center_id = '${centerID}' AND MONTH(created_at_date) = MONTH(CURRENT_DATE()) AND YEAR(created_at_date) = YEAR(CURRENT_DATE())  GROUP BY created_at_date";
-
-    // $query2 = "SELECT SUM(withdrawal) AS withdrawal, DATE_FORMAT(created_at, '%d-%m-%Y') AS wDate FROM saving_withdrawals WHERE savings_prof_id = '${savingsID}' AND feild_id = '${fieldID}' AND status = '1' AND center_id = '${centerID}' AND MONTH(created_at) = MONTH(CURRENT_DATE()) AND YEAR(created_at) = YEAR(CURRENT_DATE()) GROUP BY created_at";
-
-    // $result = $fields->clientAccLoad($query);
-    // $result2 = $fields->clientAccLoad($query2);
-    // if ($result != false && $result2 != false) {
-    //     $combine = array_merge($result, $result2);
-    //     $data = [];
-    //     foreach ($combine as $keys => $row) {
-
-    //         if (isset($row['dDate']) && isset($row['wDate'])) {
-    //             if ($row['dDate'] == $row['wDate']) {
-    //                 $data[$keys]['date'] = $row['dDate'];
-    //                 if (isset($row['deposit']) && isset($row['withdrawal'])) {
-    //                     $data[$keys]['deposit'] = $row['deposit'];
-    //                     $data[$keys]['withdrawal'] = $row['withdrawal'];
-    //                 } elseif (isset($row['deposit']) && !isset($row['withdrawal'])) {
-    //                     $data[$keys]['deposit'] = $row['deposit'];
-    //                     $data[$keys]['withdrawal'] = 0;
-    //                 } elseif (isset($row['withdrawal']) && !isset($row['deposit'])) {
-    //                     $data[$keys]['deposit'] = 0;
-    //                     $data[$keys]['withdrawal'] = $row['withdrawal'];
-    //                 }
-    //             }
-    //         } elseif (isset($row['dDate']) && !isset($row['wDate'])) {
-    //             $data[$keys]['date'] = $row['dDate'];
-    //             $data[$keys]['deposit'] = $row['deposit'];
-    //             $data[$keys]['withdrawal'] = 0;
-    //         } elseif (isset($row['wDate']) && !isset($row['dDate'])) {
-    //             $data[$keys]['date'] = $row['wDate'];
-    //             $data[$keys]['deposit'] = 0;
-    //             $data[$keys]['withdrawal'] = $row['withdrawal'];
-    //         }
-
-    //         // if ($row['dDate'] == $row['wDate']) {
-    //         //     $data['date'] = $row['dDate'];
-    //         // } else {
-    //         //     $data['date'] = $row['wDate'];
-    //         // }
-    //         // if ($data[$keys]['date'] = $row['date']) {
-    //         //     $data[$keys]['deposit'] = (isset($row['deposit'])) ? $row['deposit'] : null;
-    //         //     $data[$keys]['withdrawal'] = (isset($row['withdrawal'])) ? $row['withdrawal'] : null;
-    //         // }
-    //     }
-    //     echo json_encode($data);
-    //     // print_r($combine);
-    // } elseif ($result != false) {
-    //     echo json_encode($result);
-    //     // print_r($combine);
-    // } elseif ($result2 != false) {
-    //     echo json_encode($result2);
-    //     // print_r($combine);
-    // } else {
-    //     echo json_encode(false);
-    // }
-
     $query = "SELECT date, SUM(deposit) AS deposit, SUM(withdrawal) AS withdrawal FROM (
                 SELECT deposit, 0 withdrawal,  DATE_FORMAT(created_at_date, '%d-%m-%Y') AS date FROM saving_collections WHERE savings_prof_id = '${savingsID}' AND feild_id = '${fieldID}' AND status = '1' AND center_id = '${centerID}' AND MONTH(created_at_date) = MONTH(CURRENT_DATE()) AND YEAR(created_at_date) = YEAR(CURRENT_DATE())
                 UNION ALL
@@ -122,8 +65,21 @@ if (isset($_POST['clientProfileChartLoad']) && isset($_POST['clientID']) && isse
     }
 }
 
-// SELECT date, officers_id, expression, deposit, withdrawal FROM (
-// SELECT deposit, 0 AS withdrawal, expression, officers_id, created_at_date AS date FROM saving_collections WHERE savings_prof_id ='26' AND status='1'
-// UNION ALL
-// SELECT 0 AS deposit, withdrawal, expression, officers_id, created_at AS date FROM saving_withdrawals WHERE savings_prof_id ='26' AND status='1'
-// ) AS a;
+// Client Loan Chart Profile Load
+if (isset($_POST['clientProfileChartLoad']) && isset($_POST['clientID']) && isset($_POST['loansID']) && isset($_POST['fieldID']) && isset($_POST['centerID']) && $_POST['clientProfileChartLoad'] == 1) {
+    $clientID = $_POST['clientID'];
+    $loansID = $_POST['loansID'];
+    $fieldID = $_POST['fieldID'];
+    $centerID = $_POST['centerID'];
+
+    $query = "SELECT date, NVL(SUM(deposit),0) AS deposit, NVL(SUM(withdrawal),0) AS withdrawal, NVL(SUM(loan),0) AS loan, NVL(SUM(interest),0) AS interest FROM ( SELECT deposit,loan,interest, 0 withdrawal, DATE_FORMAT(created_at_date, '%d-%m-%Y') AS date FROM loan_collections WHERE loan_prof_id = '${loansID}' AND feild_id = '${fieldID}' AND status = '1' AND center_id = '${centerID}' AND MONTH(created_at_date) = MONTH(CURRENT_DATE()) AND YEAR(created_at_date) = YEAR(CURRENT_DATE()) UNION ALL SELECT 0 AS deposit, 0 AS loan, 0 AS interest, withdrawal, DATE_FORMAT(created_at, '%d-%m-%Y') AS date FROM loan_savings_withdrawals WHERE loan_prof_id = '${loansID}' AND feild_id = '${fieldID}' AND status = '1' AND center_id = '${centerID}' AND MONTH(created_at) = MONTH(CURRENT_DATE()) AND YEAR(created_at) = YEAR(CURRENT_DATE()) ) AS a GROUP BY date";
+
+
+    $result = $fields->clientAccLoad($query);
+    if ($result != false) {
+        echo json_encode($result);
+        // print_r($result);
+    } else {
+        echo json_encode(false);
+    }
+}

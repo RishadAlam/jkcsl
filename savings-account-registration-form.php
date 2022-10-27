@@ -369,16 +369,10 @@ include "include/topbar.php";
                 <div class="col-md-6 mb-3">
                     <label for="nominee_birth_reg_id_no" class="pb-2">জন্ম তারিখ <span class="text-danger">*</span></label>
                     <input type="date" class="form-control input_field form-input p-3" placeholder="জন্ম তারিখ" id="nominee_birth_reg_id_no" name="nominee_birth_reg_id_no">
-                    <div id="nominee_dob-feedback" class="invalid-feedback" style="display: none; font-size: 18px;">
-                        নমিনীর জন্ম তারিখ লিখুন
-                    </div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="nominee_nid" class="pb-2">জাতীয় পরিচয় পত্রের নম্বর <span class="text-danger">*</span></label>
                     <input type="number" class="form-control input_field form-input p-3" placeholder="জাতীয় পরিচয় পত্রের নম্বর" id="nominee_nid" name="nominee_nid">
-                    <div id="nominee_nid-feedback" class="invalid-feedback" style="display: none; font-size: 18px;">
-                        নমিনীর জাতীয় পরিচয় পত্রের নম্বর লিখুন
-                    </div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label class="pb-2">পেশা <span class="text-danger">*</span></label><br>
@@ -559,7 +553,8 @@ include "include/topbar.php";
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="nominee_district" class="form-label">জেলা <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control input_field form-input p-3" id="nominee_district" placeholder="জেলার নাম" name="nominee_district">
+                    <select id="nominee_district" class="form-control input_field form-input p-3 districts" name="nominee_district">
+                    </select>
                     <div id="nominee_district-feedback" class="invalid-feedback" style="display: none; font-size: 18px;">
                         জেলার নাম লিখুন
                     </div>
@@ -848,14 +843,6 @@ include "include/footer.php";
             $("#nominee_father_name").addClass("is-invalid");
             $("#nominee_father_name-feedback").css("display", "block");
         }
-        if (nominee_nid == "" || nominee_nid == null) {
-            $("#nominee_nid").addClass("is-invalid");
-            $("#nominee_nid-feedback").css("display", "block");
-        }
-        if (nominee_dob == "" || nominee_dob == null) {
-            $("#nominee_birth_reg_id_no").addClass("is-invalid");
-            $("#nominee_dob-feedback").css("display", "block");
-        }
         if (nominee_occapasion == "" || nominee_occapasion == null) {
             $("#nominee_occapasion-feedback").css("display", "block");
         }
@@ -899,7 +886,7 @@ include "include/footer.php";
             $("#nominee_input_state-feedback").css("display", "block");
         }
 
-        if (feild != "" && feild != null && center != "" && center != null && book != "" && book != null && officer != "" && officer != null && period != "" && period != null && expiry_date != "" && expiry_date != null && savings_installment != "" && savings_installment != null && installment != "" && installment != null && interest != "" && interest != null && total_taka_without_ints != 0 && total_taka_without_ints != null && total_taka_with_ints != 0 && total_taka_with_ints != null && nominee_name != "" && nominee_name != null && nominee_nid != "" && nominee_nid != null && nominee_dob != "" && nominee_dob != null && nominee_occapasion != "" && nominee_occapasion != null && nominee_relation != "" && nominee_relation != null && nominee_gender != "" && nominee_gender != null && nominee_img != "" && nominee_img != null && nominee_home != "" && nominee_home != null && nominee_city != "" && nominee_city != null && nominee_holding != "" && nominee_holding != null && nominee_sub_district != "" && nominee_sub_district != null && nominee_post != "" && nominee_post != null && nominee_district != "" && nominee_district != null && nominee_state != "" && nominee_state != null) {
+        if (feild != "" && feild != null && center != "" && center != null && book != "" && book != null && officer != "" && officer != null && period != "" && period != null && expiry_date != "" && expiry_date != null && savings_installment != "" && savings_installment != null && installment != "" && installment != null && interest != "" && interest != null && total_taka_without_ints != 0 && total_taka_without_ints != null && total_taka_with_ints != 0 && total_taka_with_ints != null && nominee_name != "" && nominee_name != null && nominee_occapasion != "" && nominee_occapasion != null && nominee_relation != "" && nominee_relation != null && nominee_gender != "" && nominee_gender != null && nominee_img != "" && nominee_img != null && nominee_home != "" && nominee_home != null && nominee_city != "" && nominee_city != null && nominee_holding != "" && nominee_holding != null && nominee_sub_district != "" && nominee_sub_district != null && nominee_post != "" && nominee_post != null && nominee_district != "" && nominee_district != null && nominee_state != "" && nominee_state != null) {
             var formData = new FormData(this);
             $.ajax({
                 url: "codes/savingsAuthenticate.php",
@@ -943,7 +930,8 @@ include "include/footer.php";
                     }
                     if (data == 1) {
                         $("#savings_reg_form").trigger("reset");
-                        $("select").empty().trigger('change');
+                        $("select").select2("destroy");
+                        $("select").select2();
                         loadField();
                         loadPeriod();
                         loadOfficer();

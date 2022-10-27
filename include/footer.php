@@ -112,6 +112,14 @@
 </script>
 <script>
     $(document).ready(function() {
+        $.getJSON('json/district.json', function(result) {
+            var districts = "<option selected disabled>জেলা নির্বাচন করুন...</option>";
+            $.each(result.districts, function(key, value) {
+                districts += "<option value='" + value.bn_name + "'>" + value.bn_name + "</option>";
+            })
+            $(".districts").html(districts);
+        })
+
         function bell() {
             $.ajax({
                 url: "codes/loadFunction.php",
@@ -127,7 +135,7 @@
                     }
                 }
             })
-            setTimeout(bell, 1000);
+            setTimeout(bell, 3000000);
         }
         bell();
 

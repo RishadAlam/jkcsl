@@ -395,7 +395,8 @@ include "include/topbar.php";
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="district" class="form-label">জেলা <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control input_field form-input p-3" id="district" placeholder="জেলার নাম" name="district">
+                    <select id="district" class="form-control input_field form-input p-3 districts" name="district">
+                    </select>
                     <div id="client_district-feedback" class="invalid-feedback" style="display: none; font-size: 18px;">
                         জেলার নাম লিখুন
                     </div>
@@ -461,7 +462,8 @@ include "include/topbar.php";
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="parmanent_district" class="form-label">জেলা <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control input_field form-input p-3" id="parmanent_district" placeholder="জেলার নাম" name="parmanent_district">
+                    <select id="parmanent_district" class="form-control input_field form-input p-3 districts" name="parmanent_district">
+                    </select>
                     <div id="client_p_district-feedback" class="invalid-feedback" style="display: none; font-size: 18px;">
                         জেলার নাম লিখুন
                     </div>
@@ -514,22 +516,18 @@ include "include/topbar.php";
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="nominee_mother_name" class="pb-2">মাতার নাম <span class="text-danger">*</span></label>
+                    <label for="nominee_mother_name" class="pb-2">মাতার নাম </label>
                     <input type="text" class="form-control input_field form-input p-3" placeholder="মাতার নাম" id="nominee_mother_name" name="nominee_mother_name">
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="nominee_birth_reg_id_no" class="pb-2">জন্ম তারিখ <span class="text-danger">*</span></label>
+                    <label for="nominee_birth_reg_id_no" class="pb-2">জন্ম তারিখ</label>
                     <input type="date" class="form-control input_field form-input p-3" placeholder="জন্ম তারিখ" id="nominee_birth_reg_id_no" name="nominee_birth_reg_id_no">
-                    <div id="nominee_dob-feedback" class="invalid-feedback" style="display: none; font-size: 18px;">
-                        নমিনীর জন্ম তারিখ লিখুন
-                    </div>
+
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="nominee_nid" class="pb-2">জাতীয় পরিচয় পত্রের নম্বর <span class="text-danger">*</span></label>
+                    <label for="nominee_nid" class="pb-2">জাতীয় পরিচয় পত্রের নম্বর</label>
                     <input type="number" class="form-control input_field form-input p-3" placeholder="জাতীয় পরিচয় পত্রের নম্বর" id="nominee_nid" name="nominee_nid">
-                    <div id="nominee_nid-feedback" class="invalid-feedback" style="display: none; font-size: 18px;">
-                        নমিনীর জাতীয় পরিচয় পত্রের নম্বর লিখুন
-                    </div>
+
                 </div>
                 <div class="col-md-6 mb-3">
                     <label class="pb-2">পেশা <span class="text-danger">*</span></label><br>
@@ -714,7 +712,8 @@ include "include/topbar.php";
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="nominee_district" class="form-label">জেলা <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control input_field form-input p-3" id="nominee_district" placeholder="জেলার নাম" name="nominee_district">
+                    <select id="nominee_district" class="form-control input_field form-input p-3 districts" name="nominee_district">
+                    </select>
                     <div id="nominee_district-feedback" class="invalid-feedback" style="display: none; font-size: 18px;">
                         জেলার নাম লিখুন
                     </div>
@@ -1109,14 +1108,6 @@ include "include/footer.php";
                 $("#nominee_father_name").addClass("is-invalid");
                 $("#nominee_father_name-feedback").css("display", "block");
             }
-            if (nominee_nid == "" || nominee_nid == null) {
-                $("#nominee_nid").addClass("is-invalid");
-                $("#nominee_nid-feedback").css("display", "block");
-            }
-            if (nominee_dob == "" || nominee_dob == null) {
-                $("#nominee_birth_reg_id_no").addClass("is-invalid");
-                $("#nominee_dob-feedback").css("display", "block");
-            }
             if (nominee_occapasion == "" || nominee_occapasion == null) {
                 $("#nominee_occapasion-feedback").css("display", "block");
             }
@@ -1160,7 +1151,7 @@ include "include/footer.php";
                 $("#nominee_input_state-feedback").css("display", "block");
             }
 
-            if (feild != "" && feild != null && center != "" && center != null && book != "" && book != null && officer != "" && officer != null && period != "" && period != null && expiry_date != "" && expiry_date != null && savings_installment != "" && savings_installment != null && installment != "" && installment != null && interest != "" && interest != null && total_taka_without_ints != 0 && total_taka_without_ints != null && total_taka_with_ints != 0 && total_taka_with_ints != null && client_name != "" && client_name != null && client_mother_name != "" && client_mother_name != null && client_nid != "" && client_nid != null && client_dob != "" && client_dob != null && client_occapasion != "" && client_occapasion != null && client_religion != "" && client_religion != null && client_gender != "" && client_gender != null && client_img != "" && client_img != null && client_mobile != "" && client_mobile != null && client_home != "" && client_home != null && client_city != "" && client_city != null && client_holding != "" && client_holding != null && client_sub_district != "" && client_sub_district != null && client_post != "" && client_post != null && client_district != "" && client_district != null && client_state != "" && client_state != null && client_p_home != "" && client_p_home != null && client_p_city != "" && client_p_city != null && client_p_holding != "" && client_p_holding != null && client_p_sub_district != "" && client_p_sub_district != null && client_p_post != "" && client_p_post != null && client_p_district != "" && client_p_district != null && client_p_state != "" && client_p_state != null && nominee_name != "" && nominee_name != null && nominee_nid != "" && nominee_nid != null && nominee_dob != "" && nominee_dob != null && nominee_occapasion != "" && nominee_occapasion != null && nominee_relation != "" && nominee_relation != null && nominee_gender != "" && nominee_gender != null && nominee_img != "" && nominee_img != null && nominee_home != "" && nominee_home != null && nominee_city != "" && nominee_city != null && nominee_holding != "" && nominee_holding != null && nominee_sub_district != "" && nominee_sub_district != null && nominee_post != "" && nominee_post != null && nominee_district != "" && nominee_district != null && nominee_state != "" && nominee_state != null && client_position != "" && client_position != null && client_income != "" && client_income != null) {
+            if (feild != "" && feild != null && center != "" && center != null && book != "" && book != null && officer != "" && officer != null && period != "" && period != null && expiry_date != "" && expiry_date != null && savings_installment != "" && savings_installment != null && installment != "" && installment != null && interest != "" && interest != null && total_taka_without_ints != 0 && total_taka_without_ints != null && total_taka_with_ints != 0 && total_taka_with_ints != null && client_name != "" && client_name != null && client_mother_name != "" && client_mother_name != null && client_nid != "" && client_nid != null && client_dob != "" && client_dob != null && client_occapasion != "" && client_occapasion != null && client_religion != "" && client_religion != null && client_gender != "" && client_gender != null && client_img != "" && client_img != null && client_mobile != "" && client_mobile != null && client_home != "" && client_home != null && client_city != "" && client_city != null && client_holding != "" && client_holding != null && client_sub_district != "" && client_sub_district != null && client_post != "" && client_post != null && client_district != "" && client_district != null && client_state != "" && client_state != null && client_p_home != "" && client_p_home != null && client_p_city != "" && client_p_city != null && client_p_holding != "" && client_p_holding != null && client_p_sub_district != "" && client_p_sub_district != null && client_p_post != "" && client_p_post != null && client_p_district != "" && client_p_district != null && client_p_state != "" && client_p_state != null && nominee_name != "" && nominee_name != null && nominee_occapasion != "" && nominee_occapasion != null && nominee_relation != "" && nominee_relation != null && nominee_gender != "" && nominee_gender != null && nominee_img != "" && nominee_img != null && nominee_home != "" && nominee_home != null && nominee_city != "" && nominee_city != null && nominee_holding != "" && nominee_holding != null && nominee_sub_district != "" && nominee_sub_district != null && nominee_post != "" && nominee_post != null && nominee_district != "" && nominee_district != null && nominee_state != "" && nominee_state != null && client_position != "" && client_position != null && client_income != "" && client_income != null) {
                 var formData = new FormData(this);
                 $.ajax({
                     url: "codes/clientAuthenticate.php",

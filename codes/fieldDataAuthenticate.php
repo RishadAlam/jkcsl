@@ -199,7 +199,7 @@ if (isset($_POST['clientLoan']) && isset($_POST['clientID']) && $_POST['clientLo
                                                             <p>কিস্তির পরিমাণঃ <span>' . $row['loan_installment'] . ' টাকা</span></p>
                                                         </div>
                                                         <div class="col-md-6 my-3">
-                                                            <p>প্রিমিয়াম সংখ্যাঃ <span>' . $row['loan_installment'] . ' টি</span></p>
+                                                            <p>প্রিমিয়াম সংখ্যাঃ <span>' . $row['total_intsallment'] . ' টি</span></p>
                                                         </div>
                                                         <div class="col-md-6 my-3">
                                                             <p>শুরুর তারিখঃ <span>' . date("d M Y", strtotime($row['created_at'])) . '</span></p>
