@@ -1,7 +1,12 @@
 <?php
+ob_start();
 include "include/header.php";
 include "include/sidebar.php";
 include "include/topbar.php";
+if ($bookCheck == 0) {
+    redirect("404");
+    ob_end_flush();
+}
 ?>
 <!-- Breadcrumb -->
 <div id="breadcrumb">

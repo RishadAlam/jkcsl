@@ -207,4 +207,19 @@ class FieldDataController
             return false;
         }
     }
+
+    public function userPermission($query)
+    {
+
+        $sql = $this->conn->prepare($query);
+        $sql->execute();
+
+        if (
+            $sql->rowCount() > 0
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

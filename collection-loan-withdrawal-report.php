@@ -1,7 +1,12 @@
 <?php
+ob_start();
 include "include/header.php";
 include "include/sidebar.php";
 include "include/topbar.php";
+if ($waitingWithdrawal == 0) {
+    redirect("404");
+    ob_end_flush();
+}
 ?>
 
 <!-- Breadcrumb -->
@@ -9,10 +14,10 @@ include "include/topbar.php";
     <div class="container_fluid">
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb d-flex justify-content-center">
-                <li class="breadcrumb-item"><a href="./index.html">ড্যাশবোর্ড</a></li>
+                <li class="breadcrumb-item"><a href="<?= baseUrl('/') ?>">ড্যাশবোর্ড</a></li>
                 <li class="breadcrumb-item">কালেকশন রিপোর্ট</li>
-                <li class="breadcrumb-item"><a href="./index.html">ক্ষেত্র তালিকা</a></li>
-                <li class="breadcrumb-item active" aria-current="page">মাসিক ঋণ রিপোর্ট</li>
+                <li class="breadcrumb-item"><a href="<?= baseUrl('collection-withdrawal-field-report') ?>">ক্ষেত্র তালিকা</a></li>
+                <li class="breadcrumb-item active" aria-current="page" id="breadcrumb_name"></li>
             </ol>
         </nav>
     </div>
@@ -137,6 +142,35 @@ include "include/footer.php";
     }
 
     $(document).ready(function() {
+        let queryStrings = window.location.search;
+        let urlParam = new URLSearchParams(queryStrings);
+        let fieldID = null;
+        let centerID = null;
+        let periodID = null;
+        periodID = urlParam.get('report');
+
+        function cardLoad() {
+            $.ajax({
+                url: "codes/fieldDataAuthenticate.php",
+                type: "POST",
+                data: {
+                    fieldCard: 1,
+                    centerID: centerID,
+                    periodID: periodID,
+                    fieldID: fieldID
+                },
+                dataType: "JSON",
+                success: function(data) {
+                    if (data != false) {
+                        $.each(data, function(key, value) {
+                            $("#breadcrumb_name").text(value.fieldName);
+                        })
+                    }
+                }
+            })
+        }
+        cardLoad();
+
         function loadOfficer() {
             $.ajax({
                 url: "codes/loadFunction.php",

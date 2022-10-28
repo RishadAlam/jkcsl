@@ -1,7 +1,12 @@
 <?php
+ob_start();
 include "include/header.php";
 include "include/sidebar.php";
 include "include/topbar.php";
+if ($expiredCollection == 0) {
+    redirect("404");
+    ob_end_flush();
+}
 ?>
 
 <!-- Breadcrumb -->
@@ -9,10 +14,10 @@ include "include/topbar.php";
     <div class="container_fluid">
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb d-flex justify-content-center">
-                <li class="breadcrumb-item"><a href="./index.html">ড্যাশবোর্ড</a></li>
+                <li class="breadcrumb-item"><a href="<?= baseUrl('/') ?>">ড্যাশবোর্ড</a></li>
                 <li class="breadcrumb-item">কালেকশন রিপোর্ট</li>
-                <li class="breadcrumb-item"><a href="./index.html">ক্ষেত্র তালিকা</a></li>
-                <li class="breadcrumb-item active" aria-current="page">মাসিক ঋণ রিপোর্ট</li>
+                <li class="breadcrumb-item"><a href="<?= baseUrl('tamadi-collection-field-report') ?>">ক্ষেত্র তালিকা</a></li>
+                <li class="breadcrumb-item active" id="breadcrumb_name" aria-current="page"></li>
             </ol>
         </nav>
     </div>
@@ -116,6 +121,32 @@ include "include/footer.php";
 ?>
 <script>
     $(document).ready(function() {
+        let queryString = window.location.search;
+        let urlParams = new URLSearchParams(queryString);
+        let periodID = urlParams.get('report');
+
+        function cardLoad() {
+            $.ajax({
+                url: "codes/fieldDataAuthenticate.php",
+                type: "POST",
+                data: {
+                    fieldCard: 1,
+                    fieldID: null,
+                    centerID: null,
+                    periodID: periodID
+                },
+                dataType: "JSON",
+                success: function(data) {
+                    if (data != false) {
+                        $.each(data, function(key, value) {
+                            $("#breadcrumb_name").text(value.fieldName);
+                        })
+                    }
+                }
+            })
+        }
+        cardLoad();
+
         window.addEventListener('load', function() {
             var dates = document.getElementById('date_range').innerText;
             var range = dates.split("-");

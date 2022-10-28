@@ -109,6 +109,21 @@ class Database
             }
         }
     }
+
+    // User Previlege Load
+    public function userPrevilege()
+    {
+        $officerID = $_SESSION['auth']['user_id'];
+        $sql = $this->link->prepare("SELECT * FROM user_privileges WHERE user_id = '${officerID}' LIMIT 1");
+        $sql->execute();
+
+        if ($sql->rowCount() > 0) {
+            $result = $sql->fetchALL(PDO::FETCH_ASSOC);
+            return $result;
+        } else {
+            return false;
+        }
+    }
 }
 
 // $db = new Database();
