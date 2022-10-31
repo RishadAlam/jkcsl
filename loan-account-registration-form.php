@@ -361,6 +361,10 @@ if ($regForm3 == 0) {
                 </div>
             </div>
 
+            <!-- Nominee Information Heading -->
+            <div class="form_section_heading pb-1 shadow my-3">
+                <h4>নমিনী এর তথ্যাবলি</h4>
+            </div>
             <!-- Nominee Information -->
             <div class="nominee_info row p-0 m-0">
                 <div class="col-md-6 mb-3">
@@ -385,15 +389,15 @@ if ($regForm3 == 0) {
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="nominee_mother_name" class="pb-2">মাতার নাম <span class="text-danger">*</span></label>
+                    <label for="nominee_mother_name" class="pb-2">মাতার নাম</label>
                     <input type="text" class="form-control input_field form-input p-3" placeholder="মাতার নাম" id="nominee_mother_name" name="nominee_mother_name">
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="nominee_birth_reg_id_no" class="pb-2">জন্ম তারিখ <span class="text-danger">*</span></label>
+                    <label for="nominee_birth_reg_id_no" class="pb-2">জন্ম তারিখ</label>
                     <input type="date" class="form-control input_field form-input p-3" placeholder="জন্ম তারিখ" id="nominee_birth_reg_id_no" name="nominee_birth_reg_id_no">
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="nominee_nid" class="pb-2">জাতীয় পরিচয় পত্রের নম্বর <span class="text-danger">*</span></label>
+                    <label for="nominee_nid" class="pb-2">জাতীয় পরিচয় পত্রের নম্বর</label>
                     <input type="number" class="form-control input_field form-input p-3" placeholder="জাতীয় পরিচয় পত্রের নম্বর" id="nominee_nid" name="nominee_nid">
                 </div>
                 <div class="col-md-6 mb-3">

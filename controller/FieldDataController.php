@@ -112,7 +112,7 @@ class FieldDataController
     // Savings Audit Function
     public function savingsAuditLoad()
     {
-        $query = "SELECT SUM(deposit) AS total, period_name FROM ( SELECT NVL(l.deposit,0) AS deposit, p.period_name FROM saving_collections AS l INNER JOIN periods AS p ON p.period_id = l.period_id WHERE l.status = '1' UNION ALL SELECT 0 AS deposit, period_name FROM periods WHERE period_type LIKE '%1%' ) AS a GROUP BY period_name";
+        $query = "SELECT SUM(deposit) AS total, period_name FROM ( SELECT l.deposit AS deposit, p.period_name FROM saving_collections AS l INNER JOIN periods AS p ON p.period_id = l.period_id WHERE l.status = '1' UNION ALL SELECT 0 AS deposit, period_name FROM periods WHERE period_type LIKE '%1%' ) AS a GROUP BY period_name";
         $sql = $this->conn->prepare($query);
         $sql->execute();
 
@@ -129,7 +129,7 @@ class FieldDataController
     // Loan Savings Audit Function
     public function loanSavingsAuditLoad()
     {
-        $query = "SELECT SUM(deposit) AS total, period_name FROM ( SELECT NVL(l.deposit,0) AS deposit, p.period_name FROM loan_collections AS l INNER JOIN periods AS p ON p.period_id = l.period_id WHERE l.period_id IN (SELECT period_id FROM periods WHERE period_type LIKE '%2%') AND l.status = '1' UNION ALL SELECT 0 AS deposit, period_name FROM periods WHERE period_type LIKE '%2%' ) AS a GROUP BY period_name";
+        $query = "SELECT SUM(deposit) AS total, period_name FROM ( SELECT l.deposit AS deposit, p.period_name FROM loan_collections AS l INNER JOIN periods AS p ON p.period_id = l.period_id WHERE l.period_id IN (SELECT period_id FROM periods WHERE period_type LIKE '%2%') AND l.status = '1' UNION ALL SELECT 0 AS deposit, period_name FROM periods WHERE period_type LIKE '%2%' ) AS a GROUP BY period_name";
 
         $sql = $this->conn->prepare($query);
         $sql->execute();
@@ -147,7 +147,7 @@ class FieldDataController
     // Loan  Audit Function
     public function loansAuditLoad()
     {
-        $query = "SELECT SUM(total_loan) AS total_loan, SUM(total_interest) AS total_interest, SUM(loan) AS loan, SUM(interest) AS interest, (SUM(total_loan)-SUM(loan)) AS loan_rem, (SUM(total_interest)-SUM(interest)) AS interest_rem, (SUM(loan)+(SUM(total_loan)-SUM(loan))) AS loan_total, (SUM(interest)+(SUM(total_interest)-SUM(interest))) AS interest_total, period_name FROM ( SELECT lp.total_loan, lp.total_interest, 0 AS loan, 0 AS interest, p.period_name FROM loan_profiles AS lp INNER JOIN periods AS p ON p.period_id = lp.period_id WHERE lp.status = '1' UNION ALL SELECT 0 AS total_loan, 0 AS total_interest, NVL(l.loan,0) AS loan, NVL(l.interest,0) AS interest, p.period_name FROM loan_collections AS l INNER JOIN periods AS p ON p.period_id = l.period_id WHERE l.status = '1' UNION ALL SELECT 0 AS total_loan, 0 AS total_interest, 0 AS loan, 0 AS interest, period_name FROM periods WHERE period_type LIKE '%2%' ) AS a GROUP BY period_name";
+        $query = "SELECT SUM(total_loan) AS total_loan, SUM(total_interest) AS total_interest, SUM(loan) AS loan, SUM(interest) AS interest, (SUM(total_loan)-SUM(loan)) AS loan_rem, (SUM(total_interest)-SUM(interest)) AS interest_rem, (SUM(loan)+(SUM(total_loan)-SUM(loan))) AS loan_total, (SUM(interest)+(SUM(total_interest)-SUM(interest))) AS interest_total, period_name FROM ( SELECT lp.total_loan, lp.total_interest, 0 AS loan, 0 AS interest, p.period_name FROM loan_profiles AS lp INNER JOIN periods AS p ON p.period_id = lp.period_id WHERE lp.status = '1' UNION ALL SELECT 0 AS total_loan, 0 AS total_interest, l.loan AS loan, l.interest AS interest, p.period_name FROM loan_collections AS l INNER JOIN periods AS p ON p.period_id = l.period_id WHERE l.status = '1' UNION ALL SELECT 0 AS total_loan, 0 AS total_interest, 0 AS loan, 0 AS interest, period_name FROM periods WHERE period_type LIKE '%2%' ) AS a GROUP BY period_name";
         $sql = $this->conn->prepare($query);
         $sql->execute();
 
@@ -164,11 +164,11 @@ class FieldDataController
     // Total Savings Function
     public function totalFDRLoad()
     {
-        $query = "SELECT 'সাধারণ সঞ্চয়' AS name, NVL(SUM(deposit),0) AS savings FROM saving_collections WHERE status = '1'
+        $query = "SELECT 'সাধারণ সঞ্চয়' AS name, SUM(deposit) AS savings FROM saving_collections WHERE status = '1'
                     UNION ALL
-                    SELECT 'ঋণ সঞ্চয়' AS name, NVL(SUM(deposit),0) AS savings FROM loan_collections WHERE status = '1'
+                    SELECT 'ঋণ সঞ্চয়' AS name, SUM(deposit) AS savings FROM loan_collections WHERE status = '1'
                     UNION ALL 
-                    SELECT 'এফ.ডি.আর' AS name, NVL(SUM(deposit),0) AS savings FROM fdr_lists WHERE status = '1'";
+                    SELECT 'এফ.ডি.আর' AS name, SUM(deposit) AS savings FROM fdr_lists WHERE status = '1'";
         $sql = $this->conn->prepare($query);
         $sql->execute();
 
@@ -186,14 +186,14 @@ class FieldDataController
     public function finalAuditLoad()
     {
         $query = "SELECT 'সর্বমোট ঋণ বাকি' AS name, (SUM(totalLoan)-SUM(loan)) AS tk FROM ( 
-            SELECT NVL(SUM(total_loan),0) AS totalLoan, 0 AS loan FROM loan_profiles WHERE status = '1' UNION ALL SELECT 0 AS totalLoan, NVL(SUM(loan),0) AS loan FROM loan_collections WHERE status = '1' ) AS a
+            SELECT SUM(total_loan) AS totalLoan, 0 AS loan FROM loan_profiles WHERE status = '1' UNION ALL SELECT 0 AS totalLoan, SUM(loan) AS loan FROM loan_collections WHERE status = '1' ) AS a
             UNION ALL
-            SELECT 'সর্বমোট সঞ্চয়' AS name, NVL(SUM(savings),0) AS tk FROM (
-                SELECT 'সাধারণ সঞ্চয়' AS name, NVL(SUM(deposit),0) AS savings FROM saving_collections WHERE status = '1'
+            SELECT 'সর্বমোট সঞ্চয়' AS name, SUM(savings) AS tk FROM (
+                SELECT 'সাধারণ সঞ্চয়' AS name, SUM(deposit) AS savings FROM saving_collections WHERE status = '1'
                 UNION ALL
-                SELECT 'ঋণ সঞ্চয়' AS name, NVL(SUM(deposit),0) AS savings FROM loan_collections WHERE status = '1'
+                SELECT 'ঋণ সঞ্চয়' AS name, SUM(deposit) AS savings FROM loan_collections WHERE status = '1'
                 UNION ALL 
-                SELECT 'এফ.ডি.আর' AS name, NVL(SUM(deposit),0) AS savings FROM fdr_lists WHERE status = '1') AS b";
+                SELECT 'এফ.ডি.আর' AS name, SUM(deposit) AS savings FROM fdr_lists WHERE status = '1') AS b";
 
         $sql = $this->conn->prepare($query);
         $sql->execute();

@@ -318,13 +318,12 @@ $end =  date('H:i', strtotime($timeEnd));
                         <span class="menu-icon"><i class='bx bx-line-chart'></i></span>
                         <span class="menu-title">এনালেটিক্স</span>
                     </a></li>
-            <?php }
-            if ($clientAcc != 0) { ?>
-                <li><a class="<?= $page == 'sand-box.php' ? 'active' : '' ?>" href="<?= baseUrl('sand-box') ?>">
-                        <span class="menu-icon"><i class='bx bx-envelope'></i></span>
-                        <span class="menu-title">সেন্ড-বক্স</span>
-                    </a></li>
-            <?php }
+            <?php } ?>
+            <li><a class="<?= $page == 'sand-box.php' ? 'active' : '' ?>" href="<?= baseUrl('sand-box') ?>">
+                    <span class="menu-icon"><i class='bx bx-envelope'></i></span>
+                    <span class="menu-title">সেন্ড-বক্স</span>
+                </a></li>
+            <?php
             if ($_SESSION['auth']['user_role'] == 0) { ?>
                 <li><a class="<?= $page == 'fdr.php' ? 'active' : '' ?>" href="<?= baseUrl('fdr') ?>">
                         <span class="menu-icon"><i class='bx bx-coin-stack'></i></span>

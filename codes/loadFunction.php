@@ -134,7 +134,7 @@ if (isset($_POST['lField']) && isset($_POST['lcenter']) && isset($_POST['lperiod
 }
 
 if (isset($_POST['officer']) && $_POST['officer'] == 1) {
-    $result = $load->officersLoad(1);
+    $result = $load->officersLoad();
     if ($result != false) {
         $output = '<option class="feild" value="null" disabled selected>অফিসার নির্বারচন করুন...</option>';
         // echo json_encode($result);

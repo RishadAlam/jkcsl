@@ -2,7 +2,7 @@
 
 use controller\ClientRegController\ClientRegController;
 
-include_once "../controller/clientRegController.php";
+include_once "../controller/ClientRegController.php";
 // session_start();
 
 $reg = new ClientRegController();

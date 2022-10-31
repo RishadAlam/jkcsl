@@ -303,7 +303,7 @@ if ($regForm1 == 0) {
                     <label for="income" class="pb-2">বাৎসরিক আয় <span class="text-danger">*</span></label>
                     <input type="number" class="form-control input_field form-input p-3" placeholder="বাৎসরিক আয়" id="income" name="income">
                     <div id="client_income-feedback" class="invalid-feedback" style="display: none; font-size: 18px;">
-                        মোবাইল নম্বর দিন
+                        বাৎসরিক আয় দিন
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
