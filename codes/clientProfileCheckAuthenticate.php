@@ -5,11 +5,11 @@ use controller\FieldDataController\FieldDataController\FieldDataController;
 include_once "../controller/FieldDataController.php";
 $fields = new FieldDataController();
 
-$savingsID = $_POST['savingsID'];
+$loansID = $_POST['loansID'];
 $from_date = date("Y-m-d", strtotime($_POST['from_date']));
 $end_date = date("Y-m-d", strtotime($_POST['end_date']));
 
-$query = "SELECT balance, next_check_date, checked_at AS date FROM savings_acc_checks WHERE saving_profiles_id ='${savingsID}' AND status='1' AND checked_at BETWEEN '${from_date}' AND '${end_date}'";
+$query = "SELECT balance, loan_recover, loan_remaining, interest_recover, interest_remaining, next_check_date, checked_at AS date FROM loan_acc_checks WHERE loan_profile_id ='${loansID}' AND checked_at BETWEEN '${from_date}' AND '${end_date}'";
 
 $result = $fields->clientAccLoad($query);
 
@@ -23,6 +23,10 @@ if ($result != false && $result != null) {
         $subarray[] = date("d/m/Y", strtotime($value['date']));
         $subarray[] = date("d/m/Y", strtotime($value['next_check_date']));
         $subarray[] = $value['balance'];
+        $subarray[] = $value['loan_recover'];
+        $subarray[] = $value['loan_remaining'];
+        $subarray[] = $value['interest_recover'];
+        $subarray[] = $value['interest_remaining'];
 
         $output[] = $subarray;
     }

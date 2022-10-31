@@ -40,7 +40,7 @@ if ($waitingWithdrawal == 0) {
                         </div>
                     <?php } ?>
                 </div>
-                <table id="withdrawal_loan_report" class="table table-responsive table-bordered table-hover table-striped">
+                <table id="withdrawal_loan_report" class="table display responsive nowrap table-bordered table-hover table-striped">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -68,7 +68,8 @@ if ($waitingWithdrawal == 0) {
                     <tfoot>
                         <tr>
                             <td colspan="5" class="text-end" style="border-top: 1px solid #fff;">সর্বমোট</td>
-                            <td colspan="6" style="border-top: 1px solid #fff;"></td>
+                            <td style="border-top: 1px solid #fff;"></td>
+                            <td colspan="5" style="border-top: 1px solid #fff;"></td>
                             <td style="border-top: 1px solid #fff;"></td>
                             <?php if ($_SESSION['auth']['user_role'] == 0) { ?>
                                 <td style="border-top: 1px solid #fff;">
@@ -239,6 +240,16 @@ include "include/footer.php";
                         // Update footer
                         $(api.column(5).footer()).html('৳' + interestTotal + "/-");
                     },
+                    "responsive": true,
+                    columnDefs: [{
+                            responsivePriority: 1,
+                            targets: 0
+                        },
+                        {
+                            responsivePriority: 2,
+                            targets: 5
+                        }
+                    ],
                     // "retrieve": true,
                     "paging": false,
                     "bDestroy": true,

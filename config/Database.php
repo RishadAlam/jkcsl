@@ -25,7 +25,7 @@ class Database
     {
         // Connect Database
         try {
-            $this->link = new PDO($this->db_name, $this->db_user, $this->db_pass);
+            $this->link = new PDO($this->db_name, $this->db_user, $this->db_pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
             // set the PDO error mode to exception
             $this->link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // echo "Connected successfully";

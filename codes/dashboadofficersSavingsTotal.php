@@ -11,7 +11,7 @@ if ($_SESSION['auth']['user_role'] > 0) {
     $officer_id = $_SESSION['auth']['user_id'];
 }
 
-$query = "SELECT name AS savingOfficer, SUM(s.deposit) AS savings FROM saving_collections AS s INNER JOIN users AS u ON s.officers_id = u.id WHERE s.created_at_date = CURRENT_DATE";
+$query = "SELECT name AS savingOfficer, SUM(s.deposit) AS savings FROM saving_collections AS s INNER JOIN users AS u ON s.officers_id = u.id WHERE DATE(s.created_at_date) = DATE(CURRENT_DATE())";
 if ($officer_id != null) {
     $query .= " AND s.officers_id = '${officer_id}'";
 }

@@ -508,6 +508,17 @@ include "include/footer.php";
         <?php }
         } ?>
 
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2) month = '0' + month;
+            if (day.length < 2) day = '0' + day;
+
+            return [day, month, year].join('-');
+        }
 
         function userProfileLoad() {
             $.ajax({
@@ -529,12 +540,12 @@ include "include/footer.php";
                         $("#edit_blood_group").val(value.blood).trigger('change');
                         $("#mobile_1").text(value.mobile_1);
                         $("#edit_phone_number").val(value.mobile_1);
-                        $("#start").text(value.created_at);
+                        $("#start").text(formatDate(value.created_at));
                         $("#expiry").text(value.resign_date);
-                        $("#update_date").text(value.updated_at);
+                        $("#update_date").text(formatDate(value.updated_at));
                         $("#nid").text(value.nid);
                         $("#edit_nid").val(value.nid);
-                        $("#dob").text(value.dob);
+                        $("#dob").text(formatDate(value.dob));
                         $("#edit_dob").val(value.dob);
                         $("#mobile_2").text(value.mobile_2);
                         $("#edit_phone_number_2").val(value.mobile_2);

@@ -43,6 +43,7 @@ if (strlen($_FILES['client_pic']['name']) != 0) {
                     // After upload image data will be store in database
                     $result = $reg->userUpdate($name, $nid, $phone_number, $phone_number_2, $blood_group, $dob, $id, $img_name);
                     if ($result != false) {
+                        $_SESSION['auth']['user_img'] = $img_name;
                         echo $result; // DATA SUCCESSFULLY INSERTED
                     } else {
                         echo false; // DATA DOES NOT INSERTED

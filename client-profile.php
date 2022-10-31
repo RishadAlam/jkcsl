@@ -134,210 +134,6 @@ if ($clientAcc == 0) {
                             </div>
                             <div>
                                 <ul class="tab-wrap d-flex justify-content-between" id="clientLoan">
-                                    <!-- <li>
-                                        <input type="radio" id="ltab-1" name="ltab" checked />
-                                        <label for="ltab-1">
-                                            রবিবার
-                                        </label>
-                                        <div class="tab-content">
-                                            <div class="savings_info">
-                                                <div class="row">
-                                                    <div class="form_section_heading pb-1 shadow my-3">
-                                                        <h4>ঋণের তথ্যাবলি</h4>
-                                                    </div>
-                                                    <div class="client_info row">
-                                                        <div class="col-md-6 my-3">
-                                                            <p>একাউন্ট <span class="d-inline-block py-1 px-4 text-capitalize bg-success rounded" style="color: #fff; font-size: 18px;">ACTIVE</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>একাউন্ট হিসাব <a href="./account_loan_profile.html" class="d-inline-block p-3 text-capitalize bg-primary rounded" style="color: #fff; font-size: 18px;"><span style="cursor: pointer; font-size: 26px;"><i class='bx bxs-user-account d-block'></i></span></a></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>ঋণ প্রদান <span>50000 টাকা</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>কিস্তির পরিমাণঃ <span>500 টাকা</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>মেয়াদকালঃ <span>36 সপ্তাহ</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>লাভঃ <span>15%</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3 ">
-                                                            <p>সর্বমোট টাকা (লাভ সহ): <span>60000 টাকা</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>নিবন্ধন অফিসার: <span>আল-আমিন</span></p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form_section_heading pb-1 shadow my-3">
-                                                        <h4>নমিনির তথ্যাবলি</h4>
-                                                    </div>
-                                                    <div class="client_info row">
-                                                        <div class="col-md-6 my-3">
-                                                            <p>নামঃ <span>জসিম মিয়া</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>স্বামীঃ <span>জসিম মিয়া</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>পিতাঃ <span>মনির হোসাইন</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>মাতাঃ <span>আমিনা খাতুন</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>জাতীয় পরিচয় পত্রের নম্বরঃ <span>২০১৩৫৫২৪৮৫৬২</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>জন্ম তারিখঃ <span>10/12/1986</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>লিঙ্গঃ <span>মহিলা</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>পেশাঃ <span>ব্যবসা</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>সম্পর্কঃ <span>মা/মেয়ে</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>ছবিঃ <span class="text-end"><img style="width: 50%;" src="./img/7.jpg" alt=""></span></p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form_section_heading pb-1 shadow my-3">
-                                                        <h4>ঠিকানা</h4>
-                                                    </div>
-                                                    <div class="present_address row">
-                                                        <div class="col-md-12 my-3">
-                                                            <p>বাড়ির এবং রাস্তারঃ <span>সৌওদাগর বাড়ি</span></p>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6 my-3">
-                                                            <p>গ্রামঃ <span>ইছা নগর</span></p>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6 my-3">
-                                                            <p>ওয়ার্ড নম্বরঃ <span>৬</span></p>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6 my-3">
-                                                            <p>উপজেলাঃ <span>কর্নফুলি</span></p>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6 my-3">
-                                                            <p>পোষ্ট অফিসঃ <span>কর্নফুলি</span></p>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6 my-3">
-                                                            <p>জেলাঃ <span>কর্নফুলি</span></p>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6 my-3">
-                                                            <p>বিভাগঃ <span>চট্রগ্রাম</span></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <input type="radio" id="ltab-2" name="ltab" />
-                                        <label for="ltab-2">
-                                            মাসিক ঋণ
-                                        </label>
-                                        <div class="tab-content">
-                                            <div class="savings_info">
-                                                <div class="row">
-                                                    <div class="form_section_heading pb-1 shadow my-3">
-                                                        <h4>ঋণের তথ্যাবলি</h4>
-                                                    </div>
-                                                    <div class="client_info row">
-                                                        <div class="col-md-6 my-3">
-                                                            <p>একাউন্ট <span class="d-inline-block py-1 px-4 text-capitalize bg-success rounded" style="color: #fff; font-size: 18px;">ACTIVE</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>একাউন্ট হিসাব <a href="./account_loan_profile.html" class="d-inline-block p-3 text-capitalize bg-primary rounded" style="color: #fff; font-size: 18px;"><span style="cursor: pointer; font-size: 26px;"><i class='bx bxs-user-account d-block'></i></span></a></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>ঋণ প্রদান <span>50000 টাকা</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>কিস্তির পরিমাণঃ <span>500 টাকা</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>মেয়াদকালঃ <span>36 সপ্তাহ</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>লাভঃ <span>15%</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3 ">
-                                                            <p>সর্বমোট টাকা (লাভ সহ): <span>60000 টাকা</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>নিবন্ধন অফিসার: <span>আল-আমিন</span></p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form_section_heading pb-1 shadow my-3">
-                                                        <h4>নমিনির তথ্যাবলি</h4>
-                                                    </div>
-                                                    <div class="client_info row">
-                                                        <div class="col-md-6 my-3">
-                                                            <p>নামঃ <span>জসিম মিয়া</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>স্বামীঃ <span>জসিম মিয়া</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>পিতাঃ <span>মনির হোসাইন</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>মাতাঃ <span>আমিনা খাতুন</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>জাতীয় পরিচয় পত্রের নম্বরঃ <span>২০১৩৫৫২৪৮৫৬২</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>জন্ম তারিখঃ <span>10/12/1986</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>লিঙ্গঃ <span>মহিলা</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>পেশাঃ <span>ব্যবসা</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>সম্পর্কঃ <span>মা/মেয়ে</span></p>
-                                                        </div>
-                                                        <div class="col-md-6 my-3">
-                                                            <p>ছবিঃ <span class="text-end"><img style="width: 50%;" src="./img/7.jpg" alt=""></span></p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form_section_heading pb-1 shadow my-3">
-                                                        <h4>ঠিকানা</h4>
-                                                    </div>
-                                                    <div class="present_address row">
-                                                        <div class="col-md-12 my-3">
-                                                            <p>বাড়ির এবং রাস্তারঃ <span>সৌওদাগর বাড়ি</span></p>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6 my-3">
-                                                            <p>গ্রামঃ <span>ইছা নগর</span></p>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6 my-3">
-                                                            <p>ওয়ার্ড নম্বরঃ <span>৬</span></p>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6 my-3">
-                                                            <p>উপজেলাঃ <span>কর্নফুলি</span></p>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6 my-3">
-                                                            <p>পোষ্ট অফিসঃ <span>কর্নফুলি</span></p>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6 my-3">
-                                                            <p>জেলাঃ <span>কর্নফুলি</span></p>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-6 my-3">
-                                                            <p>বিভাগঃ <span>চট্রগ্রাম</span></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li> -->
                                 </ul>
                             </div>
                         </div>
@@ -648,6 +444,17 @@ include "include/footer.php";
         }
         cardLoad();
 
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2) month = '0' + month;
+            if (day.length < 2) day = '0' + day;
+
+            return [day, month, year].join('-');
+        }
 
         if (clientID != null) {
             function clientProfileLoad() {
@@ -669,7 +476,7 @@ include "include/footer.php";
                                 $("#book").text(value.book);
                                 $("#phone1").text(value.client_mobile_1);
                                 $("#up_phone_number").val(value.client_mobile_1);
-                                $("#start_date").text(value.created_at);
+                                $("#start_date").text(formatDate(value.created_at));
                                 $("#close_at").text(value.closing_at);
                                 $("#husband").text(value.husbands_name);
                                 $("#up_husband_name").val(value.husbands_name);
@@ -679,7 +486,7 @@ include "include/footer.php";
                                 $("#up_mother_name").val(value.mothers_name);
                                 $("#nid").text(value.client_nid);
                                 $("#up_nid").val(value.client_nid);
-                                $("#dob").text(value.client_dob);
+                                $("#dob").text(formatDate(value.client_dob));
                                 $("#birth_reg_id_no").val(value.client_dob);
                                 $("#occupation").text(value.client_occupation);
                                 $("#religion").text(value.religion);
@@ -699,7 +506,7 @@ include "include/footer.php";
                                 $("#up_present_address").val(value.present_address);
                                 $("#parmanent_address").text(value.parmanent_address);
                                 $("#up_parmanent_address").val(value.parmanent_address);
-                                $("#update_date").text(value.updated_at);
+                                $("#update_date").text(formatDate(value.updated_at));
                                 $('input:radio[name="up_occapasion"]').filter('[value= "' + value.client_occupation + '"]').attr('checked', true);
                                 $('input:radio[name="up_religion"]').filter('[value= "' + value.religion + '"]').attr('checked', true);
                                 $('input:radio[name="up_gender"]').filter('[value= "' + value.client_gander + '"]').attr('checked', true);

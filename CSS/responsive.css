@@ -13,6 +13,9 @@
  }
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 767.98px) {
+    .fixed {
+        width: 100%;
+    }
     #loader {
         display: block;
         position: relative;
@@ -294,6 +297,9 @@
     .topbar .container-fluid
     {
         padding: 0;
+    }
+    .fixed {
+        width: calc(100% - 80px);
     }
 
     /* Main */

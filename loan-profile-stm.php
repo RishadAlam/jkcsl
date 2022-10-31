@@ -206,7 +206,7 @@ if ($clientAcc == 0) {
                     <nav>
                         <div class="nav nav-tabs d-flex justify-content-between" id="nav-tab" role="tablist">
                             <button class="col-6 col-sm-3 nav-link active" id="nav-accstm-tab" data-bs-toggle="tab" data-bs-target="#nav-accstm" type="button" role="tab" aria-controls="nav-accstm" aria-selected="true">একাউন্ট বিবৃতি</button>
-                            <button class="col-6 col-sm-3 nav-link" id="nav-loan-tab" data-bs-toggle="tab" data-bs-target="#nav-loan" type="button" role="tab" aria-controls="nav-loan" aria-selected="true">সঞ্চয় জমা</button>
+                            <button class="col-6 col-sm-3 nav-link" id="nav-loan-tab" data-bs-toggle="tab" data-bs-target="#nav-loan" type="button" role="tab" aria-controls="nav-loan" aria-selected="true">ঋণ</button>
                             <button class="col-6 col-sm-3 nav-link" id="nav-loanSavingsWithdrawal-tab" data-bs-toggle="tab" data-bs-target="#nav-loanSavingsWithdrawal" type="button" role="tab" aria-controls="nav-loanSavingsWithdrawal" aria-selected="true">সঞ্চয় উত্তোলন</button>
                             <button class="col-6 col-sm-3 nav-link" id="nav-accCheck-tab" data-bs-toggle="tab" data-bs-target="#nav-accCheck" type="button" role="tab" aria-controls="nav-accCheck" aria-selected="true">বই চেক</button>
                         </div>
@@ -217,11 +217,12 @@ if ($clientAcc == 0) {
                                 <h4>একাউন্ট বিবৃতি</h4>
                                 <a href="" class="d-inline-block py-1 px-3 text-capitalize bg-secondary bg-gradient rounded" style="color: #fff; cursor: pointer; font-size: 18px;">Print</a>
                             </div>
-                            <table id="clientProfileStm" class="w-100 table table-responsive table-bordered table-hover table-striped text-start">
+                            <table id="clientProfileStm" class="w-100 table display responsive nowrap table-bordered table-hover table-striped text-start">
                                 <thead>
                                     <tr>
                                         <th>#</th>
                                         <th>তারিখ</th>
+                                        <th>মন্তব্য</th>
                                         <th>সঞ্চয়</th>
                                         <th>উত্তোলন</th>
                                         <th>অবশিষ্ট সঞ্চয়</th>
@@ -233,7 +234,10 @@ if ($clientAcc == 0) {
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="2" class="text-end border-top">সর্বমোট</td>
+                                        <td colspan="3" class="text-end border-top">সর্বমোট</td>
+                                        <td class="border-top" style="font-weight: bolder;"></td>
+                                        <td class="border-top" style="font-weight: bolder;"></td>
+                                        <td class="border-top" style="font-weight: bolder;"></td>
                                         <td class="border-top" style="font-weight: bolder;"></td>
                                         <td class="border-top" style="font-weight: bolder;"></td>
                                         <td class="border-top" style="font-weight: bolder;"></td>
@@ -247,64 +251,81 @@ if ($clientAcc == 0) {
                                 <h4>ঋণ বিবৃতি</h4>
                                 <a href="" class="d-inline-block py-1 px-3 text-capitalize bg-secondary bg-gradient rounded" style="color: #fff; cursor: pointer; font-size: 18px;">Print</a>
                             </div>
-                            <table id="clientProfileCollection" class="w-100 table table-responsive table-bordered table-hover table-striped text-start">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>তারিখ</th>
-                                        <th>সময়</th>
-                                        <th>অফিসার</th>
-                                        <th>মন্তব্য</th>
-                                        <th>সংগ্রহ</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="5" class="text-end border-top">সর্বমোট</td>
-                                        <td class="border-top" style="font-weight: bolder;"></td>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                            <div id="loanCollections" style="display: none;">
+                                <table id="clientProfileCollection" class="w-100 table display responsive nowrap table-bordered table-hover table-striped text-start">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>তারিখ</th>
+                                            <th>সময়</th>
+                                            <th>অফিসার</th>
+                                            <th>মন্তব্য</th>
+                                            <th>সঞ্চয়</th>
+                                            <th>ঋণ আদায়</th>
+                                            <th>লাভ আদায়</th>
+                                            <th>সর্বমোট</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="5" class="text-end border-top">সর্বমোট</td>
+                                            <td class="border-top" style="font-weight: bolder;"></td>
+                                            <td class="border-top" style="font-weight: bolder;"></td>
+                                            <td class="border-top" style="font-weight: bolder;"></td>
+                                            <td class="border-top" style="font-weight: bolder;"></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
                         </div>
                         <div class="tab-pane fade show" id="nav-loanSavingsWithdrawal" role="tabpanel" aria-labelledby="nav-loanSavingsWithdrawal-tab">
                             <div class="table_heading d-flex align-items-center justify-content-between my-3">
                                 <h4>উত্তোলন বিবৃতি</h4>
                                 <a href="" class="d-inline-block py-1 px-3 text-capitalize bg-secondary bg-gradient rounded" style="color: #fff; cursor: pointer; font-size: 18px;">Print</a>
                             </div>
-                            <table id="clientProfileWithdrawal" class="w-100 table table-responsive table-bordered table-hover table-striped text-start">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>তারিখ</th>
-                                        <th>অফিসার</th>
-                                        <th>মন্তব্য</th>
-                                        <th>উত্তোলন</th>
-                                        <th>অবশিষ্ট জমা</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="4" class="text-end border-top">সর্বমোট</td>
-                                        <td colspan="2" class="border-top" style="font-weight: bolder;"></td>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                            <div id="loanSavingsWithdrawal" style="display: none;">
+                                <table id="clientProfileWithdrawal" class="w-100 table display responsive nowrap table-bordered table-hover table-striped text-start">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>তারিখ</th>
+                                            <th>অফিসার</th>
+                                            <th>মন্তব্য</th>
+                                            <th>উত্তোলন</th>
+                                            <th>অবশিষ্ট জমা</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="4" class="text-end border-top">সর্বমোট</td>
+                                            <td class="border-top" style="font-weight: bolder;"></td>
+                                            <td class="border-top" style="font-weight: bolder;"></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
                         </div>
                         <div class="tab-pane fade show" id="nav-accCheck" role="tabpanel" aria-labelledby="nav-accCheck-tab">
                             <div class="table_heading d-flex align-items-center justify-content-between my-3">
                                 <h4>বই চেক</h4>
                                 <a href="" class="d-inline-block py-1 px-3 text-capitalize bg-secondary bg-gradient rounded" style="color: #fff; cursor: pointer; font-size: 18px;">Print</a>
                             </div>
-                            <table id="clientProfileCheck" class="w-100 table table-responsive table-bordered table-hover table-striped text-start">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>চেকের তারিখ</th>
-                                        <th>পরবর্তি চেকের তারিখ</th>
-                                        <th>জমা ছিলো</th>
-                                    </tr>
-                                </thead>
-                            </table>
+                            <div id="loanAccCheck" style="display: none;">
+                                <table id="clientProfileCheck" class="w-100 table display responsive nowrap table-bordered table-hover table-striped text-start">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>চেকের তারিখ</th>
+                                            <th>পরবর্তি চেকের তারিখ</th>
+                                            <th>জমা ছিলো</th>
+                                            <th>ঋণ আদায়</th>
+                                            <th>ঋণ বাকি</th>
+                                            <th>লাভ আদায়</th>
+                                            <th>লাভ বাকি</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -347,8 +368,19 @@ include "include/footer.php";
         }
         cardLoad();
 
-        if (clientID != null) {
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
 
+            if (month.length < 2) month = '0' + month;
+            if (day.length < 2) day = '0' + day;
+
+            return [day, month, year].join('-');
+        }
+
+        if (clientID != null) {
             function profileLoad() {
                 $.ajax({
                     url: "codes/clientProfileStmAuthenticate.php",
@@ -358,7 +390,7 @@ include "include/footer.php";
                         clientID: clientID,
                         loansID: loans
                     },
-                    dataType: "json",
+                    dataType: "JSON",
                     success: function(data) {
                         // console.log(data);
                         if (data != false) {
@@ -371,7 +403,7 @@ include "include/footer.php";
                                 $("#period_chartName").text(value.period_name);
                                 $("#current_page").text(value.period_name);
                                 $("#phone").text(value.client_mobile_1);
-                                $("#start_date").text(value.created_at);
+                                $("#start_date").text(formatDate(value.created_at));
                                 $("#close_at").text(value.closing_at);
 
                                 $("#savings").text(value.balance);
@@ -577,65 +609,92 @@ include "include/footer.php";
                                 $('td:eq(4)', nRow).html('<b>A</b>');
                             }
                         },
-                        // footerCallback: function(row, data, start, end, display) {
-                        //     var api = this.api();
+                        footerCallback: function(row, data, start, end, display) {
+                            var api = this.api();
 
-                        //     // Remove the formatting to get integer data for summation
-                        //     var intVal = function(i) {
-                        //         return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
-                        //     };
+                            // Remove the formatting to get integer data for summation
+                            var intVal = function(i) {
+                                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+                            };
 
-                        //     // Total over all pages
-                        //     total = api
-                        //         .column(2)
-                        //         .data()
-                        //         .reduce(function(a, b) {
-                        //             return intVal(a) + intVal(b);
-                        //         }, 0);
-                        //     totalwith = api
-                        //         .column(3)
-                        //         .data()
-                        //         .reduce(function(a, b) {
-                        //             return intVal(a) + intVal(b);
-                        //         }, 0);
-                        //     totalwith = api
-                        //         .column(4)
-                        //         .data()
-                        //         .reduce(function(a, b) {
-                        //             return intVal(a) + intVal(b);
-                        //         }, 0);
+                            // Total over all pages
+                            totalD = api
+                                .column(3)
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+                            totalW = api
+                                .column(4)
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+                            totalL = api
+                                .column(6)
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+                            totalI = api
+                                .column(8)
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
 
-                        //     // Total over this page
-                        //     pageTotal = api
-                        //         .column(2, {
-                        //             page: 'current'
-                        //         })
-                        //         .data()
-                        //         .reduce(function(a, b) {
-                        //             return intVal(a) + intVal(b);
-                        //         }, 0);
-                        //     pageTotalwith = api
-                        //         .column(3, {
-                        //             page: 'current'
-                        //         })
-                        //         .data()
-                        //         .reduce(function(a, b) {
-                        //             return intVal(a) + intVal(b);
-                        //         }, 0);
-                        //     pageTotalwith = api
-                        //         .column(4, {
-                        //             page: 'current'
-                        //         })
-                        //         .data()
-                        //         .reduce(function(a, b) {
-                        //             return intVal(a) + intVal(b);
-                        //         }, 0);
+                            // Total over this page
+                            DTotal = api
+                                .column(3, {
+                                    page: 'current'
+                                })
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+                            WTotal = api
+                                .column(4, {
+                                    page: 'current'
+                                })
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+                            LTotal = api
+                                .column(6, {
+                                    page: 'current'
+                                })
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+                            ITotal = api
+                                .column(8, {
+                                    page: 'current'
+                                })
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
 
-                        //     // Update footer
-                        //     $(api.column(2).footer()).html('৳' + pageTotal + "/-");
-                        //     $(api.column(3).footer()).html('৳' + pageTotalwith + "/-");
-                        //     $(api.column(3).footer()).html('৳' + pageTotalwith + "/-");
-                        // },
+                            // Update footer
+                            $(api.column(3).footer()).html('৳' + DTotal + "/-");
+                            $(api.column(4).footer()).html('৳' + WTotal + "/-");
+                            $(api.column(5).footer()).html('৳' + (DTotal - WTotal) + "/-");
+                            $(api.column(6).footer()).html('৳' + LTotal + "/-");
+                            // $(api.column(5).footer()).html('৳' + (DTotal - WTotal) + "/-");
+                            $(api.column(8).footer()).html('৳' + ITotal + "/-");
+                        },
+                        "responsive": true,
+                        columnDefs: [{
+                                responsivePriority: 1,
+                                targets: 0
+                            },
+                            {
+                                responsivePriority: 2,
+                                targets: 1
+                            }
+                        ],
                         // "retrieve": true,
                         "paging": false,
                         "bDestroy": true,
@@ -648,10 +707,6 @@ include "include/footer.php";
                                 loansID: loans,
                                 from_date: from_date,
                                 end_date: end_date,
-                            },
-                            dataType: "JSON",
-                            success: function(data) {
-                                console.log(data);
                             }
                         }
                     })
@@ -676,16 +731,44 @@ include "include/footer.php";
                             };
 
                             // Total over all pages
-                            total = api
+                            Dtotal = api
                                 .column(5)
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+                            Ltotal = api
+                                .column(6)
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+                            Itotal = api
+                                .column(7)
                                 .data()
                                 .reduce(function(a, b) {
                                     return intVal(a) + intVal(b);
                                 }, 0);
 
                             // Total over this page
-                            pageTotal = api
+                            DTotal = api
                                 .column(5, {
+                                    page: 'current'
+                                })
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+                            LTotal = api
+                                .column(6, {
+                                    page: 'current'
+                                })
+                                .data()
+                                .reduce(function(a, b) {
+                                    return intVal(a) + intVal(b);
+                                }, 0);
+                            iTotal = api
+                                .column(7, {
                                     page: 'current'
                                 })
                                 .data()
@@ -694,8 +777,21 @@ include "include/footer.php";
                                 }, 0);
 
                             // Update footer
-                            $(api.column(5).footer()).html('৳' + pageTotal + "/-");
+                            $(api.column(5).footer()).html('৳' + DTotal + "/-");
+                            $(api.column(6).footer()).html('৳' + LTotal + "/-");
+                            $(api.column(7).footer()).html('৳' + iTotal + "/-");
+                            $(api.column(8).footer()).html('৳' + (DTotal + LTotal + iTotal) + "/-");
                         },
+                        "responsive": true,
+                        columnDefs: [{
+                                responsivePriority: 1,
+                                targets: 0
+                            },
+                            {
+                                responsivePriority: 2,
+                                targets: 1
+                            }
+                        ],
                         // "retrieve": true,
                         "paging": true,
                         "bDestroy": true,
@@ -705,7 +801,7 @@ include "include/footer.php";
                             url: "codes/clientProfileCollectionAuthenticate.php",
                             type: "POST",
                             data: {
-                                savingsID: savings,
+                                loansID: loans,
                                 from_date: from_date,
                                 end_date: end_date,
                             }
@@ -756,6 +852,16 @@ include "include/footer.php";
                             // Update footer
                             $(api.column(4).footer()).html('৳' + pageTotal + "/-");
                         },
+                        "responsive": true,
+                        columnDefs: [{
+                                responsivePriority: 1,
+                                targets: 0
+                            },
+                            {
+                                responsivePriority: 2,
+                                targets: 1
+                            }
+                        ],
                         // "retrieve": true,
                         "paging": true,
                         "bDestroy": true,
@@ -765,7 +871,7 @@ include "include/footer.php";
                             url: "codes/clientProfileWithdrawalAuthenticate.php",
                             type: "POST",
                             data: {
-                                savingsID: savings,
+                                loansID: loans,
                                 from_date: from_date,
                                 end_date: end_date,
                             }
@@ -787,6 +893,16 @@ include "include/footer.php";
                                 $('td:eq(4)', nRow).html('<b>A</b>');
                             }
                         },
+                        "responsive": true,
+                        columnDefs: [{
+                                responsivePriority: 1,
+                                targets: 0
+                            },
+                            {
+                                responsivePriority: 2,
+                                targets: 1
+                            }
+                        ],
                         // "retrieve": true,
                         "paging": true,
                         "bDestroy": true,
@@ -796,7 +912,7 @@ include "include/footer.php";
                             url: "codes/clientProfileCheckAuthenticate.php",
                             type: "POST",
                             data: {
-                                savingsID: savings,
+                                loansID: loans,
                                 from_date: from_date,
                                 end_date: end_date,
                             }
@@ -808,9 +924,18 @@ include "include/footer.php";
                     })
                 }
                 accStmLoad();
-                clientProfileCollection();
-                clientProfileWithdrawal();
-                clientProfileCheck();
+                $("#nav-loan-tab").on("click", function() {
+                    $("#loanCollections").css("display", "block");
+                    clientProfileCollection();
+                })
+                $("#nav-loanSavingsWithdrawal-tab").on("click", function() {
+                    $("#loanSavingsWithdrawal").css("display", "block");
+                    clientProfileWithdrawal();
+                })
+                $("#nav-accCheck-tab").on("click", function() {
+                    $("#loanAccCheck").css("display", "block");
+                    clientProfileCheck();
+                })
             })
 
         } else {

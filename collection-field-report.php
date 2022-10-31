@@ -42,7 +42,7 @@ if ($collectionReport == 0) {
             </div>
         </div>
         <div class="table">
-            <div class="recent_collection">
+            <div class="recent_collection" style="overflow-x: auto;">
                 <div class="form_heading mt-5 mb-3">
                     <h2>ঋণ রিপোর্ট <span class="date"></span></h2>
                 </div>

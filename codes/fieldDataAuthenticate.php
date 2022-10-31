@@ -38,12 +38,16 @@ if (isset($_POST['clientSavings']) && isset($_POST['clientID']) && $_POST['clien
                                                 <p>একাউন্ট <span class="d-inline-block py-1 px-4 text-capitalize';
             if ($row['status'] == 1) {
                 $output .= ' bg-success ';
+            } elseif ($row['status'] == 2) {
+                $output .= ' bg-warning ';
             } else {
                 $output .= ' bg-danger ';
             }
             $output .=                       'rounded" style="color: #fff; font-size: 18px;">';
             if ($row['status'] == 1) {
                 $output .= 'ACTIVE';
+            } elseif ($row['status'] == 2) {
+                $output .= 'HOLD';
             } else {
                 $output .= 'DEACTIVE';
             }
@@ -177,6 +181,8 @@ if (isset($_POST['clientLoan']) && isset($_POST['clientID']) && $_POST['clientLo
                                                             <p>একাউন্ট <span class="d-inline-block py-1 px-4 text-capitalize';
             if ($row['status'] == 1) {
                 $output .= ' bg-success ';
+            } elseif ($row['status'] == 2) {
+                $output .= ' bg-warning ';
             } else {
                 $output .= ' bg-danger ';
             }
@@ -184,6 +190,8 @@ if (isset($_POST['clientLoan']) && isset($_POST['clientID']) && $_POST['clientLo
                 'rounded" style="color: #fff; font-size: 18px;">';
             if ($row['status'] == 1) {
                 $output .= 'ACTIVE';
+            } elseif ($row['status'] == 2) {
+                $output .= 'HOLD';
             } else {
                 $output .= 'DEACTIVE';
             }

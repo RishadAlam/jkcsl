@@ -17,7 +17,7 @@ if ($result != false) {
         $subarray[] = $i++;
         $subarray[] = date("d/m/Y h:i:s A", strtotime($value['created_at']));
         $subarray[] = $value['name'];
-        $subarray[] = $value['sub'];
+        $subarray[] = strlen($value['sub']) > 50 ? substr(substr($value['sub'], 0, 50,), 0, strrpos(substr($value['sub'], 0, 50,), ' ')) . '...' : $value['sub'];
         $subarray[] = substr(substr($value['details'], 0, 300,), 0, strrpos(substr($value['details'], 0, 300,), ' ')) . '...';
         $subarray[] = '<a href="#" title="মেসেজ দেখুন" data-id="' . $value["id"] . '" id="notif_view" data-bs-toggle="modal" data-bs-target="#message"><span class="text-success" style="cursor: pointer; font-size: 36px;"><i class="bx bx-envelope-open"></i></span></a>';
         $subarray[] = $value['status'] == 1 ? "<span class='text-success' style='font-size:36px'><i class='bx bxs-check-circle' ></i></span>" : "<span class='text-success' style='font-size:36px'><i class='bx bx-check'></i></i></span>";

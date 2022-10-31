@@ -44,7 +44,7 @@
                         <a>
                             <img src="<?php
                                         if (isset($_SESSION['auth']['user_img'])) {
-                                            echo "./img/" . $_SESSION['auth']['user_img'];
+                                            echo baseurl('/') . "img/" . $_SESSION['auth']['user_img'];
                                         } else {
                                             echo "https://avatars.dicebear.com/api/avataaars/" . $_SESSION['auth']['user_name'] . ".svg";
                                         }

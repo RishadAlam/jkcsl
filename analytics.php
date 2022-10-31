@@ -107,7 +107,7 @@ if ($analytics == 0) {
                             </div>
                             <!-- analytics Table -->
                             <div class="table mt-5">
-                                <table id="Savings_collection_table" class="table table-responsive table-bordered table-hover table-striped" style="width:100%">
+                                <table id="Savings_collection_table" class="table display responsive nowrap table-bordered table-hover table-striped" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -172,8 +172,8 @@ if ($analytics == 0) {
                                 <canvas id="loan_chart"></canvas>
                             </div>
                             <!-- analytics Table -->
-                            <div class="table mt-5">
-                                <table id="loan_collection_table" class="table table-bordered table-responsive table-hover table-striped" style="width:100%">
+                            <div class="table mt-5" id="loanTable" style="display: none;">
+                                <table id="loan_collection_table" class="table display responsive nowrap table-hover table-striped" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -186,7 +186,7 @@ if ($analytics == 0) {
                                             <th>ঋণ সঞ্চয়</th>
                                             <th>ঋণ</th>
                                             <th>ঋণ লাভ</th>
-                                            <th>সর্বমোট (সঞ্চয় + ঋণ + লাভ)</th>
+                                            <th>সর্বমোট</th>
                                             <th>সঞ্চয় উত্তোলন</th>
                                             <th>অফিসার</th>
                                         </tr>
@@ -241,8 +241,8 @@ if ($analytics == 0) {
                                 <canvas id="client_chart"></canvas>
                             </div>
                             <!-- analytics Table -->
-                            <div class="table mt-5">
-                                <table id="newSavingsCloseSavings_table" class="table table-bordered table-responsive table-hover table-striped" style="width:100%">
+                            <div class="table mt-5" id="savingsRegTable" style="display: none;">
+                                <table id="newSavingsCloseSavings_table" class="table table-bordered display responsive nowrap table-hover table-striped" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -308,8 +308,8 @@ if ($analytics == 0) {
                                 <canvas id="loan_reg_chart"></canvas>
                             </div>
                             <!-- analytics Table -->
-                            <div class="table mt-5">
-                                <table id="newLoanCloseLoan_table" class="table table-bordered table-responsive table-hover table-striped" style="width:100%">
+                            <div class="table mt-5" id="loanRegTable" style="display: none;">
+                                <table id="newLoanCloseLoan_table" class="table table-bordered display responsive nowrap table-hover table-striped" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -383,8 +383,8 @@ if ($analytics == 0) {
                                     <canvas id="expance_chart"></canvas>
                                 </div>
                                 <!-- analytics Table -->
-                                <div class="table mt-5">
-                                    <table id="expence_table" class="table table-bordered table-responsive table-hover table-striped" style="width:100%">
+                                <div class="table mt-5" id="expenceTable" style="display: none;">
+                                    <table id="expence_table" class="table table-bordered display responsive nowrap table-hover table-striped" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -411,8 +411,8 @@ if ($analytics == 0) {
                                 <canvas id="income_chart"></canvas>
                             </div>
                             <!-- analytics Table -->
-                            <div class="table mt-5">
-                                <table id="income_table" class="table table-bordered table-responsive table-hover table-striped" style="width:100%">
+                            <div class="table mt-5" id="incomeTable" style="display: none;">
+                                <table id="income_table" class="table table-bordered display responsive nowrap table-hover table-striped" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -750,6 +750,16 @@ include "include/footer.php";
                         }
                     },
                     // "retrieve": true,
+                    "responsive": true,
+                    columnDefs: [{
+                            responsivePriority: 1,
+                            targets: 0
+                        },
+                        {
+                            responsivePriority: 2,
+                            targets: 1
+                        }
+                    ],
                     "paging": true,
                     "bDestroy": true,
                     "order": [],
@@ -933,6 +943,16 @@ include "include/footer.php";
                             $('td:eq(4)', nRow).html('<b>A</b>');
                         }
                     },
+                    "responsive": true,
+                    columnDefs: [{
+                            responsivePriority: 1,
+                            targets: 0
+                        },
+                        {
+                            responsivePriority: 2,
+                            targets: 1
+                        }
+                    ],
                     // "retrieve": true,
                     "paging": true,
                     "bDestroy": true,
@@ -1118,6 +1138,16 @@ include "include/footer.php";
                             $('td:eq(4)', nRow).html('<b>A</b>');
                         }
                     },
+                    "responsive": true,
+                    columnDefs: [{
+                            responsivePriority: 1,
+                            targets: 0
+                        },
+                        {
+                            responsivePriority: 2,
+                            targets: 1
+                        }
+                    ],
                     // "retrieve": true,
                     "paging": true,
                     "bDestroy": true,
@@ -1304,6 +1334,16 @@ include "include/footer.php";
                             $('td:eq(4)', nRow).html('<b>A</b>');
                         }
                     },
+                    "responsive": true,
+                    columnDefs: [{
+                            responsivePriority: 1,
+                            targets: 0
+                        },
+                        {
+                            responsivePriority: 2,
+                            targets: 1
+                        }
+                    ],
                     // "retrieve": true,
                     "paging": true,
                     "bDestroy": true,
@@ -1520,6 +1560,16 @@ include "include/footer.php";
                             $('td:eq(4)', nRow).html('<b>A</b>');
                         }
                     },
+                    "responsive": true,
+                    columnDefs: [{
+                            responsivePriority: 1,
+                            targets: 0
+                        },
+                        {
+                            responsivePriority: 2,
+                            targets: 1
+                        }
+                    ],
                     // "retrieve": true,
                     "paging": true,
                     "bDestroy": true,
@@ -1719,6 +1769,16 @@ include "include/footer.php";
                             $('td:eq(4)', nRow).html('<b>A</b>');
                         }
                     },
+                    "responsive": true,
+                    columnDefs: [{
+                            responsivePriority: 1,
+                            targets: 0
+                        },
+                        {
+                            responsivePriority: 2,
+                            targets: 1
+                        }
+                    ],
                     // "retrieve": true,
                     "paging": true,
                     "bDestroy": true,
@@ -1972,18 +2032,23 @@ include "include/footer.php";
 
             Savings_collection_table();
             $("#loan-tab").on("click", function() {
+                $("#loanTable").css("display", "block");
                 loan_collection_table();
             })
             $("#client-add-remove-tab").on("click", function() {
+                $("#savingsRegTable").css("display", "block");
                 newSavingsCloseSavings_table();
             })
             $("#loan-add-close-tab").on("click", function() {
+                $("#loanRegTable").css("display", "block");
                 newLoanCloseLoan_table();
             })
             $("#expance-tab").on("click", function() {
+                $("#expenceTable").css("display", "block");
                 expence_table();
             })
             $("#income-tab").on("click", function() {
+                $("#incomeTable").css("display", "block");
                 income_table_load();
             })
             $("#score-tab").on("click", function() {

@@ -278,7 +278,7 @@ class CollectionController
     // Dashboard savings Collection Report load
     public function dashboardsavingsCollecReportload($officer_id = null)
     {
-        $sql = "SELECT s.collection_id, s.book, s.deposit, s.expression, f.field_name, cn.center_name, p.period_name, c.name AS client_name, u.name AS officer_name, s.created_at_time, s.created_at_date FROM saving_collections AS s INNER JOIN client_registers AS c ON s.client_id = c.client_id INNER JOIN users AS u ON u.id = s.officers_id INNER JOIN feilds AS f ON f.feild_id = s.feild_id INNER JOIN centers AS cn ON cn.center_id = s.center_id INNER JOIN periods AS p ON p.period_id = s.period_id WHERE s.created_at_date = CURRENT_DATE";
+        $sql = "SELECT s.collection_id, s.book, s.deposit, s.expression, f.field_name, cn.center_name, p.period_name, c.name AS client_name, u.name AS officer_name, s.created_at_time, s.created_at_date FROM saving_collections AS s INNER JOIN client_registers AS c ON s.client_id = c.client_id INNER JOIN users AS u ON u.id = s.officers_id INNER JOIN feilds AS f ON f.feild_id = s.feild_id INNER JOIN centers AS cn ON cn.center_id = s.center_id INNER JOIN periods AS p ON p.period_id = s.period_id WHERE DATE(s.created_at_date) = DATE(CURRENT_DATE())";
         if ($officer_id != null) {
             $sql .= " AND s.officers_id = '${officer_id}'";
         }
@@ -302,7 +302,7 @@ class CollectionController
     // Dashboard loan Collection Report load
     public function dashboardloanCollecReportload($officer_id = null)
     {
-        $sql = "SELECT l.collection_id, l.book, l.deposit, l.loan, l.interest, l.total, l.expression, f.field_name, cn.center_name, p.period_name, c.name AS client_name, u.name AS officer_name, l.created_at_time, l.created_at_date FROM loan_collections AS l INNER JOIN client_registers AS c ON l.client_id = c.client_id INNER JOIN users AS u ON u.id = l.officers_id INNER JOIN feilds AS f ON f.feild_id = l.feild_id INNER JOIN centers AS cn ON cn.center_id = l.center_id INNER JOIN periods AS p ON p.period_id = l.period_id WHERE l.created_at_date = CURRENT_DATE";
+        $sql = "SELECT l.collection_id, l.book, l.deposit, l.loan, l.interest, l.total, l.expression, f.field_name, cn.center_name, p.period_name, c.name AS client_name, u.name AS officer_name, l.created_at_time, l.created_at_date FROM loan_collections AS l INNER JOIN client_registers AS c ON l.client_id = c.client_id INNER JOIN users AS u ON u.id = l.officers_id INNER JOIN feilds AS f ON f.feild_id = l.feild_id INNER JOIN centers AS cn ON cn.center_id = l.center_id INNER JOIN periods AS p ON p.period_id = l.period_id WHERE DATE(l.created_at_date) = DATE(CURRENT_DATE())";
         if ($officer_id != null) {
             $sql .= " AND l.officers_id = '${officer_id}'";
         }
@@ -333,12 +333,12 @@ class CollectionController
             $sql .= " AND s.period_id = '${period}'";
         }
         if ($from != null && $end != null) {
-            $sql .= " AND s.created_at_date BETWEEN '${from}' AND '${end}'";
+            $sql .= " AND DATE(s.created_at_date) BETWEEN '${from}' AND '${end}'";
         }
         if ($tamadi != null) {
-            $sql .= " AND s.created_at_date != CURRENT_DATE";
+            $sql .= " AND DATE(s.created_at_date) != DATE(CURRENT_DATE())";
         } else {
-            $sql .= " AND s.created_at_date = CURRENT_DATE";
+            $sql .= " AND DATE(s.created_at_date) = DATE(CURRENT_DATE())";
         }
         $sql .= " ORDER BY s.collection_id DESC";
         // return $sql;
@@ -368,12 +368,12 @@ class CollectionController
             $sql .= "  AND l.period_id = '${period}'";
         }
         if ($from != null && $end != null) {
-            $sql .= " AND l.created_at_date BETWEEN '${from}' AND '${end}'";
+            $sql .= " AND DATE(l.created_at_date) BETWEEN '${from}' AND '${end}'";
         }
         if ($tamadi != null) {
-            $sql .= " AND l.created_at_date != CURRENT_DATE";
+            $sql .= " AND DATE(l.created_at_date) != DATE(CURRENT_DATE())";
         } else {
-            $sql .= " AND l.created_at_date = CURRENT_DATE";
+            $sql .= " AND DATE(l.created_at_date) = DATE(CURRENT_DATE())";
         }
         $sql .= " ORDER BY l.collection_id DESC";
 

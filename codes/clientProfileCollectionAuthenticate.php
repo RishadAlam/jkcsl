@@ -5,11 +5,11 @@ use controller\FieldDataController\FieldDataController\FieldDataController;
 include_once "../controller/FieldDataController.php";
 $fields = new FieldDataController();
 
-$savingsID = $_POST['savingsID'];
+$loansID = $_POST['loansID'];
 $from_date = date("Y-m-d", strtotime($_POST['from_date']));
 $end_date = date("Y-m-d", strtotime($_POST['end_date']));
 
-$query = "SELECT s.deposit, s.created_at_date AS date, s.created_at_time AS time, s.expression, u.name FROM saving_collections AS s INNER JOIN users AS u ON s.officers_id = u.id WHERE s.savings_prof_id ='${savingsID}' AND s.status='1' AND s.created_at_date BETWEEN '${from_date}' AND '${end_date}'";
+$query = "SELECT l.deposit, l.loan, l.interest, l.total, l.created_at_date AS date, l.created_at_time AS time, l.expression, u.name FROM loan_collections AS l INNER JOIN users AS u ON l.officers_id = u.id WHERE l.loan_prof_id ='${loansID}' AND l.status='1' AND l.created_at_date BETWEEN '${from_date}' AND '${end_date}'";
 
 $result = $fields->clientAccLoad($query);
 
@@ -25,6 +25,9 @@ if ($result != false && $result != null) {
         $subarray[] = $value['name'];
         $subarray[] = $value['expression'];
         $subarray[] = $value['deposit'];
+        $subarray[] = $value['loan'];
+        $subarray[] = $value['interest'];
+        $subarray[] = $value['total'];
 
         $output[] = $subarray;
     }

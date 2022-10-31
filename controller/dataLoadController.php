@@ -263,11 +263,15 @@ class dataLoadController
     }
 
     // Total notification load
-    public function notifload($officer_id)
+    public function notifload($officer_id, $limit = null)
     {
         // return $officer_id;
         // die();
-        $sql = $this->conn->prepare("SELECT n.id, n.sub, n.details, n.created_at, u.name FROM notification As n INNER JOIN users AS u ON u.id = n.from_officer_id WHERE n.to_officer_id = '${officer_id}' ORDER BY n.created_at DESC");
+        $query = "SELECT n.id, n.sub, n.details, n.created_at, u.name FROM notification As n INNER JOIN users AS u ON u.id = n.from_officer_id WHERE n.to_officer_id = '${officer_id}' ORDER BY n.created_at DESC";
+        if ($limit != null) {
+            $query .= " LIMIT $limit";
+        }
+        $sql = $this->conn->prepare($query);
         $sql->execute();
 
         if (
@@ -304,9 +308,9 @@ class dataLoadController
             $sql .= " AND s.officers_id = $officer_id";
         }
         if ($date != null) {
-            $sql .= " AND s.created_at_date = CURRENT_DATE";
+            $sql .= " AND DATE(s.created_at_date) = DATE(CURRENT_DATE())";
         } else {
-            $sql .= " AND s.created_at_date != CURRENT_DATE";
+            $sql .= " AND DATE(s.created_at_date) != DATE(CURRENT_DATE())";
         }
         $sql .= " GROUP BY s.period_id";
         $sql = $this->conn->prepare($sql);
@@ -329,9 +333,9 @@ class dataLoadController
             $sql .= " AND l.officers_id = $officer_id";
         }
         if ($date != null) {
-            $sql .= " AND l.created_at_date = CURRENT_DATE";
+            $sql .= " AND DATE(l.created_at_date) = DATE(CURRENT_DATE())";
         } else {
-            $sql .= " AND l.created_at_date != CURRENT_DATE";
+            $sql .= " AND DATE(l.created_at_date) != DATE(CURRENT_DATE())";
         }
         $sql .= " GROUP BY l.period_id";
         $sql = $this->conn->prepare($sql);

@@ -148,11 +148,12 @@ if ($clientAcc == 0) {
                                 <h4>একাউন্ট বিবৃতি</h4>
                                 <a href="" class="d-inline-block py-1 px-3 text-capitalize bg-secondary bg-gradient rounded" style="color: #fff; cursor: pointer; font-size: 18px;">Print</a>
                             </div>
-                            <table id="clientProfileStm" class="w-100 table table-responsive table-bordered table-hover table-striped text-start">
+                            <table id="clientProfileStm" class="w-100 table display responsive nowrap table-bordered table-hover table-striped text-start">
                                 <thead>
                                     <tr>
                                         <th>#</th>
                                         <th>তারিখ</th>
+                                        <th>মন্তব্য</th>
                                         <th>জমা</th>
                                         <th>উত্তোলন</th>
                                         <th>সর্বমোট</th>
@@ -160,7 +161,7 @@ if ($clientAcc == 0) {
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="2" class="text-end border-top">সর্বমোট</td>
+                                        <td colspan="3" class="text-end border-top">সর্বমোট</td>
                                         <td class="border-top" style="font-weight: bolder;"></td>
                                         <td class="border-top" style="font-weight: bolder;"></td>
                                         <td class="border-top" style="font-weight: bolder;"></td>
@@ -173,64 +174,70 @@ if ($clientAcc == 0) {
                                 <h4>সঞ্চয় বিবৃতি</h4>
                                 <a href="" class="d-inline-block py-1 px-3 text-capitalize bg-secondary bg-gradient rounded" style="color: #fff; cursor: pointer; font-size: 18px;">Print</a>
                             </div>
-                            <table id="clientProfileCollection" class="w-100 table table-responsive table-bordered table-hover table-striped text-start">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>তারিখ</th>
-                                        <th>সময়</th>
-                                        <th>অফিসার</th>
-                                        <th>মন্তব্য</th>
-                                        <th>সংগ্রহ</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="5" class="text-end border-top">সর্বমোট</td>
-                                        <td class="border-top" style="font-weight: bolder;"></td>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                            <div id="savingsCollection" style="display: none;">
+                                <table id="clientProfileCollection" class="w-100 table display responsive nowrap table-bordered table-hover table-striped text-start">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>তারিখ</th>
+                                            <th>সময়</th>
+                                            <th>অফিসার</th>
+                                            <th>মন্তব্য</th>
+                                            <th>সংগ্রহ</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="5" class="text-end border-top">সর্বমোট</td>
+                                            <td class="border-top" style="font-weight: bolder;"></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
                         </div>
                         <div class="tab-pane fade show" id="nav-savingsWithdrawal" role="tabpanel" aria-labelledby="nav-savingsWithdrawal-tab">
                             <div class="table_heading d-flex align-items-center justify-content-between my-3">
                                 <h4>উত্তোলন বিবৃতি</h4>
                                 <a href="" class="d-inline-block py-1 px-3 text-capitalize bg-secondary bg-gradient rounded" style="color: #fff; cursor: pointer; font-size: 18px;">Print</a>
                             </div>
-                            <table id="clientProfileWithdrawal" class="w-100 table table-responsive table-bordered table-hover table-striped text-start">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>তারিখ</th>
-                                        <th>অফিসার</th>
-                                        <th>মন্তব্য</th>
-                                        <th>উত্তোলন</th>
-                                        <th>অবশিষ্ট জমা</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="4" class="text-end border-top">সর্বমোট</td>
-                                        <td colspan="2" class="border-top" style="font-weight: bolder;"></td>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                            <div id="collectionWithdraw" style="display: none;">
+                                <table id="clientProfileWithdrawal" class="w-100 table display responsive nowrap table-bordered table-hover table-striped text-start">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>তারিখ</th>
+                                            <th>অফিসার</th>
+                                            <th>মন্তব্য</th>
+                                            <th>উত্তোলন</th>
+                                            <th>অবশিষ্ট জমা</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="4" class="text-end border-top">সর্বমোট</td>
+                                            <td colspan="2" class="border-top" style="font-weight: bolder;"></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
                         </div>
                         <div class="tab-pane fade show" id="nav-accCheck" role="tabpanel" aria-labelledby="nav-accCheck-tab">
                             <div class="table_heading d-flex align-items-center justify-content-between my-3">
                                 <h4>বই চেক</h4>
                                 <a href="" class="d-inline-block py-1 px-3 text-capitalize bg-secondary bg-gradient rounded" style="color: #fff; cursor: pointer; font-size: 18px;">Print</a>
                             </div>
-                            <table id="clientProfileCheck" class="w-100 table table-responsive table-bordered table-hover table-striped text-start">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>চেকের তারিখ</th>
-                                        <th>পরবর্তি চেকের তারিখ</th>
-                                        <th>জমা ছিলো</th>
-                                    </tr>
-                                </thead>
-                            </table>
+                            <div id="accCheck" style="display: none;">
+                                <table id="clientProfileCheck" class="w-100 table display responsive nowrap table-bordered table-hover table-striped text-start">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>চেকের তারিখ</th>
+                                            <th>পরবর্তি চেকের তারিখ</th>
+                                            <th>জমা ছিলো</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -274,6 +281,17 @@ include "include/footer.php";
         }
         cardLoad();
 
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2) month = '0' + month;
+            if (day.length < 2) day = '0' + day;
+
+            return [day, month, year].join('-');
+        }
         if (clientID != null) {
 
             function profileLoad() {
@@ -297,7 +315,7 @@ include "include/footer.php";
                                 $("#period_chartName").text(value.period_name);
                                 $("#current_page").text(value.period_name);
                                 $("#phone").text(value.client_mobile_1);
-                                $("#start_date").text(value.created_at);
+                                $("#start_date").text(formatDate(value.created_at));
                                 $("#close_at").text(value.closing_at);
                                 $("#installment").text(value.totalInstrallment);
                                 $("#withdrawalInstallment").text(value.totalwithdrawal);
@@ -479,12 +497,6 @@ include "include/footer.php";
 
                             // Total over all pages
                             total = api
-                                .column(2)
-                                .data()
-                                .reduce(function(a, b) {
-                                    return intVal(a) + intVal(b);
-                                }, 0);
-                            totalwith = api
                                 .column(3)
                                 .data()
                                 .reduce(function(a, b) {
@@ -496,17 +508,8 @@ include "include/footer.php";
                                 .reduce(function(a, b) {
                                     return intVal(a) + intVal(b);
                                 }, 0);
-
                             // Total over this page
                             pageTotal = api
-                                .column(2, {
-                                    page: 'current'
-                                })
-                                .data()
-                                .reduce(function(a, b) {
-                                    return intVal(a) + intVal(b);
-                                }, 0);
-                            pageTotalwith = api
                                 .column(3, {
                                     page: 'current'
                                 })
@@ -524,10 +527,20 @@ include "include/footer.php";
                                 }, 0);
 
                             // Update footer
-                            $(api.column(2).footer()).html('৳' + pageTotal + "/-");
-                            $(api.column(3).footer()).html('৳' + pageTotalwith + "/-");
-                            $(api.column(3).footer()).html('৳' + pageTotalwith + "/-");
+                            $(api.column(3).footer()).html('৳' + pageTotal + "/-");
+                            $(api.column(4).footer()).html('৳' + pageTotalwith + "/-");
+                            $(api.column(5).footer()).html('৳' + (pageTotal - pageTotalwith) + "/-");
                         },
+                        "responsive": true,
+                        columnDefs: [{
+                                responsivePriority: 1,
+                                targets: 0
+                            },
+                            {
+                                responsivePriority: 2,
+                                targets: 1
+                            }
+                        ],
                         // "retrieve": true,
                         "paging": false,
                         "bDestroy": true,
@@ -588,13 +601,23 @@ include "include/footer.php";
                             // Update footer
                             $(api.column(5).footer()).html('৳' + pageTotal + "/-");
                         },
+                        "responsive": true,
+                        columnDefs: [{
+                                responsivePriority: 1,
+                                targets: 0
+                            },
+                            {
+                                responsivePriority: 2,
+                                targets: 1
+                            }
+                        ],
                         // "retrieve": true,
                         "paging": true,
                         "bDestroy": true,
                         "order": [],
                         "searching": true,
                         "ajax": {
-                            url: "codes/clientProfileCollectionAuthenticate.php",
+                            url: "codes/clientSavingsProfileCollectionAuthenticate.php",
                             type: "POST",
                             data: {
                                 savingsID: savings,
@@ -648,13 +671,23 @@ include "include/footer.php";
                             // Update footer
                             $(api.column(4).footer()).html('৳' + pageTotal + "/-");
                         },
+                        "responsive": true,
+                        columnDefs: [{
+                                responsivePriority: 1,
+                                targets: 0
+                            },
+                            {
+                                responsivePriority: 2,
+                                targets: 1
+                            }
+                        ],
                         // "retrieve": true,
                         "paging": true,
                         "bDestroy": true,
                         "order": [],
                         "searching": true,
                         "ajax": {
-                            url: "codes/clientProfileWithdrawalAuthenticate.php",
+                            url: "codes/clientsavingsProfileWithdrawalAuthenticate.php",
                             type: "POST",
                             data: {
                                 savingsID: savings,
@@ -679,13 +712,23 @@ include "include/footer.php";
                                 $('td:eq(4)', nRow).html('<b>A</b>');
                             }
                         },
+                        "responsive": true,
+                        columnDefs: [{
+                                responsivePriority: 1,
+                                targets: 0
+                            },
+                            {
+                                responsivePriority: 2,
+                                targets: 1
+                            }
+                        ],
                         // "retrieve": true,
                         "paging": true,
                         "bDestroy": true,
                         "order": [],
                         "searching": true,
                         "ajax": {
-                            url: "codes/clientProfileCheckAuthenticate.php",
+                            url: "codes/clientSavingsProfileCheckAuthenticate.php",
                             type: "POST",
                             data: {
                                 savingsID: savings,
@@ -700,9 +743,18 @@ include "include/footer.php";
                     })
                 }
                 accStmLoad();
-                clientProfileCollection();
-                clientProfileWithdrawal();
-                clientProfileCheck();
+                $("#nav-savings-tab").on("click", function() {
+                    $("#savingsCollection").css("display", "block");
+                    clientProfileCollection();
+                })
+                $("#nav-savingsWithdrawal-tab").on("click", function() {
+                    $("#collectionWithdraw").css("display", "block");
+                    clientProfileWithdrawal();
+                })
+                $("#nav-accCheck-tab").on("click", function() {
+                    $("#accCheck").css("display", "block");
+                    clientProfileCheck();
+                })
             })
         } else {
             $(location).attr('href', 'http://localhost/gkcsl/404');

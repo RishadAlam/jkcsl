@@ -14,7 +14,7 @@ if ($bookCheck == 0) {
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb d-flex justify-content-center">
                 <li class="breadcrumb-item"><a href="./index.html">ড্যাশবোর্ড</a></li>
-                <li class="breadcrumb-item active" aria-current="page">বই চেকিং</li>
+                <li class="breadcrumb-item active" aria-current="page">তামাদি বই চেকিং</li>
             </ol>
         </nav>
     </div>
@@ -49,7 +49,7 @@ if ($bookCheck == 0) {
                                     <th>ক্ষেত্র</th>
                                     <th>ব্যালেন্স</th>
                                     <th>চেকিং তারিখ</th>
-                                    <th>পরবর্তি চেকিং</th>
+                                    <th>চেকিং ছিলো</th>
                                     <th>একাউন্ট দেখুন</th>
                                     <?php if ($_SESSION['auth']['user_role'] == 0) { ?>
                                         <th>একশন</th>
@@ -77,7 +77,7 @@ if ($bookCheck == 0) {
                                     <th>ঋণ আদায়</th>
                                     <th>ঋণ বাকি</th>
                                     <th>চেকিং তারিখ</th>
-                                    <th>পরবর্তি চেকিং</th>
+                                    <th>চেকিং ছিলো</th>
                                     <th>একাউন্ট দেখুন</th>
                                     <?php if ($_SESSION['auth']['user_role'] == 0) { ?>
                                         <th>একশন</th>
@@ -126,7 +126,7 @@ include "include/footer.php";
                 "order": [],
                 "searching": true,
                 "ajax": {
-                    url: "codes/SavingsCheckingACCAuthenticate.php",
+                    url: "codes/SavingsTamadiCheckingACCAuthenticate.php",
                     type: "POST"
                 }
             });
@@ -157,7 +157,7 @@ include "include/footer.php";
                 "order": [],
                 "searching": true,
                 "ajax": {
-                    url: "codes/loanCheckingACCAuthenticate.php",
+                    url: "codes/loanTamadiCheckingACCAuthenticate.php",
                     type: "POST"
                 }
             });

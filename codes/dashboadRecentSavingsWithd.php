@@ -11,7 +11,7 @@ if ($_SESSION['auth']['user_role'] > 0) {
     $officer_id = $_SESSION['auth']['user_id'];
 }
 
-$query = "SELECT sw.book, sw.withdrawal, f.field_name, cn.center_name, p.period_name, c.name AS client_name, u.name AS officer_name FROM saving_withdrawals AS sw INNER JOIN client_registers AS c ON sw.client_id = c.client_id INNER JOIN users AS u ON u.id = sw.officers_id INNER JOIN feilds AS f ON f.feild_id = sw.feild_id INNER JOIN centers AS cn ON cn.center_id = sw.center_id INNER JOIN periods AS p ON p.period_id = sw.period_id WHERE sw.created_at = CURRENT_DATE";
+$query = "SELECT sw.book, sw.withdrawal, f.field_name, cn.center_name, p.period_name, c.name AS client_name, u.name AS officer_name FROM saving_withdrawals AS sw INNER JOIN client_registers AS c ON sw.client_id = c.client_id INNER JOIN users AS u ON u.id = sw.officers_id INNER JOIN feilds AS f ON f.feild_id = sw.feild_id INNER JOIN centers AS cn ON cn.center_id = sw.center_id INNER JOIN periods AS p ON p.period_id = sw.period_id WHERE DATE(sw.created_at) = DATE(CURRENT_DATE())";
 if ($officer_id != null) {
     $query .= " AND sw.officers_id = '${officer_id}'";
 }

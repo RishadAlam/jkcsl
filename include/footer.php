@@ -147,7 +147,7 @@
                     bell: 2
                 },
                 success: function(data) {
-                    console.log(data);
+                    // console.log(data);
                     if (data != false) {
                         $("#notif_list").html("");
                         $("#notif_list").html(data);

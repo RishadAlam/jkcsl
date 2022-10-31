@@ -46,7 +46,7 @@ if ($expiredCollection == 0) {
                         </div>
                     <?php } ?>
                 </div>
-                <table id="tamadi_collection_savings_report" class="table table-responsive table-bordered table-hover table-striped">
+                <table id="tamadi_collection_savings_report" class="table display responsive nowrap table-bordered table-hover table-striped">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -71,7 +71,8 @@ if ($expiredCollection == 0) {
                     <tfoot>
                         <tr>
                             <td colspan="3" class="text-end" style="border-top: 1px solid #fff;">সর্বমোট</td>
-                            <td colspan="6" style="border-top: 1px solid #fff;"></td>
+                            <td colspan="4" style="border-top: 1px solid #fff;"></td>
+                            <td colspan="2" style="border-top: 1px solid #fff;"></td>
                             <?php if ($_SESSION['auth']['user_role'] == 0) { ?>
                                 <td style="border-top: 1px solid #fff;">
                                     <button type="submit" id="save" class="btn text-end rounded btn-button" style="display: none;">Save</button>
@@ -252,6 +253,16 @@ include "include/footer.php";
                             // Update footer
                             $(api.column(3).footer()).html('৳' + pageTotal + "/-");
                         },
+                        "responsive": true,
+                        columnDefs: [{
+                                responsivePriority: 1,
+                                targets: 0
+                            },
+                            {
+                                responsivePriority: 2,
+                                targets: 1
+                            }
+                        ],
                         // "retrieve": true,
                         "paging": false,
                         "bDestroy": true,

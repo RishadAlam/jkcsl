@@ -261,7 +261,7 @@ if (isset($_POST['bell']) && $_POST['bell'] == 1) {
 if (isset($_POST['bell']) && $_POST['bell'] == 2) {
     if (isset($_SESSION['auth']['user_id'])) {
         $officer_id = $_SESSION['auth']['user_id'];
-        $result = $load->notifload($officer_id);
+        $result = $load->notifload($officer_id, '5');
         $output = "";
         if ($result != false) {
             foreach ($result as $row) {
@@ -690,7 +690,7 @@ if (isset($_POST['allofficer']) && $_POST['allofficer'] == 1) {
     $output = "";
     if ($result != false) {
         foreach ($result as $row) {
-            $output .= '<div class="col-md-4">
+            $output .= '<div class="col-md-6 col-lg-4">
                             <div class="profile_intro">
                                 <div class="img rounded">
                                     <img src=';

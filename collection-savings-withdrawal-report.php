@@ -27,11 +27,11 @@ if ($waitingWithdrawal == 0) {
     <div class="container-fluid">
         <div class="table">
             <div class="recent_collection">
-                <div class="table_heading d-flex align-items-center justify-content-between my-3">
+                <div class="table_heading d-md-flex align-items-center justify-content-between my-3">
                     <h4>ডিপিএস রিপোর্ট</h4>
                     <a href="" class="d-inline-block py-1 px-3 text-capitalize bg-secondary bg-gradient rounded" style="color: #fff; cursor: pointer; font-size: 18px;">Print</a>
                     <?php if ($_SESSION['auth']['user_role'] == 0) { ?>
-                        <div style="width: 350px;" class="select">
+                        <div style="max-width: 350px;" class="select">
                             <label for="officers">অফিসার</label>
                             <select id="officers" class="form-control form-input p-3">
                                 <option value="null" disabled selected>অফিসার নির্বারচন করুন...</option>
@@ -39,7 +39,7 @@ if ($waitingWithdrawal == 0) {
                         </div>
                     <?php } ?>
                 </div>
-                <table id="savings_withdrawal_report" class="table table-responsive table-bordered table-hover table-striped">
+                <table id="savings_withdrawal_report" class="table display responsive nowrap table-bordered table-hover table-striped">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -179,9 +179,9 @@ include "include/footer.php";
             })
         }
         loadOfficer();
-        let queryString = window.location.search;
-        let urlParams = new URLSearchParams(queryString);
-        let report = urlParams.get('report');
+        let queryString2 = window.location.search;
+        let urlParams2 = new URLSearchParams(queryString2);
+        let report = urlParams2.get('report');
         var officer = null;
         $("#officers").on("change", function() {
             officer = $("#officers").val();
@@ -231,6 +231,16 @@ include "include/footer.php";
                         // Update footer
                         $(api.column(6).footer()).html('৳' + pageTotal + "/-");
                     },
+                    "responsive": true,
+                    columnDefs: [{
+                            responsivePriority: 1,
+                            targets: 0
+                        },
+                        {
+                            responsivePriority: 2,
+                            targets: 5
+                        }
+                    ],
                     // "retrieve": true,
                     "paging": false,
                     "bDestroy": true,

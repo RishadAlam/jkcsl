@@ -222,4 +222,123 @@ class FieldDataController
             return false;
         }
     }
+
+    // Checking CLient ACCOUNT Function
+    public function checkingACC($query)
+    {
+        $sql = $this->conn->prepare($query);
+        $sql->execute();
+
+        if (
+            $sql->rowCount() > 0
+        ) {
+            $result = $sql->fetchALL(PDO::FETCH_ASSOC);
+            return $result;
+        } else {
+            return false;
+        }
+    }
+
+    public function savingsAccChecking($savingsID, $checkID)
+    {
+        $query = "SELECT saving_profiles_id, client_id, book, field_id, center_id, period_id, balance FROM saving_profiles WHERE saving_profiles_id = '${savingsID}' LIMIT 1";
+
+        $sql = $this->conn->prepare($query);
+        $sql->execute();
+        if ($sql->rowCount() > 0) {
+            $result = $sql->fetchALL(PDO::FETCH_ASSOC);
+
+            $savingsCheckID = $result[0]['saving_profiles_id'];
+            $client_id = $result[0]['client_id'];
+            $book = $result[0]['book'];
+            $field_id = $result[0]['field_id'];
+            $center_id = $result[0]['center_id'];
+            $period_id = $result[0]['period_id'];
+            $balance = $result[0]['balance'];
+
+            if ($period_id == 25) {
+                $nextCheckDate = date("Y-m-d", strtotime("+90days"));
+            } else {
+                $nextCheckDate = date("Y-m-d", strtotime("+30days"));
+            }
+            $officerID = $_SESSION['auth']['user_id'];
+
+            $insertQuery = "INSERT INTO savings_acc_checks(saving_profiles_id, client_id, book, field_id, center_id, period_id, balance, checked_officer_id, next_check_date) VALUES ('${savingsCheckID}', '${client_id}', '${book}', '${field_id}', '${center_id}', '${period_id}', '${balance}', '${officerID}', '${nextCheckDate}')";
+
+            $this->conn->beginTransaction();
+            $sql = $this->conn->prepare($insertQuery);
+            $sql->execute();
+            if ($sql->rowCount() > 0) {
+                $updateQuery = "UPDATE `savings_acc_checks` SET status ='2' WHERE acc_check_id = '${checkID}'";
+
+                $sql = $this->conn->prepare($updateQuery);
+                $sql->execute();
+                if ($sql->rowCount() > 0) {
+                    $this->conn->commit();
+                    return true;
+                } else {
+                    $this->conn->rollback();
+                    return false;
+                }
+            } else {
+                $this->conn->rollback();
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+    public function loanAccChecking($loanCheckID, $checkID)
+    {
+        $query = "SELECT loan_profile_id, client_id, book, field_id, center_id, period_id, balance, loan_recover, loan_remaining, interest_recover, interest_remaining FROM loan_profiles WHERE loan_profile_id = '${loanCheckID}' LIMIT 1";
+
+        $sql = $this->conn->prepare($query);
+        $sql->execute();
+        if ($sql->rowCount() > 0) {
+            $result = $sql->fetchALL(PDO::FETCH_ASSOC);
+
+            $loanCheckID = $result[0]['loan_profile_id'];
+            $client_id = $result[0]['client_id'];
+            $book = $result[0]['book'];
+            $field_id = $result[0]['field_id'];
+            $center_id = $result[0]['center_id'];
+            $period_id = $result[0]['period_id'];
+            $balance = $result[0]['balance'];
+            $loan_recover = $result[0]['loan_recover'];
+            $loan_remaining = $result[0]['loan_remaining'];
+            $interest_recover = $result[0]['interest_recover'];
+            $interest_remaining = $result[0]['interest_remaining'];
+
+            if ($period_id == 26) {
+                $nextCheckDate = date("Y-m-d", strtotime("+90days"));
+            } else {
+                $nextCheckDate = date("Y-m-d", strtotime("+30days"));
+            }
+            $officerID = $_SESSION['auth']['user_id'];
+
+            $insertQuery = "INSERT INTO loan_acc_checks(loan_profile_id, client_id, book, field_id, center_id, period_id, balance, loan_recover, loan_remaining, interest_recover, interest_remaining, checked_officer_id, next_check_date) VALUES ('${loanCheckID}', '${client_id}', '${book}', '${field_id}', '${center_id}', '${period_id}', '${balance}', '${loan_recover}', '${loan_remaining}', '${interest_recover}', '${interest_remaining}', '${officerID}', '${nextCheckDate}')";
+
+            $this->conn->beginTransaction();
+            $sql = $this->conn->prepare($insertQuery);
+            $sql->execute();
+            if ($sql->rowCount() > 0) {
+                $updateQuery = "UPDATE loan_acc_checks SET status ='2' WHERE acc_check_id = '${checkID}'";
+
+                $sql = $this->conn->prepare($updateQuery);
+                $sql->execute();
+                if ($sql->rowCount() > 0) {
+                    $this->conn->commit();
+                    return true;
+                } else {
+                    $this->conn->rollback();
+                    return false;
+                }
+            } else {
+                $this->conn->rollback();
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 }

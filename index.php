@@ -227,7 +227,7 @@ include "include/topbar.php";
                 </div>
             </div>
             <div class="col-lg-12 row px-3">
-                <div class="col-md-6 ps-md-0">
+                <div class="col-lg-6 col-md-12 ps-md-0">
                     <div class="recent_collection">
                         <div class="table_heading mb-3">
                             <h4>সাম্প্রতিক সাধারণ সঞ্চয় উত্তোলন <span class="date"></span></h4>
@@ -254,7 +254,7 @@ include "include/topbar.php";
                         </table>
                     </div>
                 </div>
-                <div class="col-md-6 pe-md-0">
+                <div class="col-lg-6 col-md-12 pe-md-0">
                     <div class="recent_collection">
                         <div class="table_heading mb-3">
                             <h4>সাম্প্রতিক ঋণ সঞ্চয় উত্তোলন <span class="date"></span></h4>
@@ -281,7 +281,7 @@ include "include/topbar.php";
                         </table>
                     </div>
                 </div>
-                <div class="col-md-6 ps-md-0">
+                <div class="col-lg-6 col-md-12 ps-md-0">
                     <div class="recent_collection">
                         <div class="table_heading mb-3">
                             <h4>অফিসার কর্তৃক সাম্প্রতিক সর্বমোট সঞ্চয় সংগ্রহ <span class="date"></span></h4>
@@ -303,7 +303,7 @@ include "include/topbar.php";
                         </table>
                     </div>
                 </div>
-                <div class="col-md-6 pe-md-0">
+                <div class="col-lg-6 col-md-12 pe-md-0">
                     <div class="recent_collection">
                         <div class="table_heading mb-3">
                             <h4>অফিসার কর্তৃক সাম্প্রতিক সর্বমোট ঋণ সংগ্রহ <span class="date"></span></h4>

@@ -186,7 +186,7 @@ if ($_SESSION['auth']['user_role'] != 0) {
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12">
                 <div class="salary_acc_chart p-4">
                     <div class="chart_heading mb-3">
                         <h4>চলতি মাসে এফ.ডি.আর লভ্যাংশ প্রদান <span id="fdr_expence"></span> টাকা</h4>
@@ -196,7 +196,7 @@ if ($_SESSION['auth']['user_role'] != 0) {
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12">
                 <div class="salary_acc_chart p-4">
                     <div class="chart_heading mb-3">
                         <h4>চলতি মাসে বেতন প্রদান <span id="salary_expence"></span> টাকা</h4>
@@ -206,7 +206,7 @@ if ($_SESSION['auth']['user_role'] != 0) {
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12">
                 <div class="expance_acc_chart p-4">
                     <div class="chart_heading mb-3">
                         <h4>চলতি মাসে খরচ <span id="daily_expence"></span> টাকা</h4>
@@ -216,7 +216,7 @@ if ($_SESSION['auth']['user_role'] != 0) {
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12">
                 <div class="expance_acc_chart p-4">
                     <div class="chart_heading mb-3">
                         <h4>চলতি মাসে বই ক্লোজিং লভ্যাংশ <span id="closing_book_expence"></span> টাকা</h4>

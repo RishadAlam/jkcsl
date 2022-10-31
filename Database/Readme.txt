@@ -2,7 +2,7 @@ Database Name: gkcsl;
 
 Admin Login
 Email: admin@gmail.com
-pass: 123
+pass: admin
 
 Normal User Login
 Email: malekmohammad337@gmail.com

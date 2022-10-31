@@ -55,9 +55,9 @@ class LoginController
     // Status Checking Function
     public function status($userStatus)
     {
-        if ($userStatus === 1) {
+        if ($userStatus == 1) {
             return true;
-        } elseif ($userStatus === 2) {
+        } elseif ($userStatus == 2) {
             redirect("404.php");
             return false;
         } else {

@@ -6,6 +6,10 @@ if (isset($_SESSION['authenticate']) || isset($_COOKIE['userID'])) {
     redirect("index.php", "loggedin", "আপনি ইতিমধ্যে এ লগইন করেছেন");
   }
 }
+$loadSite = $db->loadsite();
+foreach ($loadSite as $row) {
+  $logo = $row['logo'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="bn">
@@ -46,7 +50,7 @@ if (isset($_SESSION['authenticate']) || isset($_COOKIE['userID'])) {
     }
 
     .heading-section {
-      font-size: 32px;
+      font-size: 24px;
       color: var(--text-color);
     }
 
@@ -166,8 +170,8 @@ if (isset($_SESSION['authenticate']) || isset($_COOKIE['userID'])) {
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6 text-center mb-3">
-          <div class="img mx-auto mb-4" style="width: 200px">
-            <img src="./img/download.jpg" alt="" />
+          <div class="img mx-auto mb-4" style="width: 150px;">
+            <img src="<?= baseUrl("img/") . $logo ?>" alt="" style="border-radius: 50%; object-position: center;" />
           </div>
           <h2 class="heading-section">জনকল্যাণ কর্মজীবি কো-অপারেটিভ সোসাইটি লিমিটেড</h2>
         </div>

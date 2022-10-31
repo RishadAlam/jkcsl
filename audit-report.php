@@ -47,7 +47,7 @@ if ($_SESSION['auth']['user_role'] != 0) {
                 </div>
             </div>
             <div class="col-md-12 my-3">
-                <div class="audit_table p-3">
+                <div class="audit_table p-3" style="overflow-x: auto;">
                     <div class="audit_heading  text-center my-3">
                         <h3 class="fw-bolder">ঋণ</h3>
                     </div>
