@@ -8,10 +8,10 @@ use PDOException;
 class Database
 {
     // Database 
-    public $db_name = "mysql:host=localhost;dbname=gkcsl";
-    public $db_user = "root";
-    public $db_pass = "";
-    public $dbName = "gkcsl";
+    public $db_name = "mysql:host=localhost;dbname=jonokoll_jkcsl";
+    public $db_user = "jonokoll_gkcsl12";
+    public $db_pass = "@Rubel24370@1470";
+    public $dbName = "jonokoll_jkcsl";
 
     // Create Variable
     public $link;
