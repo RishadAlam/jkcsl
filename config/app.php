@@ -8,7 +8,7 @@ use config\Database\Database;
 session_start();
 
 // Database Constant Define
-define('SITE_URL', 'http://localhost/gkcsl/');
+define('SITE_URL', 'http://jonokollan.com/');
 
 // Create Database object
 $db = new Database();

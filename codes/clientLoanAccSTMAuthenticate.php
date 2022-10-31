@@ -9,12 +9,12 @@ $loansID = $_POST['loansID'];
 $from_date = date("Y-m-d", strtotime($_POST['from_date']));
 $end_date = date("Y-m-d", strtotime($_POST['end_date']));
 
-$query = "SELECT DATE_FORMAT(CURRENT_DATE, '%d-%m-%Y') AS date, exp, SUM(deposit) AS deposit, SUM(withdrawal) AS withdrawal, NVL((SUM(deposit) - SUM(withdrawal)),0) AS balance, SUM(loan) AS loan, SUM(interest) AS interest FROM ( 
-    SELECT NVL(SUM(deposit),0) AS deposit, 'পূর্বের লেনদেন' AS exp, NVL(SUM(loan),0) AS loan, NVL(SUM(interest),0) AS interest, 0 AS withdrawal, DATE_FORMAT(created_at_date, '%d-%m-%Y') AS date FROM loan_collections WHERE loan_prof_id = '${loansID}' AND status = '1' AND created_at_date NOT BETWEEN '${from_date}' AND '${end_date}' 
+$query = "SELECT DATE_FORMAT(CURRENT_DATE, '%d-%m-%Y') AS date, exp, SUM(deposit) AS deposit, SUM(withdrawal) AS withdrawal, (SUM(deposit) - SUM(withdrawal)) AS balance, SUM(loan) AS loan, SUM(interest) AS interest FROM ( 
+    SELECT SUM(deposit) AS deposit, 'পূর্বের লেনদেন' AS exp, SUM(loan) AS loan, SUM(interest) AS interest, 0 AS withdrawal, DATE_FORMAT(created_at_date, '%d-%m-%Y') AS date FROM loan_collections WHERE loan_prof_id = '${loansID}' AND status = '1' AND created_at_date NOT BETWEEN '${from_date}' AND '${end_date}' 
     UNION ALL 
-    SELECT 0 AS deposit,'পূর্বের লেনদেন' AS exp, 0 AS loan, 0 AS interest, NVL(SUM(withdrawal),0) AS withdrawal, DATE_FORMAT(created_at, '%d-%m-%Y') AS date FROM loan_savings_withdrawals WHERE loan_prof_id = '${loansID}' AND status = '1' AND created_at NOT BETWEEN '${from_date}' AND '${end_date}') AS a
+    SELECT 0 AS deposit,'পূর্বের লেনদেন' AS exp, 0 AS loan, 0 AS interest, SUM(withdrawal) AS withdrawal, DATE_FORMAT(created_at, '%d-%m-%Y') AS date FROM loan_savings_withdrawals WHERE loan_prof_id = '${loansID}' AND status = '1' AND created_at NOT BETWEEN '${from_date}' AND '${end_date}') AS a
     UNION ALL
-    SELECT date, ' ' AS exp, SUM(deposit) AS deposit, SUM(withdrawal) AS withdrawal, NVL((SUM(deposit) - SUM(withdrawal)),0) AS balance, SUM(loan) AS loan, SUM(interest) AS interest FROM ( 
+    SELECT date, ' ' AS exp, SUM(deposit) AS deposit, SUM(withdrawal) AS withdrawal, (SUM(deposit) - SUM(withdrawal)) AS balance, SUM(loan) AS loan, SUM(interest) AS interest FROM ( 
     SELECT ' ' AS exp,  deposit, loan, interest, 0 withdrawal, DATE_FORMAT(created_at_date, '%d-%m-%Y') AS date FROM loan_collections WHERE loan_prof_id = '${loansID}' AND status = '1' AND created_at_date BETWEEN '${from_date}' AND '${end_date}' 
     UNION ALL 
     SELECT ' ' AS exp,  0 AS deposit, 0 AS loan, 0 AS interest, withdrawal, DATE_FORMAT(created_at, '%d-%m-%Y') AS date FROM loan_savings_withdrawals WHERE loan_prof_id = '${loansID}' AND status = '1' AND created_at BETWEEN '${from_date}' AND '${end_date}') AS b GROUP BY date";
