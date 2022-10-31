@@ -10,7 +10,6 @@ $allFiled = $db->fieldLoad();
 $allCenters = $db->centersLoad();
 $savingsPeriods = $db->periodsLoad('1');
 $loanPeriods = $db->periodsLoad('2');
-$loadSite = $db->loadsite();
 $userPermissions = $db->userPrevilege();
 foreach ($loadSite as $row) {
     $timeStart = $row['time_start'];
