@@ -1,7 +1,7 @@
 <?php
 // Use Namespace
 // Include Database
-include_once "database.php";
+include_once "Database.php";
 
 use config\Database\Database;
 
