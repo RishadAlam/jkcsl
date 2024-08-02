@@ -145,15 +145,20 @@ include "include/footer.php";
             var end_date = range[1];
 
             let spanText = document.querySelector('#reportrange span')
-            spanText.addEventListener('DOMSubtreeModified', function() {
-                dates = document.querySelector('#reportrange span').innerText;
-                range = dates.split("-");
-                from_date = range[0];
-                end_date = range[1];
-                if (dates != "") {
-                    reportLoad();
+
+            const observer = new MutationObserver(function(mutationsList, observer) {
+                for(let mutation of mutationsList) {
+                    if (mutation.type === 'childList' || mutation.type === 'subtree') {
+                        dates = document.querySelector('#reportrange span').innerText;
+                        range = dates.split("-");
+                        from_date = range[0];
+                        end_date = range[1];
+                        if (dates != "") {
+                            reportLoad();
+                        }
+                    }
                 }
-            })
+            });
 
             $('#all_check').on("click", function() {
                 if ($('#all_check').is(':checked')) {

@@ -462,20 +462,29 @@ include "include/footer.php";
                 var from_date = range[0];
                 var end_date = range[1];
 
-                let spanText = document.querySelector('#reportrange span')
-                spanText.addEventListener('DOMSubtreeModified', function() {
-                    dates = document.querySelector('#reportrange span').innerText;
-                    range = dates.split("-");
-                    from_date = range[0];
-                    end_date = range[1];
-                    if (dates != "") {
-                        // console.log(from_date);
-                        accStmLoad();
-                        clientProfileCollection();
-                        clientProfileWithdrawal();
-                        clientProfileCheck();
+                let spanText = document.querySelector('#reportrange span');
+                
+                // Create an observer instance linked to the callback function
+                const observer = new MutationObserver(function(mutationsList, observer) {
+                    for(let mutation of mutationsList) {
+                        if (mutation.type === 'childList' || mutation.type === 'subtree') {
+                            dates = document.querySelector('#reportrange span').innerText;
+                            range = dates.split("-");
+                            from_date = range[0];
+                            end_date = range[1];
+                            if (dates != "") {
+                                // console.log(from_date);
+                                accStmLoad();
+                                clientProfileCollection();
+                                clientProfileWithdrawal();
+                                clientProfileCheck();
+                            }
+                        }
                     }
-                })
+                });
+
+                // Start observing the target node for configured mutations
+                observer.observe(spanText, { childList: true, subtree: true });
 
                 function accStmLoad() {
                     $('#clientProfileStm').DataTable({

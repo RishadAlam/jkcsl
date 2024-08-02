@@ -1234,25 +1234,33 @@ include "include/footer.php";
         })
 
         window.addEventListener('load', function() {
-
             var dates = document.getElementById('date_range').innerText;
             var range = dates.split("-");
-            let from_date = range[0];
-            let end_date = range[1];
-
-            let spanText = document.querySelector('#reportrange span')
-            spanText.addEventListener('DOMSubtreeModified', function() {
-                dates = document.querySelector('#reportrange span').innerText;
-                range = dates.split("-");
-                from_date = range[0];
-                end_date = range[1];
-                if (dates != "") {
-                    expance1STMLoad();
-                    salarySTMLoad();
-                    fdrSTMLoad();
-                    closingBookSTMLoad();
+            var from_date = range[0];
+            var end_date = range[1];
+        
+            let spanText = document.querySelector('#reportrange span');
+            
+            // Create an observer instance linked to the callback function
+            const observer = new MutationObserver(function(mutationsList, observer) {
+                for(let mutation of mutationsList) {
+                    if (mutation.type === 'childList' || mutation.type === 'subtree') {
+                        dates = document.querySelector('#reportrange span').innerText;
+                        range = dates.split("-");
+                        from_date = range[0];
+                        end_date = range[1];
+                        if (dates != "") {
+                            expance1STMLoad();
+                            salarySTMLoad();
+                            fdrSTMLoad();
+                            closingBookSTMLoad();
+                        }
+                    }
                 }
-            })
+            });
+        
+            // Start observing the target node for configured mutations
+            observer.observe(spanText, { childList: true, subtree: true });
 
             // Daily Expence 
             function expance1STMLoad() {

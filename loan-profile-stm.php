@@ -585,19 +585,24 @@ include "include/footer.php";
                 var end_date = range[1];
 
                 let spanText = document.querySelector('#reportrange span')
-                spanText.addEventListener('DOMSubtreeModified', function() {
-                    dates = document.querySelector('#reportrange span').innerText;
-                    range = dates.split("-");
-                    from_date = range[0];
-                    end_date = range[1];
-                    if (dates != "") {
-                        // console.log(from_date);
-                        accStmLoad();
-                        clientProfileCollection();
-                        clientProfileWithdrawal();
-                        clientProfileCheck();
+                
+                // Create an observer instance linked to the callback function
+                const observer = new MutationObserver(function(mutationsList, observer) {
+                    for(let mutation of mutationsList) {
+                        if (mutation.type === 'childList' || mutation.type === 'subtree') {
+                            dates = document.querySelector('#reportrange span').innerText;
+                            range = dates.split("-");
+                            from_date = range[0];
+                            end_date = range[1];
+                            if (dates != "") {
+                                accStmLoad();
+                                clientProfileCollection();
+                                clientProfileWithdrawal();
+                                clientProfileCheck();
+                            }
+                        }
                     }
-                })
+                });
 
                 function accStmLoad() {
                     $('#clientProfileStm').DataTable({

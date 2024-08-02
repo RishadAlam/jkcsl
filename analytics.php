@@ -612,23 +612,33 @@ include "include/footer.php";
             var range = dates.split("-");
             var from_date = range[0];
             var end_date = range[1];
-
-            let spanText = document.querySelector('#reportrange span')
-            spanText.addEventListener('DOMSubtreeModified', function() {
-                dates = document.querySelector('#reportrange span').innerText;
-                range = dates.split("-");
-                from_date = range[0];
-                end_date = range[1];
-                if (dates != "") {
-                    income_table_load();
-                    expence_table();
-                    newLoanCloseLoan_table();
-                    newSavingsCloseSavings_table();
-                    loan_collection_table();
-                    Savings_collection_table();
-                    account_calculation_table()
+        
+            let spanText = document.querySelector('#reportrange span');
+            
+            // Create an observer instance linked to the callback function
+            const observer = new MutationObserver(function(mutationsList, observer) {
+                for(let mutation of mutationsList) {
+                    if (mutation.type === 'childList' || mutation.type === 'subtree') {
+                        dates = document.querySelector('#reportrange span').innerText;
+                        range = dates.split("-");
+                        from_date = range[0];
+                        end_date = range[1];
+                        if (dates != "") {
+                            income_table_load();
+                            expence_table();
+                            newLoanCloseLoan_table();
+                            newSavingsCloseSavings_table();
+                            loan_collection_table();
+                            Savings_collection_table();
+                            account_calculation_table()
+                        }
+                    }
                 }
-            })
+            });
+        
+            // Start observing the target node for configured mutations
+            observer.observe(spanText, { childList: true, subtree: true });
+
             var income_chart_config = '';
             var expance_chart_config = '';
             var loan_reg_chart_config = '';
