@@ -160,6 +160,9 @@ include "include/footer.php";
                 }
             });
 
+            // Start observing the target node for configured mutations
+            observer.observe(spanText, { childList: true, subtree: true });
+
             $('#all_check').on("click", function() {
                 if ($('#all_check').is(':checked')) {
                     $("input[name='action']").prop('checked', true);

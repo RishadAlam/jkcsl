@@ -397,6 +397,9 @@ include "include/footer.php";
                 }
             });
 
+            // Start observing the target node for configured mutations
+            observer.observe(spanText, { childList: true, subtree: true });
+
             function incomeSTMLoad() {
                 $('#income_list').DataTable({
                     // "processing": true,
